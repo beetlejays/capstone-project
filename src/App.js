@@ -1,7 +1,6 @@
 import './App.css';
 import {useEffect, useState} from 'react';
 
-import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 
 function App() {
@@ -25,6 +24,7 @@ function App() {
       <div className="movie__container">
         {moviesData.map(movie => (
           <div className="movie__single" key={movie.id}>
+            Image here
             <h3 className="movie__title">{movie.title}</h3>
           </div>
         ))}

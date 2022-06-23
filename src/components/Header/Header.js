@@ -1,5 +1,5 @@
-import "./Header.css";
-import logo from "../../movme-logo.svg";
+import './Header.css';
+import logo from '../../movme-logo.svg';
 
 export default function Header() {
   return (
@@ -8,7 +8,6 @@ export default function Header() {
         <div>
           <img className="logo" src={logo} alt="" />
         </div>
-        <div className="nav">Nav</div>
       </div>
     </header>
   );
