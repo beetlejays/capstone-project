@@ -27,7 +27,10 @@ function App() {
         {moviesData.map(movie => (
           <div className="movie__single" key={movie.id}>
             <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="" />
-            <h3 className="movie__title">{movie.title}</h3>
+
+            <div>
+              <h3 className="movie__title">{movie.title}</h3>
+            </div>
           </div>
         ))}
       </div>
