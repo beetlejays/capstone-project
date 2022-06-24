@@ -28,7 +28,7 @@ h6 {
   max-width: 800px;
   margin: 3rem auto;
   gap: 1rem;
-  padding-bottom: 8rem;
+  padding: 0 10px 20px 10px;
   align-items: start;
 }
 
@@ -41,6 +41,6 @@ h6 {
 
 .movie__title {
   color: white;
-  padding: 0.5rem;
+  padding: 0.8rem 0;
   font-size: 1rem;
 }
