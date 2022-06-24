@@ -26,6 +26,9 @@ function App() {
       <div className="movie__container">
         {moviesData.map(movie => (
           <div className="movie__single" key={movie.id}>
+            <div className="movie__average">
+              <span className="movie__average__number">{movie.vote_average}</span>
+            </div>
             <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="" />
 
             <div>

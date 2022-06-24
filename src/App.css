@@ -16,6 +16,7 @@ h5,
 h6 {
   margin: 0;
   padding: 0;
+  line-height: 1.5;
 }
 
 .main-app {
@@ -43,4 +44,23 @@ h6 {
   color: white;
   padding: 0.8rem 0;
   font-size: 1rem;
+}
+
+.movie__average {
+  position: relative;
+}
+
+.movie__average__number {
+  color: white;
+  position: absolute;
+  top: 10px;
+  font-weight: 600;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: #3083dc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 10px;
 }
