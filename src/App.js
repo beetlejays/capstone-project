@@ -30,6 +30,7 @@ function App() {
             movie_vote_average={movie.vote_average}
             movie_title={movie.title}
             movie_poster={movie.poster_path}
+            movie_alt_text={movie.original_title}
           />
         ))}
       </div>
