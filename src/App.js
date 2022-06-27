@@ -4,25 +4,29 @@ import {useEffect, useState} from 'react';
 import Header from './components/Header/Header';
 
 function App() {
-  const API_KEY = process.env.REACT_APP_API_KEY; ////// check back!
+  const API_KEY = process.env.REACT_APP_API_KEY;
   const url = 'https://api.themoviedb.org/3/movie/';
 
-  const posterUrl = 'https://image.tmdb.org/t/p/500/';
-
   const [moviesData, setMoviesData] = useState([]);
+  const [fetchError, setFetchError] = useState(null);
 
   useEffect(() => {
+    setFetchError(null);
     fetch(`${url}popular?api_key=${API_KEY}`)
       .then(response => response.json())
       .then(fetchData => {
         setMoviesData(fetchData.results);
-        console.log(fetchData);
+      })
+      .catch(error => {
+        setFetchError(new Error('Sorry, the content could not be loaded'));
+        console.error(error);
       });
   }, []);
 
   return (
     <div className="main-app">
       <Header />
+      {fetchError ? <div>{fetchError.mesage}</div> : null}
 
       <div className="movie__container">
         {moviesData.map(movie => (
