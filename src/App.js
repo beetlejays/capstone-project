@@ -23,6 +23,7 @@ function App() {
   return (
     <div className="main-app">
       <Header />
+
       <div className="movie__container">
         {moviesData.map(movie => (
           <div className="movie__single" key={movie.id}>
