@@ -1,14 +1,39 @@
-import './Header.css';
+import styled from 'styled-components';
+
 import logo from '../../movme-logo.svg';
 
 export default function Header() {
   return (
-    <header className="header">
-      <div className="header__container">
+    <HeaderComponent>
+      <HeaderContainer>
         <div>
-          <img className="logo" src={logo} alt="" />
+          <Logo src={logo} alt="mov.me logo" />
         </div>
-      </div>
-    </header>
+      </HeaderContainer>
+    </HeaderComponent>
   );
 }
+
+const HeaderComponent = styled.div`
+  height: 60px;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+`;
+
+const HeaderContainer = styled.div`
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 0 10px;
+`;
+
+const Logo = styled.img`
+  height: 25px;
+`;
