@@ -5,18 +5,33 @@ import Header from './components/Header/Header';
 import Movie from './components/Movie/Movie';
 
 function App() {
-  // const API_KEY = process.env.REACT_APP_API_KEY;
+  const API_KEY = process.env.REACT_APP_API_KEY;
   const url = 'https://api.themoviedb.org/3/movie/';
 
   const [moviesData, setMoviesData] = useState([]);
 
+  async function fetchMovieData() {
+    try {
+      const data1 = await fetch(`${url}popular?api_key=${API_KEY}`);
+      const moviesData = await data1.json();
+      //  return moviesData.results;
+      console.log(moviesData.results);
+    } catch (error) {
+      console.log(error.stack);
+    }
+  }
+
   useEffect(() => {
-    fetch(`${url}popular?api_key=48df9844b36694ca2599c11952ddc9a6`)
+    fetchMovieData();
+  });
+
+  /*   useEffect(() => {
+    fetch(`${url}popular?api_key=${API_KEY}`)
       .then(response => response.json())
       .then(fetchData => {
         setMoviesData(fetchData.results);
       });
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);  */ // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="main-app">
@@ -24,7 +39,7 @@ function App() {
       <Header />
       <main>
         <div className="movie__container">
-          {moviesData.length === 0 && <p>Sorry, no movie data available at this moment</p>}
+          {moviesData.results && <p>Sorry, no movie data available at this moment</p>}
           {moviesData.map(movie => (
             <Movie
               key={movie.title}
