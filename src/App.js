@@ -6,7 +6,7 @@ import Movie from './components/Movie/Movie';
 
 function App() {
   const API_KEY = process.env.REACT_APP_API_KEY;
-  const url = 'https://api.themoviedb.org/3/movieaaaaa/';
+  const url = 'https://api.themoviedb.org/3/moviea/';
 
   const [moviesData, setMoviesData] = useState([]);
   const [error, setError] = useState(null);
@@ -39,8 +39,8 @@ function App() {
         <div className="movie__container">
           {error && (
             <div>
-              <h4 style={{color: 'white'}}>Ooooops... Sorry, looks like the Data is not available at the Moment.</h4>
-              <p style={{color: 'white'}}>Please try again later.</p>
+              <h4 style={{color: '#3083dc'}}>Ooooops... Something went wrong.</h4>
+              <p style={{color: 'white'}}>Can you check back later?</p>
             </div>
           )}
 
