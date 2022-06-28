@@ -5,4 +5,12 @@ export default {
   component: Movie,
 };
 
-export const Default = () => <Movie />;
+const Template = args => <Movie {...args} />;
+
+export const Default = Template.bind({});
+
+Default.args = {
+  alt: 'Movie Title',
+  movie_alt_text: 'Scream',
+  movie_vote_average: 7.3,
+};
