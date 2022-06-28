@@ -5,13 +5,13 @@ import Header from './components/Header/Header';
 import Movie from './components/Movie/Movie';
 
 function App() {
-  const API_KEY = process.env.REACT_APP_API_KEY;
+  // const API_KEY = process.env.REACT_APP_API_KEY;
   const url = 'https://api.themoviedb.org/3/movie/';
 
   const [moviesData, setMoviesData] = useState([]);
 
   useEffect(() => {
-    fetch(`${url}popular?api_key=${API_KEY}`)
+    fetch(`${url}popular?api_key=48df9844b36694ca2599c11952ddc9a6`)
       .then(response => response.json())
       .then(fetchData => {
         setMoviesData(fetchData.results);
