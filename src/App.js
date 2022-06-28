@@ -9,21 +9,29 @@ function App() {
   const url = 'https://api.themoviedb.org/3/movie/';
 
   const [moviesData, setMoviesData] = useState([]);
+  const [error, setError] = useState(null);
 
   async function fetchMovieData() {
+    setError(null);
     try {
-      const data1 = await fetch(`${url}popular?api_key=${API_KEY}`);
-      const moviesData = await data1.json();
-      //  return moviesData.results;
-      console.log(moviesData.results);
+      const response = await fetch(`${url}popular?api_key=${API_KEY}`);
+
+      if (response.ok) {
+        const fetchedMovieData = await response.json();
+        setMoviesData(fetchedMovieData.results);
+      } else {
+        setError(new Error('Sorry Data is not defined'));
+      }
     } catch (error) {
-      console.log(error.stack);
+      setError(new Error('Sorry Data can not be fetched'));
     }
   }
 
+  console.log(error);
+
   useEffect(() => {
     fetchMovieData();
-  });
+  }, []);
 
   /*   useEffect(() => {
     fetch(`${url}popular?api_key=${API_KEY}`)
@@ -39,17 +47,19 @@ function App() {
       <Header />
       <main>
         <div className="movie__container">
-          {moviesData.results && <p>Sorry, no movie data available at this moment</p>}
-          {moviesData.map(movie => (
-            <Movie
-              key={movie.title}
-              movie_id={movie.id}
-              movie_vote_average={movie.vote_average}
-              movie_title={movie.title}
-              movie_poster={movie.poster_path}
-              movie_alt_text={movie.original_title}
-            />
-          ))}
+          {error && <p>{error.message}</p>}
+
+          {moviesData.length &&
+            moviesData.map(movie => (
+              <Movie
+                key={movie.title}
+                movie_id={movie.id}
+                movie_vote_average={movie.vote_average}
+                movie_title={movie.title}
+                movie_poster={movie.poster_path}
+                movie_alt_text={movie.original_title}
+              />
+            ))}
         </div>
       </main>
     </div>

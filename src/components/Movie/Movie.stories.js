@@ -1,4 +1,3 @@
-import MoviePoster from './img/movie-poster.jpg';
 import Movie from './Movie';
 
 export default {
