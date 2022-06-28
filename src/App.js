@@ -6,7 +6,7 @@ import Movie from './components/Movie/Movie';
 
 function App() {
   const API_KEY = process.env.REACT_APP_API_KEY;
-  const url = 'https://api.themoviedb.org/3/movie/';
+  const url = 'https://api.themoviedb.org/3/movieaaaaa/';
 
   const [moviesData, setMoviesData] = useState([]);
   const [error, setError] = useState(null);
@@ -20,26 +20,16 @@ function App() {
         const fetchedMovieData = await response.json();
         setMoviesData(fetchedMovieData.results);
       } else {
-        setError(new Error('Sorry Data is not defined'));
+        setError(new Error());
       }
     } catch (error) {
       setError(new Error('Sorry Data can not be fetched'));
     }
   }
 
-  console.log(error);
-
   useEffect(() => {
     fetchMovieData();
-  }, []);
-
-  /*   useEffect(() => {
-    fetch(`${url}popular?api_key=${API_KEY}`)
-      .then(response => response.json())
-      .then(fetchData => {
-        setMoviesData(fetchData.results);
-      });
-  }, []);  */ // eslint-disable-line react-hooks/exhaustive-deps
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="main-app">
@@ -47,7 +37,12 @@ function App() {
       <Header />
       <main>
         <div className="movie__container">
-          {error && <p>{error.message}</p>}
+          {error && (
+            <div>
+              <h4 style={{color: 'white'}}>Ooooops... Sorry, looks like the Data is not available at the Moment.</h4>
+              <p style={{color: 'white'}}>Please try again later.</p>
+            </div>
+          )}
 
           {moviesData.length &&
             moviesData.map(movie => (
