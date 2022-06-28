@@ -16,7 +16,7 @@ function App() {
       .then(fetchData => {
         setMoviesData(fetchData.results);
       });
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="main-app">
