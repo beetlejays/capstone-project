@@ -20,20 +20,23 @@ function App() {
 
   return (
     <div className="main-app">
+      {}
       <Header />
-
-      <div className="movie__container">
-        {moviesData.map(movie => (
-          <Movie
-            key={movie.title}
-            movie_id={movie.id}
-            movie_vote_average={movie.vote_average}
-            movie_title={movie.title}
-            movie_poster={movie.poster_path}
-            movie_alt_text={movie.original_title}
-          />
-        ))}
-      </div>
+      <main>
+        <div className="movie__container">
+          {moviesData.length === 0 && <p>Sorry, no movie data available at this moment</p>}
+          {moviesData.map(movie => (
+            <Movie
+              key={movie.title}
+              movie_id={movie.id}
+              movie_vote_average={movie.vote_average}
+              movie_title={movie.title}
+              movie_poster={movie.poster_path}
+              movie_alt_text={movie.original_title}
+            />
+          ))}
+        </div>
+      </main>
     </div>
   );
 }
