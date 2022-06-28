@@ -32,37 +32,3 @@ h6 {
   padding: 0 10px 20px 10px;
   align-items: start;
 }
-
-.movie__single {
-  min-height: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-}
-
-.movie__title {
-  color: white;
-  padding: 0.8rem 0;
-  font-size: 1rem;
-}
-
-.movie__average {
-  position: relative;
-}
-
-.movie__average__number {
-  color: white;
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  font-size: 1.3rem;
-  font-weight: 600;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  background-color: #3083dc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 2px 5px 5px grey;
-}
