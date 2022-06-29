@@ -25,9 +25,9 @@ h6 {
 
 .movie__container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   max-width: 800px;
-  margin: 100px auto;
+  margin: 40px auto;
   gap: 1rem;
   padding: 0 10px 20px 10px;
   align-items: start;
