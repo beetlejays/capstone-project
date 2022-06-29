@@ -11,4 +11,12 @@ module.exports = {
   core: {
     builder: 'webpack5',
   },
+  previewHead: head => `
+    ${head}
+    <style>
+      html, body {
+        background: #262626;
+      }
+    </style>
+  `,
 };
