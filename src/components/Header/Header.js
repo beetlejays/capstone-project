@@ -6,9 +6,7 @@ export default function Header() {
   return (
     <HeaderComponent>
       <HeaderContainer>
-        <div>
-          <Logo src={logo} alt="mov.me logo" />
-        </div>
+        <Logo src={logo} alt="mov.me logo" />
       </HeaderContainer>
     </HeaderComponent>
   );
