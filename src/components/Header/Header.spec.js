@@ -3,8 +3,9 @@ import {render, screen} from '@testing-library/react';
 import Header from './Header';
 
 describe('Header', () => {
-  it('Shows that the header component is rendered', () => {
+  it('renders header with application logo', () => {
     render(<Header />);
-    screen.getByAltText('mov.me logo');
+    const appLogo = screen.getByAltText('mov.me logo');
+    expect(appLogo).toBeInTheDocument();
   });
 });

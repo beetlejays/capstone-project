@@ -44,8 +44,7 @@ const MovieAverageNumber = styled.div`
 `;
 
 const MovieTitle = styled.h3`
-color: white;
-padding: 0.8rem 0;
-font-size: 1rem;
-}
+  color: white;
+  padding: 0.8rem 0;
+  font-size: 1rem;
 `;

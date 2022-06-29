@@ -3,12 +3,14 @@ import {render, screen} from '@testing-library/react';
 import Movie from './Movie';
 
 describe('Movie', () => {
-  it('Shows that the movie poster is being renderd', () => {
+  it('renders the movie poster', () => {
     render(<Movie />);
-    screen.getByRole('img');
+    const movieImage = screen.getByRole('img');
+    expect(movieImage).toBeInTheDocument();
   });
-  it('Shows that the movie title is being renderd', () => {
+  it('renders the movie title', () => {
     render(<Movie />);
-    screen.getByRole('heading');
+    const movieTitleHeading = screen.getByRole('heading');
+    expect(movieTitleHeading).toBeInTheDocument();
   });
 });
