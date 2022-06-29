@@ -12,6 +12,8 @@ function App() {
   const [moviesData, setMoviesData] = useState([]);
   const [error, setError] = useState(null);
 
+  const yearDate = new Date().getFullYear();
+
   async function fetchMovieData() {
     setError(null);
     try {
@@ -39,7 +41,7 @@ function App() {
       <main>
         <IndexHeadingContainer>
           <h1>Check out all current movies</h1>
-          <h2>All popular movies from date</h2>
+          <h2>All popular movies from {yearDate}</h2>
         </IndexHeadingContainer>
         <div className="movie__container">
           {error && (
