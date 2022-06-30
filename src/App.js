@@ -40,7 +40,6 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<App />} />
         <Route path="/movie-details" element={<DetailsPage />} />
       </Routes>
       <div className="main-app">
