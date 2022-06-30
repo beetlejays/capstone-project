@@ -16,6 +16,7 @@ h5,
 h6 {
   margin: 0;
   padding: 0;
+  line-height: 1.5;
 }
 
 .main-app {
@@ -24,24 +25,10 @@ h6 {
 
 .movie__container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
   max-width: 800px;
-  margin: 3rem auto;
+  margin: 40px auto;
   gap: 1rem;
-  padding-bottom: 8rem;
-}
-
-.movie__single {
-  min-height: 300px;
-  background-color: lime;
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-}
-
-.movie__title {
-  color: white;
-  padding: 0.5rem;
-  font-size: 1rem;
-  background-color: hotpink;
+  padding: 0 10px 20px 10px;
+  align-items: start;
 }
