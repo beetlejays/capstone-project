@@ -7,7 +7,7 @@ import Movie from './components/Movie/Movie';
 
 function App() {
   const API_KEY = process.env.REACT_APP_API_KEY;
-  const url = 'https://api.themoviedb.org/3/movie/';
+  const url = 'https://api.themoviedb.org/3/moviea/';
 
   const [moviesData, setMoviesData] = useState([]);
   const [error, setError] = useState(null);
@@ -46,7 +46,9 @@ function App() {
         <div className="movie__container">
           {error && (
             <div>
-              <h4 style={{color: '#3083dc'}}>Ooooops... Something went wrong.</h4>
+              <h4 style={{color: '#3083dc', backgroundColor: '#ccc', padding: '10px'}}>
+                Ooooops... Something went wrong.
+              </h4>
               <p style={{color: 'white'}}>Can you check back later?</p>
             </div>
           )}
