@@ -44,31 +44,33 @@ function App() {
           <h1>Check out all current movies</h1>
           <h2>All popular movies from {yearDate}</h2>
         </IndexHeadingContainer>
+
         <Routes>
-          <div className="movie__container">
-            {error && (
-              <div>
-                <h4 style={{color: '#3083dc', backgroundColor: '#ccc', padding: '10px'}}>
-                  Ooooops... Something went wrong.
-                </h4>
-                <p style={{color: 'white'}}>Can you check back later?</p>
-              </div>
-            )}
-            <Route path="/pages/details" element={<DetailsPage />}>
-              {moviesData.length &&
-                moviesData.map(movie => (
-                  <Movie
-                    key={movie.id}
-                    movie_id={movie.id}
-                    movie_vote_average={movie.vote_average}
-                    movie_title={movie.title}
-                    movie_poster={movie.poster_path}
-                    movie_alt_text={movie.original_title}
-                  />
-                ))}
-            </Route>
-          </div>
+          <Route path="/details" element={<DetailsPage />} />
         </Routes>
+
+        <div className="movie__container">
+          {error && (
+            <div>
+              <h4 style={{color: '#3083dc', backgroundColor: '#ccc', padding: '10px'}}>
+                Ooooops... Something went wrong.
+              </h4>
+              <p style={{color: 'white'}}>Can you check back later?</p>
+            </div>
+          )}
+
+          {moviesData.length &&
+            moviesData.map(movie => (
+              <Movie
+                key={movie.id}
+                movie_id={movie.id}
+                movie_vote_average={movie.vote_average}
+                movie_title={movie.title}
+                movie_poster={movie.poster_path}
+                movie_alt_text={movie.original_title}
+              />
+            ))}
+        </div>
       </main>
     </div>
   );
