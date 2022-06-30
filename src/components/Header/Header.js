@@ -4,15 +4,15 @@ import logo from '../../movme-logo.svg';
 
 export default function Header() {
   return (
-    <HeaderComponent>
+    <StyledHeader>
       <HeaderContainer>
         <Logo src={logo} alt="mov.me logo" />
       </HeaderContainer>
-    </HeaderComponent>
+    </StyledHeader>
   );
 }
 
-const HeaderComponent = styled.div`
+const StyledHeader = styled.div`
   height: 60px;
   background-color: rgb(0, 0, 0);
   color: white;
