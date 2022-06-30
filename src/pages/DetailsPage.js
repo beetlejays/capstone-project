@@ -1,3 +1,15 @@
+import styled from 'styled-components';
+
+import Header from '../components/Header/Header';
+
 export default function DetailsPage() {
-  return <div className="main-app">This is the Details page</div>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 }
+
+const StyledDetailsPage = styled.div`
+  max-width: 800px;
+`;

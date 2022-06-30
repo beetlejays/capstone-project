@@ -1,8 +1,9 @@
 import './App.css';
 import {useEffect, useState} from 'react';
-import {Routes, Route} from 'react-router-dom';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import styled from 'styled-components';
 
+import FetchError from './components/FetchError/FetchError';
 import Header from './components/Header/Header';
 import Movie from './components/Movie/Movie';
 import DetailsPage from './pages/DetailsPage';
@@ -37,42 +38,38 @@ function App() {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div className="main-app">
-      <Header />
-      <main>
-        <IndexHeadingContainer>
-          <h1>Check out all current movies</h1>
-          <h2>All popular movies from {yearDate}</h2>
-        </IndexHeadingContainer>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/movie-details" element={<DetailsPage />} />
 
-        <Routes>
-          <Route path="/details" element={<DetailsPage />} />
-        </Routes>
+        <div className="main-app">
+          <Header />
+          <main>
+            <IndexHeadingContainer>
+              <h1>Check out all current movies</h1>
+              <h2>All popular movies from {yearDate}</h2>
+            </IndexHeadingContainer>
 
-        <div className="movie__container">
-          {error && (
-            <div>
-              <h4 style={{color: '#3083dc', backgroundColor: '#ccc', padding: '10px'}}>
-                Ooooops... Something went wrong.
-              </h4>
-              <p style={{color: 'white'}}>Can you check back later?</p>
+            <div className="movie__container">
+              {error && <FetchError />}
+
+              {moviesData.length &&
+                moviesData.map(movie => (
+                  <Movie
+                    key={movie.id}
+                    movie_id={movie.id}
+                    movie_vote_average={movie.vote_average}
+                    movie_title={movie.title}
+                    movie_poster={movie.poster_path}
+                    movie_alt_text={movie.original_title}
+                  />
+                ))}
             </div>
-          )}
-
-          {moviesData.length &&
-            moviesData.map(movie => (
-              <Movie
-                key={movie.id}
-                movie_id={movie.id}
-                movie_vote_average={movie.vote_average}
-                movie_title={movie.title}
-                movie_poster={movie.poster_path}
-                movie_alt_text={movie.original_title}
-              />
-            ))}
+          </main>
         </div>
-      </main>
-    </div>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
