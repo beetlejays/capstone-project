@@ -1,9 +1,11 @@
 import './App.css';
 import {useEffect, useState} from 'react';
+import {Routes, Route} from 'react-router-dom';
 import styled from 'styled-components';
 
 import Header from './components/Header/Header';
 import Movie from './components/Movie/Movie';
+import DetailsPage from './pages/DetailsPage';
 
 function App() {
   const API_KEY = process.env.REACT_APP_API_KEY;
@@ -36,35 +38,37 @@ function App() {
 
   return (
     <div className="main-app">
-      {}
       <Header />
       <main>
         <IndexHeadingContainer>
           <h1>Check out all current movies</h1>
           <h2>All popular movies from {yearDate}</h2>
         </IndexHeadingContainer>
-        <div className="movie__container">
-          {error && (
-            <div>
-              <h4 style={{color: '#3083dc', backgroundColor: '#ccc', padding: '10px'}}>
-                Ooooops... Something went wrong.
-              </h4>
-              <p style={{color: 'white'}}>Can you check back later?</p>
-            </div>
-          )}
-
-          {moviesData.length &&
-            moviesData.map(movie => (
-              <Movie
-                key={movie.id}
-                movie_id={movie.id}
-                movie_vote_average={movie.vote_average}
-                movie_title={movie.title}
-                movie_poster={movie.poster_path}
-                movie_alt_text={movie.original_title}
-              />
-            ))}
-        </div>
+        <Routes>
+          <div className="movie__container">
+            {error && (
+              <div>
+                <h4 style={{color: '#3083dc', backgroundColor: '#ccc', padding: '10px'}}>
+                  Ooooops... Something went wrong.
+                </h4>
+                <p style={{color: 'white'}}>Can you check back later?</p>
+              </div>
+            )}
+            <Route path="/pages/details" element={<DetailsPage />}>
+              {moviesData.length &&
+                moviesData.map(movie => (
+                  <Movie
+                    key={movie.id}
+                    movie_id={movie.id}
+                    movie_vote_average={movie.vote_average}
+                    movie_title={movie.title}
+                    movie_poster={movie.poster_path}
+                    movie_alt_text={movie.original_title}
+                  />
+                ))}
+            </Route>
+          </div>
+        </Routes>
       </main>
     </div>
   );
