@@ -7,6 +7,8 @@ import Header from '../components/Header/Header';
 export default function DetailsPage() {
   const params = useParams();
 
+  console.log(params.id);
+
   return (
     <>
       <MovieDetailPoster>
@@ -16,12 +18,8 @@ export default function DetailsPage() {
       <BackButton />
       <main>
         <StyledDetailsPage>
-          <h2>{params.title}</h2>
-          <div>
-            <p>{params.vote_average}</p>
-            <img src={`${params.poster_path}`} alt="" />
-            <p>{params.overview}</p>
-          </div>
+          <h2>Title</h2>
+          <div></div>
         </StyledDetailsPage>
       </main>
     </>

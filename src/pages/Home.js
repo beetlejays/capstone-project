@@ -1,4 +1,5 @@
 import {useEffect, useState} from 'react';
+import {Routes, Route} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -47,7 +48,7 @@ export default function Home() {
 
         {moviesData.length &&
           moviesData.map(movie => (
-            <Link key={movie.id} to={`/movie-details/${movie.id}/${movie.title}`}>
+            <Link key={movie.id} to={`/movie-details/`}>
               <Movie
                 key={movie.id}
                 movie_id={movie.id}
