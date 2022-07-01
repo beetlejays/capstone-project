@@ -1,24 +1,22 @@
+import {useParams} from 'react-router-dom';
 import styled from 'styled-components';
 
 import Header from '../components/Header/Header';
 
 export default function DetailsPage() {
+  const params = useParams();
+
   return (
     <>
-      <Header />
       <StyledDetailsPage>
         <main>
           <section>
-            <MovieDetailPoster>Image here</MovieDetailPoster>
+            <MovieDetailPoster></MovieDetailPoster>
             <div>
-              <h2>Movie Title here</h2>
+              <h2>{params.title}</h2>
               <div>
                 <p>Movie thumbnail</p>
-                <p>
-                  Movie copy text here Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta minima non ea ab
-                  consequatur facere, ex fugit incidunt vel dignissimos, tenetur quibusdam natus repudiandae culpa
-                  voluptatum sequi vitae? Sunt, enim.
-                </p>
+                <p>{params.original_title}</p>
               </div>
             </div>
           </section>
