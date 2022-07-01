@@ -1,12 +1,10 @@
 import './App.css';
 import {useEffect, useState} from 'react';
 import {Routes, Route} from 'react-router-dom';
-import styled from 'styled-components';
 
-import FetchError from './components/FetchError/FetchError';
 import Header from './components/Header/Header';
-import Movie from './components/Movie/Movie';
 import DetailsPage from './pages/DetailsPage';
+import Home from './pages/Home';
 
 function App() {
   const API_KEY = process.env.REACT_APP_API_KEY;
@@ -41,50 +39,14 @@ function App() {
     <>
       <Routes>
         <Route path="/movie-details" element={<DetailsPage />} />
+        <Route path="./" element={<Home />} />
       </Routes>
       <div className="main-app">
         <Header />
-        <main>
-          <IndexHeadingContainer>
-            <h1>Check out all current movies</h1>
-            <h2>All popular movies from {yearDate}</h2>
-          </IndexHeadingContainer>
-
-          <div className="movie__container">
-            {error && <FetchError />}
-
-            {moviesData.length &&
-              moviesData.map(movie => (
-                <Movie
-                  key={movie.id}
-                  movie_id={movie.id}
-                  movie_vote_average={movie.vote_average}
-                  movie_title={movie.title}
-                  movie_poster={movie.poster_path}
-                  movie_alt_text={movie.original_title}
-                />
-              ))}
-          </div>
-        </main>
+        <Home yearDate={yearDate} error={error} moviesData={moviesData} />
       </div>
     </>
   );
 }
 
 export default App;
-
-const IndexHeadingContainer = styled.div`
-  margin: 100px auto 0 auto;
-  max-width: 800px;
-  h1 {
-    color: #3083dc;
-    padding: 0 10px;
-    font-size: 1.7rem;
-  }
-  h2 {
-    color: white;
-    padding: 0 10px;
-    font-size: 1.2rem;
-    font-weight: 300;
-  }
-`;
