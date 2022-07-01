@@ -1,12 +1,11 @@
-import {useParams, useNavigate} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 import styled from 'styled-components';
 
-import backButton from '../assets/blue-arrow.svg';
+import BackButton from '../components/BackButton/BackButton';
 import Header from '../components/Header/Header';
 
 export default function DetailsPage() {
   const params = useParams();
-  const navigate = useNavigate();
 
   return (
     <>
@@ -14,9 +13,7 @@ export default function DetailsPage() {
         <p>Movie Poster here</p>
       </MovieDetailPoster>
       <Header />
-      <button onClick={() => navigate(-1)}>
-        <img src={backButton} alt="" />
-      </button>
+      <BackButton />
       <main>
         <StyledDetailsPage>
           <h2>{params.title}</h2>
