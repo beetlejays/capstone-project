@@ -15,7 +15,8 @@ export default function DetailsPage() {
             <div>
               <h2>{params.title}</h2>
               <div>
-                <p>Movie thumbnail</p>
+                <p>{params.vote_average}</p>
+                <img src={`${params.poster_path}`} alt="" />
                 <p>{params.original_title}</p>
               </div>
             </div>
