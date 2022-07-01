@@ -2,7 +2,6 @@ import './App.css';
 import {useEffect, useState} from 'react';
 import {Routes, Route} from 'react-router-dom';
 
-import Header from './components/Header/Header';
 import DetailsPage from './pages/DetailsPage';
 import Home from './pages/Home';
 
@@ -39,12 +38,10 @@ function App() {
     <>
       <Routes>
         <Route path="/movie-details" element={<DetailsPage />} />
-        <Route path="./" element={<Home />} />
+        <Route path="/" element={<Home />} />
       </Routes>
-      <div className="main-app">
-        <Header />
-        <Home yearDate={yearDate} error={error} moviesData={moviesData} />
-      </div>
+
+      {/* <Home yearDate={yearDate} error={error} moviesData={moviesData} />*/}
     </>
   );
 }
