@@ -1,5 +1,4 @@
 import {useEffect, useState} from 'react';
-import {Routes, Route} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -16,7 +15,7 @@ export default function Home() {
 
   const yearDate = new Date().getFullYear();
 
-  async function fetchMovieData() {
+  async function fetchMovieData({moviesData}) {
     setError(null);
     try {
       const response = await fetch(`${url}popular?api_key=${API_KEY}`);

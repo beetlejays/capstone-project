@@ -5,9 +5,7 @@ import BackButton from '../components/BackButton/BackButton';
 import Header from '../components/Header/Header';
 
 export default function DetailsPage() {
-  const params = useParams();
-
-  console.log(params.id);
+  const {id} = useParams();
 
   return (
     <>
