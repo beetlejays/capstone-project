@@ -15,7 +15,7 @@ export default function Home() {
 
   const yearDate = new Date().getFullYear();
 
-  async function fetchMovieData({moviesData}) {
+  async function fetchMovieData() {
     setError(null);
     try {
       const response = await fetch(`${url}popular?api_key=${API_KEY}`);
@@ -47,7 +47,7 @@ export default function Home() {
 
         {moviesData.length &&
           moviesData.map(movie => (
-            <Link key={movie.id} to={`/movie-details/`}>
+            <Link key={movie.id} to={`/${movie.id}`}>
               <Movie
                 key={movie.id}
                 movie_id={movie.id}
