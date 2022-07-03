@@ -47,7 +47,7 @@ export default function Home() {
 
         {moviesData.length &&
           moviesData.map(movie => (
-            <Link key={movie.id} to={`/${movie.id}`}>
+            <Link key={movie.id} to={`/${movie.title}`}>
               <Movie
                 key={movie.id}
                 movie_id={movie.id}

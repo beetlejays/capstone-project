@@ -9,14 +9,12 @@ export default function DetailsPage() {
 
   return (
     <>
-      <MovieDetailPoster>
-        <p>Movie Poster here</p>
-      </MovieDetailPoster>
+      <MovieDetailPoster></MovieDetailPoster>
       <Header />
       <BackButton />
       <main>
         <StyledDetailsPage>
-          <h2>Title</h2>
+          <h2>{id}</h2>
           <div></div>
         </StyledDetailsPage>
       </main>
