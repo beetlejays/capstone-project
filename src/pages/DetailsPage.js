@@ -1,7 +1,6 @@
 import {useParams} from 'react-router-dom';
 import styled from 'styled-components';
 
-import BackButton from '../components/BackButton/BackButton';
 import Header from '../components/Header/Header';
 
 export default function DetailsPage({moviesData}) {
@@ -16,7 +15,6 @@ export default function DetailsPage({moviesData}) {
         <MovieDetailPosterImage src={`${posterPath}${thisMovie.backdrop_path}`} alt="" />
       </MovieDetailPoster>
       <div>
-        <BackButton />
         <Header />
       </div>
 

@@ -19,10 +19,8 @@ const PreviousPageButton = styled.button`
   background-color: transparent;
   background-repeat: no-repeat;
   cursor: pointer;
-  position: fixed;
-  top: 10px;
-  left: 30px;
-  z-index: 2;
+  position: absolute;
+  left: 20px;
   img {
     width: 20px;
   }
