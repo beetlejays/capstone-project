@@ -4,8 +4,11 @@ import styled from 'styled-components';
 import BackButton from '../components/BackButton/BackButton';
 import Header from '../components/Header/Header';
 
-export default function DetailsPage() {
+export default function DetailsPage({moviesData}) {
   const {id} = useParams();
+  const thisMovie = moviesData.find(movie => movie.id === Number(id));
+
+  const posterPath = 'https://image.tmdb.org/t/p/w300';
 
   return (
     <>
@@ -14,8 +17,13 @@ export default function DetailsPage() {
       <BackButton />
       <main>
         <StyledDetailsPage>
-          <h2>{id}</h2>
-          <div></div>
+          <h2>{thisMovie.title}</h2>
+
+          <div>{thisMovie.vote_average}</div>
+          <div>
+            <img src={`${posterPath}${thisMovie.poster_path}`} alt="" />
+          </div>
+          <p>{thisMovie.original_title}</p>
         </StyledDetailsPage>
       </main>
     </>
