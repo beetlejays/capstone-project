@@ -49,9 +49,12 @@ const ReleaseDate = styled.span`
 
 const DetailPageContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: 1fr 2fr;
   padding: 2rem 20px;
   gap: 40px;
+  @media screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const DetailsPageOverview = styled.p`
@@ -62,7 +65,7 @@ const DetailsPageOverview = styled.p`
 const DetailsPageHeadline = styled.h1`
   font-size: 1.4rem;
   color: #3083dc;
-  padding: 10px 200px 5px 20px;
+  padding: 10px 20px 5px 20px;
 `;
 
 const StyledDetailsPage = styled.div`
@@ -72,8 +75,8 @@ const StyledDetailsPage = styled.div`
 `;
 
 const MovieDetailPosterImageDetail = styled.img`
-  object-fit: cover;
-  max-height: 370px;
+  max-width: 100%;
+  width: 200px;
 `;
 
 const MovieDetailPosterImage = styled.img`
