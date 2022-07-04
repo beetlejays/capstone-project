@@ -1,4 +1,4 @@
-import {useParams} from 'react-router-dom';
+import {useParams, Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 import BackButton from '../components/BackButton/BackButton';
@@ -12,7 +12,7 @@ export default function DetailsPage({moviesData}) {
 
   return (
     <>
-      <MovieDetailPoster></MovieDetailPoster>
+      <MovieDetailPoster>Blas</MovieDetailPoster>
       <Header />
       <BackButton />
       <main>

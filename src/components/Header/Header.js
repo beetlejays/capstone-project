@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 import logo from '../../movme-logo.svg';
@@ -6,7 +7,10 @@ export default function Header() {
   return (
     <StyledHeader>
       <HeaderContainer>
-        <Logo src={logo} alt="mov.me logo" />
+        <Link to="/">
+          {' '}
+          <Logo src={logo} alt="mov.me logo" />
+        </Link>
       </HeaderContainer>
     </StyledHeader>
   );
