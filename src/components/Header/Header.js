@@ -4,11 +4,12 @@ import styled from 'styled-components';
 import logo from '../../movme-logo.svg';
 import BackButton from '../BackButton/BackButton';
 
-export default function Header({showBackButton}) {
+export default function Header({backButtonActive}) {
   return (
     <StyledHeader>
       <HeaderContainer>
-        <BackButton />
+        <BackButton backButtonActive={backButtonActive} />
+
         <Link to="/">
           <Logo src={logo} alt="mov.me logo" />
         </Link>

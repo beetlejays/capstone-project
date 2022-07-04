@@ -6,7 +6,7 @@ import FetchError from '../components/FetchError/FetchError';
 import Header from '../components/Header/Header';
 import Movie from '../components/Movie/Movie';
 
-export default function Home() {
+export default function Home({displayBackButton}) {
   const API_KEY = process.env.REACT_APP_API_KEY;
   const url = 'https://api.themoviedb.org/3/movie/';
 
@@ -37,7 +37,9 @@ export default function Home() {
 
   return (
     <main>
-      <Header />
+      <Header displayBackButton={false} />
+      {displayBackButton ? <Header /> : null}
+
       <IndexHeadingContainer>
         <h1>Check out all current movies</h1>
         <h2>All popular movies from {yearDate}</h2>
