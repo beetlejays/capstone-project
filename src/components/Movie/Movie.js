@@ -47,4 +47,13 @@ const MovieTitle = styled.h3`
   color: white;
   padding: 0.8rem 0;
   font-size: 1rem;
+  transition: 0.3s;
+
+  &:hover {
+    color: #3083dc;
+  }
+
+  a {
+    text-decoration: none;
+  }
 `;

@@ -27,7 +27,7 @@ export default function DetailsPage({moviesData}) {
           <DetailsPageHeadline>{thisMovie.title}</DetailsPageHeadline>
           <ReleaseDate>Release: {thisMovie.release_date}</ReleaseDate>
           <DetailPageContainer>
-            <img src={`${posterPath}${thisMovie.poster_path}`} alt="" />
+            <MovieDetailPosterImageDetail src={`${posterPath}${thisMovie.poster_path}`} alt="" />
             <DetailsPageOverview>{thisMovie.overview}</DetailsPageOverview>
           </DetailPageContainer>
         </StyledDetailsPage>
@@ -44,12 +44,14 @@ const DetailsPageHeader = styled.header`
 const ReleaseDate = styled.span`
   font-size: 1rem;
   color: white;
+  padding: 0 20px;
 `;
 
 const DetailPageContainer = styled.div`
-  display: flex;
-  gap: 50px;
-  padding-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  padding: 2rem 20px;
+  gap: 40px;
 `;
 
 const DetailsPageOverview = styled.p`
@@ -60,13 +62,18 @@ const DetailsPageOverview = styled.p`
 const DetailsPageHeadline = styled.h1`
   font-size: 1.4rem;
   color: #3083dc;
-  padding: 30px 0 5px 0;
+  padding: 10px 200px 5px 20px;
 `;
 
 const StyledDetailsPage = styled.div`
   max-width: 800px;
   padding: 20px 0 10px 0;
   margin: auto;
+`;
+
+const MovieDetailPosterImageDetail = styled.img`
+  object-fit: cover;
+  max-height: 370px;
 `;
 
 const MovieDetailPosterImage = styled.img`
