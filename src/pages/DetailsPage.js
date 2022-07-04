@@ -1,4 +1,4 @@
-import {useParams, Link} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 import styled from 'styled-components';
 
 import BackButton from '../components/BackButton/BackButton';
@@ -12,32 +12,69 @@ export default function DetailsPage({moviesData}) {
 
   return (
     <>
-      <MovieDetailPoster>Blas</MovieDetailPoster>
-      <Header />
-      <BackButton />
+      <DetailsPageHeader>
+        <MovieDetailPoster>
+          <MovieDetailPosterImage src={`${posterPath}${thisMovie.backdrop_path}`} alt="" />
+        </MovieDetailPoster>
+        <div>
+          <BackButton />
+          <Header />
+        </div>
+      </DetailsPageHeader>
+
       <main>
         <StyledDetailsPage>
-          <h2>{thisMovie.title}</h2>
-
-          <div>{thisMovie.vote_average}</div>
-          <div>
+          <DetailsPageHeadline>{thisMovie.title}</DetailsPageHeadline>
+          <ReleaseDate>Release: {thisMovie.release_date}</ReleaseDate>
+          <DetailPageContainer>
             <img src={`${posterPath}${thisMovie.poster_path}`} alt="" />
-          </div>
-          <p>{thisMovie.original_title}</p>
+            <DetailsPageOverview>{thisMovie.overview}</DetailsPageOverview>
+          </DetailPageContainer>
         </StyledDetailsPage>
       </main>
     </>
   );
 }
 
+const DetailsPageHeader = styled.header`
+  max-width: 800px;
+  margin: auto;
+`;
+
+const ReleaseDate = styled.span`
+  font-size: 1rem;
+  color: white;
+`;
+
+const DetailPageContainer = styled.div`
+  display: flex;
+  gap: 50px;
+  padding-top: 2rem;
+`;
+
+const DetailsPageOverview = styled.p`
+  color: white;
+  line-height: 1.7;
+`;
+
+const DetailsPageHeadline = styled.h1`
+  font-size: 1.4rem;
+  color: #3083dc;
+  padding: 30px 0 5px 0;
+`;
+
 const StyledDetailsPage = styled.div`
   max-width: 800px;
-  margin: 100px auto 0 auto;
-  padding: 0 10px;
+  padding: 20px 0 10px 0;
+  margin: auto;
+`;
+
+const MovieDetailPosterImage = styled.img`
+  width: 100%;
+  object-fit: cover;
+  margin-top: 60px;
 `;
 
 const MovieDetailPoster = styled.div`
   width: 100%;
-  height: 350px;
-  background-color: lightgrey;
 `;
