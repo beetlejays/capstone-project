@@ -12,15 +12,13 @@ export default function DetailsPage({moviesData}) {
 
   return (
     <>
-      <DetailsPageHeader>
-        <MovieDetailPoster>
-          <MovieDetailPosterImage src={`${posterPath}${thisMovie.backdrop_path}`} alt="" />
-        </MovieDetailPoster>
-        <div>
-          <BackButton />
-          <Header />
-        </div>
-      </DetailsPageHeader>
+      <MovieDetailPoster>
+        <MovieDetailPosterImage src={`${posterPath}${thisMovie.backdrop_path}`} alt="" />
+      </MovieDetailPoster>
+      <div>
+        <BackButton />
+        <Header />
+      </div>
 
       <main>
         <StyledDetailsPage>
@@ -35,11 +33,6 @@ export default function DetailsPage({moviesData}) {
     </>
   );
 }
-
-const DetailsPageHeader = styled.header`
-  max-width: 800px;
-  margin: auto;
-`;
 
 const ReleaseDate = styled.span`
   font-size: 1rem;
@@ -80,11 +73,13 @@ const MovieDetailPosterImageDetail = styled.img`
 `;
 
 const MovieDetailPosterImage = styled.img`
-  width: 100%;
-  object-fit: cover;
+  max-width: 100%;
+  width: 800px;
+  margin: auto;
   margin-top: 60px;
 `;
 
 const MovieDetailPoster = styled.div`
-  width: 100%;
+  max-width: 800px;
+  margin: auto;
 `;

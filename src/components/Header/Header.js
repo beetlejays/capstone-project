@@ -8,7 +8,6 @@ export default function Header() {
     <StyledHeader>
       <HeaderContainer>
         <Link to="/">
-          {' '}
           <Logo src={logo} alt="mov.me logo" />
         </Link>
       </HeaderContainer>
