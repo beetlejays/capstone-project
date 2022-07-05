@@ -1,12 +1,18 @@
+import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 import logo from '../../movme-logo.svg';
+import BackButton from '../BackButton/BackButton';
 
-export default function Header() {
+export default function Header({displayBackButton}) {
   return (
     <StyledHeader>
       <HeaderContainer>
-        <Logo src={logo} alt="mov.me logo" />
+        {displayBackButton && <BackButton />}
+
+        <Link to="/">
+          <Logo src={logo} alt="mov.me logo" />
+        </Link>
       </HeaderContainer>
     </StyledHeader>
   );
@@ -26,10 +32,11 @@ const HeaderContainer = styled.div`
   max-width: 800px;
   margin: auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   height: 60px;
   padding: 0 10px;
+  position: relative;
 `;
 
 const Logo = styled.img`

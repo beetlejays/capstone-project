@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 
-export default function Movie({movie_id, movie_vote_average, movie_poster, movie_title, movie_alt_text}) {
+export default function Movie({movieId, movieVoteAverage, moviePoster, movieTitle, movieAltText}) {
   return (
-    <MovieSingle key={movie_id}>
+    <MovieSingle key={movieId}>
       <MovieAverage>
-        <MovieAverageNumber>{movie_vote_average}</MovieAverageNumber>
+        <MovieAverageNumber>{movieVoteAverage}</MovieAverageNumber>
       </MovieAverage>
-      <img src={`https://image.tmdb.org/t/p/w500/${movie_poster}`} alt={`${movie_alt_text}`} />
+      <MoviePosterImage src={`https://image.tmdb.org/t/p/w500/${moviePoster}`} alt={`${movieAltText}`} />
 
       <div>
-        <MovieTitle>{movie_title}</MovieTitle>
+        <MovieTitle>{movieTitle}</MovieTitle>
       </div>
     </MovieSingle>
   );
@@ -47,4 +47,17 @@ const MovieTitle = styled.h3`
   color: white;
   padding: 0.8rem 0;
   font-size: 1rem;
+  transition: 0.3s;
+
+  &:hover {
+    color: #3083dc;
+    text-decoration: none;
+  }
+`;
+
+const MoviePosterImage = styled.img`
+  transition: 0.3s;
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
