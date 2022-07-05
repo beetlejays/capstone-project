@@ -1,6 +1,7 @@
 import {useParams} from 'react-router-dom';
 import styled from 'styled-components';
 
+import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 
 export default function DetailsPage({moviesData}) {
@@ -28,6 +29,7 @@ export default function DetailsPage({moviesData}) {
           </DetailPageContainer>
         </StyledDetailsPage>
       </main>
+      <Footer />
     </>
   );
 }

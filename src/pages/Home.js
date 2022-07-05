@@ -2,6 +2,7 @@ import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 import FetchError from '../components/FetchError/FetchError';
+import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import Movie from '../components/Movie/Movie';
 
@@ -9,30 +10,33 @@ export default function Home({moviesData, error}) {
   const yearDate = new Date().getFullYear();
 
   return (
-    <main>
-      <Header displayBackButton={false} />
+    <>
+      <main>
+        <Header displayBackButton={false} />
 
-      <IndexHeadingContainer>
-        <h1>Check out all current movies</h1>
-        <h2>All popular movies from {yearDate}</h2>
-      </IndexHeadingContainer>
-      <div className="movie__container">
-        {error && <FetchError />}
+        <IndexHeadingContainer>
+          <h1>Check out all current movies</h1>
+          <h2>All popular movies from {yearDate}</h2>
+        </IndexHeadingContainer>
+        <div className="movie__container">
+          {error && <FetchError />}
 
-        {moviesData.length &&
-          moviesData.map(movie => (
-            <Link key={movie.id} to={`/${movie.id}`}>
-              <Movie
-                movieId={movie.id}
-                movieVoteAverage={movie.vote_average}
-                movieTitle={movie.title}
-                moviePoster={movie.poster_path}
-                movieAltText={movie.original_title}
-              />
-            </Link>
-          ))}
-      </div>
-    </main>
+          {moviesData.length &&
+            moviesData.map(movie => (
+              <Link key={movie.id} to={`/${movie.id}`}>
+                <Movie
+                  movieId={movie.id}
+                  movieVoteAverage={movie.vote_average}
+                  movieTitle={movie.title}
+                  moviePoster={movie.poster_path}
+                  movieAltText={movie.original_title}
+                />
+              </Link>
+            ))}
+        </div>
+      </main>
+      <Footer />
+    </>
   );
 }
 
