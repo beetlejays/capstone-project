@@ -1,4 +1,3 @@
-import {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -6,39 +5,12 @@ import FetchError from '../components/FetchError/FetchError';
 import Header from '../components/Header/Header';
 import Movie from '../components/Movie/Movie';
 
-export default function Home({displayBackButton}) {
-  const API_KEY = process.env.REACT_APP_API_KEY;
-  const url = 'https://api.themoviedb.org/3/movie/';
-
-  const [moviesData, setMoviesData] = useState([]);
-  const [error, setError] = useState(null);
-
+export default function Home({displayBackButton, moviesData, error}) {
   const yearDate = new Date().getFullYear();
-
-  async function fetchMovieData() {
-    setError(null);
-    try {
-      const response = await fetch(`${url}popular?api_key=${API_KEY}`);
-
-      if (response.ok) {
-        const fetchedMovieData = await response.json();
-        setMoviesData(fetchedMovieData.results);
-      } else {
-        setError(new Error());
-      }
-    } catch (error) {
-      setError(new Error('Sorry Data can not be fetched'));
-    }
-  }
-
-  useEffect(() => {
-    fetchMovieData();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <main>
-      <Header displayBackButton={false} />
-      {displayBackButton ? <Header /> : null}
+      <Header displayBackButton={displayBackButton} />
 
       <IndexHeadingContainer>
         <h1>Check out all current movies</h1>

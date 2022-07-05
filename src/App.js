@@ -12,8 +12,6 @@ function App() {
   const [moviesData, setMoviesData] = useState([]);
   const [error, setError] = useState(null);
 
-  //  const yearDate = new Date().getFullYear();
-
   async function fetchMovieData() {
     setError(null);
     try {
