@@ -5,12 +5,10 @@ import logo from '../../movme-logo.svg';
 import BackButton from '../BackButton/BackButton';
 
 export default function Header({displayBackButton}) {
-  displayBackButton = false;
   return (
     <StyledHeader>
       <HeaderContainer>
-        {displayBackButton ? <BackButton /> : null}
-        <BackButton />
+        {displayBackButton && <BackButton />}
 
         <Link to="/">
           <Logo src={logo} alt="mov.me logo" />

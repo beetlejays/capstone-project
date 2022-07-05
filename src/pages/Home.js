@@ -5,12 +5,12 @@ import FetchError from '../components/FetchError/FetchError';
 import Header from '../components/Header/Header';
 import Movie from '../components/Movie/Movie';
 
-export default function Home({displayBackButton, moviesData, error}) {
+export default function Home({moviesData, error}) {
   const yearDate = new Date().getFullYear();
 
   return (
     <main>
-      <Header displayBackButton={displayBackButton} />
+      <Header displayBackButton={false} />
 
       <IndexHeadingContainer>
         <h1>Check out all current movies</h1>

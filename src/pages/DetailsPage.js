@@ -15,7 +15,7 @@ export default function DetailsPage({moviesData}) {
         <MovieDetailPosterImage src={`${posterPath}${thisMovie.backdrop_path}`} alt="" />
       </MovieDetailPoster>
       <div>
-        <Header />
+        <Header displayBackButton={true} />
       </div>
 
       <main>
