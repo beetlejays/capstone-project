@@ -23,13 +23,20 @@ const SearchContainer = styled.div`
   align-items: center;
   justify-content: center;
   height: 45vh;
+  h1 {
+    color: #3083dc;
+    font-size: 1.3rem;
+  }
 `;
 
 const SearchInput = styled.input`
   margin-top: 2rem;
-  padding-top: 2rem;
+  padding: 1.2rem;
   border-radius: 40px;
   width: 80vw;
   background-color: #666;
   border: none;
+  font-size: 2.3rem;
+  font-weight: 300;
+  color: darkgrey;
 `;
