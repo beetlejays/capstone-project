@@ -23,12 +23,11 @@ export default function Home({moviesData, error}) {
           moviesData.map(movie => (
             <Link key={movie.id} to={`/${movie.id}`}>
               <Movie
-                key={movie.id}
-                movie_id={movie.id}
-                movie_vote_average={movie.vote_average}
-                movie_title={movie.title}
-                movie_poster={movie.poster_path}
-                movie_alt_text={movie.original_title}
+                movieId={movie.id}
+                movieVoteAverage={movie.vote_average}
+                movieTitle={movie.title}
+                moviePoster={movie.poster_path}
+                movieAltText={movie.original_title}
               />
             </Link>
           ))}
