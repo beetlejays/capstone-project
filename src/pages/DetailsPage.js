@@ -77,7 +77,7 @@ const MovieDetailPosterImage = styled.img`
   margin-top: 60px;
 `;
 
-const MovieDetailPoster = styled.div`
+const MovieDetailPoster = styled.main`
   max-width: 800px;
   margin: auto;
 `;
