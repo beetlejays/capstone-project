@@ -6,7 +6,7 @@ export default function Movie({movieId, movieVoteAverage, moviePoster, movieTitl
       <MovieAverage>
         <MovieAverageNumber>{movieVoteAverage}</MovieAverageNumber>
       </MovieAverage>
-      <img src={`https://image.tmdb.org/t/p/w500/${moviePoster}`} alt={`${movieAltText}`} />
+      <MoviePosterImage src={`https://image.tmdb.org/t/p/w500/${moviePoster}`} alt={`${movieAltText}`} />
 
       <div>
         <MovieTitle>{movieTitle}</MovieTitle>
@@ -51,9 +51,13 @@ const MovieTitle = styled.h3`
 
   &:hover {
     color: #3083dc;
-  }
-
-  a {
     text-decoration: none;
+  }
+`;
+
+const MoviePosterImage = styled.img`
+  transition: 0.3s;
+  &:hover {
+    transform: scale(1.05);
   }
 `;
