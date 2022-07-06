@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
+import Movie from '../components/Movie/Movie';
 
 export default function Search() {
   const [search, setSearch] = useState('');
@@ -40,7 +41,17 @@ export default function Search() {
           onChange={event => setSearch(event.target.value)}
         />
       </SearchContainer>
-      <div>{fetchMovies.map(movie => movie.title)}</div>
+      <main>
+        {fetchMovies.map(movie => (
+          <Movie
+            key={movie.id}
+            movieTitle={movie.title}
+            movieVoteAverage={movie.vote_average}
+            moviePoster={movie.poster_path}
+            movieAltText={movie.original_title}
+          />
+        ))}
+      </main>
       <Footer />
     </>
   );
