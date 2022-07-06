@@ -5,14 +5,30 @@ import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 
 export default function Search() {
-  const [searchMovie, setSearchMovie] = useState('');
+  const [search, setSearch] = useState('');
+
+  function handleSearchMovie(event) {
+    const baseUrl =
+      'https://api.themoviedb.org/3/search/movie?api_key=48df9844b36694ca2599c11952ddc9a6&query=' + search;
+
+    if (event.key === 'Enter') {
+      setSearch(baseUrl);
+      console.log(baseUrl);
+    }
+  }
 
   return (
     <>
       <Header displayBackButton={true} />
       <SearchContainer>
-        <h1>Please type in your movie Search</h1>
-        <SearchInput type="text" />
+        <h1>Please type in your movie search</h1>
+        <SearchInput
+          type="text"
+          name="movieinput"
+          value={search}
+          onKeyPress={handleSearchMovie}
+          onChange={event => setSearch(event.target.value)}
+        />
       </SearchContainer>
 
       <Footer />
