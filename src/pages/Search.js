@@ -10,12 +10,10 @@ export default function Search() {
 
   useEffect(() => fetchAllMovieData(), []);
 
-  async function fetchAllMovieData() {
-    const response = await fetch(
-      'https://api.themoviedb.org/3/search/movie?api_key=48df9844b36694ca2599c11952ddc9a6&query=hulk'
-    );
-    const responseJson = response.json();
-    console.log(responseJson);
+  function fetchAllMovieData() {
+    fetch('https://api.themoviedb.org/3/search/movie?api_key=48df9844b36694ca2599c11952ddc9a6&query=hulk')
+      .then(response => response.json())
+      .then(data => console.log(data.results));
     setFetchMovies();
   }
 
@@ -42,6 +40,11 @@ export default function Search() {
           onChange={event => setSearch(event.target.value)}
         />
       </SearchContainer>
+      <div>
+        {fetchMovies.map(singleQuery => (
+          <p key={singleQuery.id}>{singleQuery.title}</p>
+        ))}
+      </div>
       <Footer />
     </>
   );
