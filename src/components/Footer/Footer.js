@@ -1,11 +1,13 @@
+import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 export default function Footer() {
   return (
     <StyledFooter className="footer">
       <FooterContainer>
-        <h2>Search Link</h2>
-        <h2>Watchlist</h2>
+        <Link to="/search">
+          <h2>Search</h2>
+        </Link>
       </FooterContainer>
     </StyledFooter>
   );
