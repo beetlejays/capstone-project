@@ -6,8 +6,28 @@ import Header from '../components/Header/Header';
 
 export default function Search() {
   const [search, setSearch] = useState('');
-  const [queryMovie, setQueryMovie] = useState();
-  const [showQuery, setShowQuery] = useState();
+  const [fetchMovies, setFetchMovies] = useState([]);
+
+  useEffect(() => fetchAllMovieData(), []);
+
+  async function fetchAllMovieData() {
+    const response = await fetch(
+      'https://api.themoviedb.org/3/search/movie?api_key=48df9844b36694ca2599c11952ddc9a6&query=hulk'
+    );
+    const responseJson = response.json();
+    console.log(responseJson);
+    setFetchMovies();
+  }
+
+  function handleSearchMovie(event) {
+    const baseUrl =
+      'https://api.themoviedb.org/3/search/movie?api_key=48df9844b36694ca2599c11952ddc9a6&query=' + search;
+
+    if (event.key === 'Enter') {
+      setSearch(baseUrl);
+      console.log(baseUrl.toLocaleLowerCase());
+    }
+  }
 
   return (
     <>
@@ -22,20 +42,9 @@ export default function Search() {
           onChange={event => setSearch(event.target.value)}
         />
       </SearchContainer>
-
       <Footer />
     </>
   );
-
-  function handleSearchMovie(event) {
-    const baseUrl =
-      'https://api.themoviedb.org/3/search/movie?api_key=48df9844b36694ca2599c11952ddc9a6&query=' + search;
-
-    if (event.key === 'Enter') {
-      setSearch(baseUrl);
-      console.log(baseUrl);
-    }
-  }
 }
 
 const SearchContainer = styled.div`
