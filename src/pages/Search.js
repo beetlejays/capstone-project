@@ -6,24 +6,24 @@ import Header from '../components/Header/Header';
 
 export default function Search() {
   const [search, setSearch] = useState('');
+  const [searchUrl, setSearchUrl] = useState('');
   const [fetchMovies, setFetchMovies] = useState([]);
 
-  useEffect(() => fetchAllMovieData(), []);
+  useEffect(() => {
+    function fetchAllMovieData() {
+      fetch(searchUrl)
+        .then(response => response.json())
+        .then(fetchedMovies => setFetchMovies(fetchedMovies.results));
+    }
 
-  function fetchAllMovieData() {
-    fetch('https://api.themoviedb.org/3/search/movie?api_key=48df9844b36694ca2599c11952ddc9a6&query=hulk')
-      .then(response => response.json())
-      .then(data => console.log(data.results));
-    setFetchMovies();
-  }
+    fetchAllMovieData();
+  }, [searchUrl]);
 
   function handleSearchMovie(event) {
     const baseUrl =
       'https://api.themoviedb.org/3/search/movie?api_key=48df9844b36694ca2599c11952ddc9a6&query=' + search;
-
     if (event.key === 'Enter') {
-      setSearch(baseUrl);
-      console.log(baseUrl.toLocaleLowerCase());
+      setSearchUrl(baseUrl);
     }
   }
 
@@ -40,11 +40,7 @@ export default function Search() {
           onChange={event => setSearch(event.target.value)}
         />
       </SearchContainer>
-      <div>
-        {fetchMovies.map(singleQuery => (
-          <p key={singleQuery.id}>{singleQuery.title}</p>
-        ))}
-      </div>
+      <div>{fetchMovies.map(movie => movie.title)}</div>
       <Footer />
     </>
   );
