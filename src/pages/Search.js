@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import styled from 'styled-components';
 
 import Footer from '../components/Footer/Footer';
@@ -6,16 +6,8 @@ import Header from '../components/Header/Header';
 
 export default function Search() {
   const [search, setSearch] = useState('');
-
-  function handleSearchMovie(event) {
-    const baseUrl =
-      'https://api.themoviedb.org/3/search/movie?api_key=48df9844b36694ca2599c11952ddc9a6&query=' + search;
-
-    if (event.key === 'Enter') {
-      setSearch(baseUrl);
-      console.log(baseUrl);
-    }
-  }
+  const [queryMovie, setQueryMovie] = useState();
+  const [showQuery, setShowQuery] = useState();
 
   return (
     <>
@@ -34,6 +26,16 @@ export default function Search() {
       <Footer />
     </>
   );
+
+  function handleSearchMovie(event) {
+    const baseUrl =
+      'https://api.themoviedb.org/3/search/movie?api_key=48df9844b36694ca2599c11952ddc9a6&query=' + search;
+
+    if (event.key === 'Enter') {
+      setSearch(baseUrl);
+      console.log(baseUrl);
+    }
+  }
 }
 
 const SearchContainer = styled.div`
