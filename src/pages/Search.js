@@ -10,6 +10,7 @@ export default function Search() {
   const [search, setSearch] = useState('');
   const [searchUrl, setSearchUrl] = useState('');
   const [fetchMovies, setFetchMovies] = useState([]);
+  const [message, setMessages] = useState('Sorry no movies available containing that title');
 
   useEffect(() => {
     function fetchAllMovieData() {
@@ -44,16 +45,19 @@ export default function Search() {
       </SearchContainer>
       <main>
         <MovieContainer>
-          {fetchMovies.map(movie => (
-            <Link key={movie.id} to={`/${movie.id}`}>
-              <Movie
-                movieTitle={movie.title}
-                movieVoteAverage={movie.vote_average}
-                moviePoster={movie.poster_path}
-                movieAltText={movie.original_title}
-              />
-            </Link>
-          ))}
+          {fetchMovies.length === 0
+            ? message
+            : fetchMovies.length &&
+              fetchMovies.map(movie => (
+                <Link key={movie.id} to={`/${movie.id}`}>
+                  <Movie
+                    movieTitle={movie.title}
+                    movieVoteAverage={movie.vote_average}
+                    moviePoster={movie.poster_path}
+                    movieAltText={movie.original_title}
+                  />
+                </Link>
+              ))}
         </MovieContainer>
       </main>
 
@@ -80,7 +84,7 @@ const SearchContainer = styled.div`
   height: 45vh;
   h1 {
     color: #3083dc;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
 `;
 
