@@ -1,7 +1,8 @@
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
-import searchIcon from '../../assets/search-blue.svg';
+import SearchIcon from '../../assets/search-blue.svg';
+import WatchlistIcon from '../../assets/watchlist-add.svg';
 
 export default function Footer() {
   return (
@@ -9,13 +10,13 @@ export default function Footer() {
       <FooterContainer>
         <Link to="/search">
           <FooterIconContainer>
-            <FooterIcon src={searchIcon} alt="" />
+            <FooterIcon src={SearchIcon} alt="" />
             <FooterIconSearchText>Search</FooterIconSearchText>
           </FooterIconContainer>
         </Link>
         <Link to="/watchlist">
           <FooterIconContainer>
-            <FooterIcon src={searchIcon} alt="" />
+            <FooterIcon src={WatchlistIcon} alt="" />
             <FooterIconSearchText>Watchlist</FooterIconSearchText>
           </FooterIconContainer>
         </Link>
