@@ -38,7 +38,7 @@ export default function Search() {
           name="movieinput"
           value={search}
           onKeyPress={handleSearchMovie}
-          onChange={event => setSearch(event.target.value)}
+          onChange={event => setSearch(event.target.value.replace(/[^a-z]/gi, ' '))}
         />
       </SearchContainer>
       <main>
