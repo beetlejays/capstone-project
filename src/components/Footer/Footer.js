@@ -1,12 +1,17 @@
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
+import searchIcon from '../../assets/search-blue.png';
+
 export default function Footer() {
   return (
     <StyledFooter className="footer">
       <FooterContainer>
         <Link to="/search">
-          <h2>Search</h2>
+          <FooterIconContainer>
+            <img src={searchIcon} alt="" />
+            <FooterIconSearchText>Search</FooterIconSearchText>
+          </FooterIconContainer>
         </Link>
       </FooterContainer>
     </StyledFooter>
@@ -30,4 +35,17 @@ const FooterContainer = styled.div`
   justify-content: space-evenly;
   align-items: center;
   height: 100%;
+`;
+
+const FooterIconContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
+
+const FooterIconSearchText = styled.p`
+  font-size: 1.5rem;
+  padding-top: 0.4rem;
+  color: #3083dc;
 `;
