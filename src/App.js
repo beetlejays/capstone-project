@@ -5,6 +5,7 @@ import {Routes, Route} from 'react-router-dom';
 import DetailsPage from './pages/DetailsPage';
 import Home from './pages/Home';
 import Search from './pages/Search';
+import Watchlist from './pages/Watchlist';
 
 function App() {
   const API_KEY = process.env.REACT_APP_API_KEY;
@@ -38,7 +39,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home moviesData={moviesData} error={error} />} />
         <Route path="/:id" element={<DetailsPage moviesData={moviesData} />} />
-        <Route path="/search" element={<Search />} />
+        <Route path="/search" element={<Search moviesData={moviesData} />} />
+        <Route path="/watchlist" element={<Watchlist />} />
       </Routes>
     </>
   );

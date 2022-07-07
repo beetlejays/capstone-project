@@ -13,6 +13,12 @@ export default function Footer() {
             <FooterIconSearchText>Search</FooterIconSearchText>
           </FooterIconContainer>
         </Link>
+        <Link to="/watchlist">
+          <FooterIconContainer>
+            <FooterIcon src={searchIcon} alt="" />
+            <FooterIconSearchText>Watchlist</FooterIconSearchText>
+          </FooterIconContainer>
+        </Link>
       </FooterContainer>
     </StyledFooter>
   );

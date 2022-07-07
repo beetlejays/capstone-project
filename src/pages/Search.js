@@ -10,7 +10,6 @@ export default function Search() {
   const [search, setSearch] = useState('');
   const [searchUrl, setSearchUrl] = useState('');
   const [fetchMovies, setFetchMovies] = useState([]);
-  const [message, setMessage] = useState('Sorry, no movies match this query ');
 
   useEffect(() => {
     function fetchAllMovieData() {
@@ -42,7 +41,6 @@ export default function Search() {
           onKeyPress={handleSearchMovie}
           onChange={event => setSearch(event.target.value.replace(/[^a-z]/gi, ' '))}
         />
-        <MessageContainer> {message} </MessageContainer>
       </SearchContainer>
       <main>
         <MovieContainer>
