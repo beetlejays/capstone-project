@@ -1,7 +1,7 @@
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
-import searchIcon from '../../assets/search-blue.png';
+import searchIcon from '../../assets/search-blue.svg';
 
 export default function Footer() {
   return (
@@ -9,7 +9,7 @@ export default function Footer() {
       <FooterContainer>
         <Link to="/search">
           <FooterIconContainer>
-            <img src={searchIcon} alt="" />
+            <FooterIcon src={searchIcon} alt="" />
             <FooterIconSearchText>Search</FooterIconSearchText>
           </FooterIconContainer>
         </Link>
@@ -46,6 +46,13 @@ const FooterIconContainer = styled.div`
 
 const FooterIconSearchText = styled.p`
   font-size: 1.5rem;
-  padding-top: 0.4rem;
   color: #3083dc;
+  transition: 0.4s;
+  &:hover {
+    color: #ccc;
+  }
+`;
+
+const FooterIcon = styled.img`
+  width: 40px;
 `;
