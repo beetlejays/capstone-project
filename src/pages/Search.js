@@ -10,7 +10,6 @@ export default function Search() {
   const [search, setSearch] = useState('');
   const [searchUrl, setSearchUrl] = useState('');
   const [fetchMovies, setFetchMovies] = useState([]);
-  // const [message, setMessages] = useState('Sorry no movies available containing that title');
 
   useEffect(() => {
     function fetchAllMovieData() {
