@@ -9,52 +9,52 @@ import Movie from '../components/Movie/Movie';
 export default function Search() {
   const [search, setSearch] = useState('');
   const [fetchMovies, setFetchMovies] = useState([]);
-  const [searchUrl, setSearchUrl] = useState('');
-
-  async function fetchSearchMovieData(event) {
-    const KEY = process.env.REACT_APP_API_KEY;
-    const baseUrl = 'https://api.themoviedb.org/3/search/movie?api_key=';
-
-    try {
-      const response = await fetch(baseUrl + KEY + '&query=' + search);
-      const fetchedMovieSearch = await response.json();
-      setFetchMovies(fetchedMovieSearch.results);
-    } catch {
-      console.log('Error');
-    }
-  }
 
   useEffect(() => {
+    async function fetchSearchMovieData() {
+      const KEY = process.env.REACT_APP_API_KEY;
+      const baseUrl = 'https://api.themoviedb.org/3/search/movie?api_key=';
+
+      try {
+        const response = await fetch(baseUrl + KEY + '&query=' + search);
+        const fetchedMovieSearch = await response.json();
+        setFetchMovies(fetchedMovieSearch.results);
+      } catch {
+        console.log('Error');
+      }
+    }
     fetchSearchMovieData();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [search]);
 
   return (
     <>
       <Header displayBackButton={true} />
       <SearchContainer>
         <h1>Please type in your movie search</h1>
-        <form action="">
-          <SearchInput
-            type="text"
-            name="movieinput"
-            value={search}
-            onChange={event => setSearch(event.target.value.replace(/[^a-z]/gi, ' '))}
-          />
-          <input type="submit" value="Search now" />
-        </form>
+
+        <SearchInput
+          type="text"
+          name="movieinput"
+          value={search}
+          onChange={event => setSearch(event.target.value.replace(/[^a-z]/gi, ' '))}
+        />
       </SearchContainer>
       <main>
         <MovieContainer>
-          {fetchMovies.map(movie => (
-            <Link key={movie.id} to={`/${movie.id}`}>
-              <Movie
-                movieTitle={movie.title}
-                movieVoteAverage={movie.vote_average}
-                moviePoster={movie.poster_path}
-                movieAltText={movie.original_title}
-              />
-            </Link>
-          ))}
+          {fetchMovies && fetchMovies.length > 0 ? (
+            fetchMovies.map(movie => (
+              <Link key={movie.id} to={`/${movie.id}`}>
+                <Movie
+                  movieTitle={movie.title}
+                  movieVoteAverage={movie.vote_average}
+                  moviePoster={movie.poster_path}
+                  movieAltText={movie.original_title}
+                />
+              </Link>
+            ))
+          ) : (
+            <p>Nothing will be rendered</p>
+          )}
         </MovieContainer>
       </main>
 
