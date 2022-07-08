@@ -8,40 +8,40 @@ import Movie from '../components/Movie/Movie';
 
 export default function Search() {
   const [search, setSearch] = useState('');
-  const [searchUrl, setSearchUrl] = useState('');
   const [fetchMovies, setFetchMovies] = useState([]);
+  const [searchUrl, setSearchUrl] = useState('');
 
-  useEffect(() => {
-    function fetchAllMovieData() {
-      fetch(searchUrl)
-        .then(response => response.json())
-        .then(fetchedMovies => setFetchMovies(fetchedMovies.results));
-    }
-
-    fetchAllMovieData();
-  }, [searchUrl]);
-
-  function handleSearchMovie(event) {
+  async function fetchSearchMovieData(event) {
     const KEY = process.env.REACT_APP_API_KEY;
     const baseUrl = 'https://api.themoviedb.org/3/search/movie?api_key=';
 
-    if (event.key === 'Enter') {
-      setSearchUrl(baseUrl + KEY + '&query=' + search);
+    try {
+      const response = await fetch(baseUrl + KEY + '&query=' + search + 'hulk');
+      const fetchedMovieSearch = await response.json();
+      setFetchMovies(fetchedMovieSearch.results);
+    } catch {
+      console.log('Error');
     }
   }
+
+  useEffect(() => {
+    fetchSearchMovieData();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <>
       <Header displayBackButton={true} />
       <SearchContainer>
         <h1>Please type in your movie search</h1>
-        <SearchInput
-          type="text"
-          name="movieinput"
-          value={search}
-          onKeyPress={handleSearchMovie}
-          onChange={event => setSearch(event.target.value.replace(/[^a-z]/gi, ' '))}
-        />
+        <form action="">
+          <SearchInput
+            type="text"
+            name="movieinput"
+            value={search}
+            onChange={event => setSearch(event.target.value.replace(/[^a-z]/gi, ' '))}
+          />
+          <input type="submit" value="Search now" />
+        </form>
       </SearchContainer>
       <main>
         <MovieContainer>
