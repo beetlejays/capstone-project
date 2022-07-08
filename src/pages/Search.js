@@ -53,7 +53,9 @@ export default function Search() {
               </Link>
             ))
           ) : (
-            <p>Nothing will be rendered</p>
+            <MessageContainer>
+              <p>No search results</p>
+            </MessageContainer>
           )}
         </MovieContainer>
       </main>
@@ -100,4 +102,9 @@ const SearchInput = styled.input`
 const MessageContainer = styled.div`
   color: white;
   padding-top: 1rem;
+  p {
+    font-size: 2rem;
+    text-align: center;
+    color: #ccc;
+  }
 `;
