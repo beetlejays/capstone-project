@@ -16,7 +16,7 @@ export default function Search() {
     const baseUrl = 'https://api.themoviedb.org/3/search/movie?api_key=';
 
     try {
-      const response = await fetch(baseUrl + KEY + '&query=' + search + 'hulk');
+      const response = await fetch(baseUrl + KEY + '&query=' + search);
       const fetchedMovieSearch = await response.json();
       setFetchMovies(fetchedMovieSearch.results);
     } catch {
