@@ -23,10 +23,11 @@ export default function Search() {
   }, [searchUrl]);
 
   function handleSearchMovie(event) {
-    const baseUrl =
-      'https://api.themoviedb.org/3/search/movie?api_key=48df9844b36694ca2599c11952ddc9a6&query=' + search;
+    const KEY = process.env.REACT_APP_API_KEY;
+    const baseUrl = 'https://api.themoviedb.org/3/search/movie?api_key=';
+
     if (event.key === 'Enter') {
-      setSearchUrl(baseUrl);
+      setSearchUrl(baseUrl + KEY + '&query=' + search);
     }
   }
 
