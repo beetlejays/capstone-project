@@ -8,7 +8,7 @@ export default function DetailsPage({moviesData}) {
   const {id} = useParams();
   const thisMovie = moviesData.find(movie => movie.id === Number(id));
 
-  const posterPath = 'https://image.tmdb.org/t/p/w300';
+  const posterPath = 'https://image.tmdb.org/t/p/w500';
 
   return (
     <>

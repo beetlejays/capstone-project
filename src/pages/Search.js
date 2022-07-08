@@ -12,11 +12,11 @@ export default function Search() {
 
   useEffect(() => {
     async function fetchSearchMovieData() {
-      const KEY = process.env.REACT_APP_API_KEY;
-      const baseUrl = 'https://api.themoviedb.org/3/search/movie?api_key=';
+      const API_KEY = process.env.REACT_APP_API_KEY;
+      const url = 'https://api.themoviedb.org/3/search/movie?api_key=';
 
       try {
-        const response = await fetch(baseUrl + KEY + '&query=' + search);
+        const response = await fetch(url + API_KEY + '&query=' + search);
         const fetchedMovieSearch = await response.json();
         setFetchMovies(fetchedMovieSearch.results);
       } catch {
@@ -32,12 +32,7 @@ export default function Search() {
       <SearchContainer>
         <h1>Please type in your movie search</h1>
 
-        <SearchInput
-          type="text"
-          name="movieinput"
-          value={search}
-          onChange={event => setSearch(event.target.value.replace(/[^a-z]/gi, ' '))}
-        />
+        <SearchInput type="text" name="movieinput" value={search} onChange={event => setSearch(event.target.value)} />
       </SearchContainer>
       <main>
         <MovieContainer>
@@ -45,6 +40,7 @@ export default function Search() {
             fetchMovies.map(movie => (
               <Link key={movie.id} to={`/${movie.id}`}>
                 <Movie
+                  key={movie.id}
                   movieTitle={movie.title}
                   movieVoteAverage={movie.vote_average}
                   moviePoster={movie.poster_path}
