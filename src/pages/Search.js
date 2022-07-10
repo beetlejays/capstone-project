@@ -11,6 +11,10 @@ export default function Search() {
   const [fetchMovies, setFetchMovies] = useState([]);
 
   useEffect(() => {
+    if (search === '') {
+      return;
+    }
+
     async function fetchSearchMovieData() {
       const API_KEY = process.env.REACT_APP_API_KEY;
       const url = 'https://api.themoviedb.org/3/search/movie?api_key=';
@@ -23,6 +27,7 @@ export default function Search() {
         console.log('Error');
       }
     }
+
     fetchSearchMovieData();
   }, [search]);
 
