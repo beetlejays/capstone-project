@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import defaultPoster from '../../assets/default-movie-poster.jpg';
 export default function Movie({movieId, movieVoteAverage, moviePoster, movieTitle, movieAltText}) {
   return (
     <MovieSingle key={movieId}>
@@ -7,8 +8,10 @@ export default function Movie({movieId, movieVoteAverage, moviePoster, movieTitl
         <MovieAverageNumber>{movieVoteAverage}</MovieAverageNumber>
       </MovieAverage>
 
-      {moviePoster && (
+      {moviePoster ? (
         <MoviePosterImage src={`https://image.tmdb.org/t/p/w500/${moviePoster}`} alt={`${movieAltText}`} />
+      ) : (
+        <MoviePosterImage src={defaultPoster} alt="Default poster" />
       )}
 
       <div>
