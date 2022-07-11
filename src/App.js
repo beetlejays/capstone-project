@@ -39,7 +39,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home moviesData={moviesData} error={error} />} />
         <Route path="/:id" element={<DetailsPage moviesData={moviesData} />} />
-        <Route path="/search" element={<Search />} />
+        <Route path="/search" element={<Search moviesData={moviesData} />} />
         <Route path="/watchlist" element={<Watchlist />} />
       </Routes>
     </>

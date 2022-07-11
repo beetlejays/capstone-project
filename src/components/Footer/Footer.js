@@ -28,7 +28,7 @@ export default function Footer() {
 const StyledFooter = styled.footer`
   position: fixed;
   bottom: 0;
-  height: 7rem;
+  height: 5rem;
   background-color: rgb(0, 0, 0);
   color: white;
   width: 100%;
@@ -52,7 +52,7 @@ const FooterIconContainer = styled.div`
 `;
 
 const FooterIconSearchText = styled.p`
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: #3083dc;
   transition: 0.4s;
   &:hover {
@@ -61,5 +61,5 @@ const FooterIconSearchText = styled.p`
 `;
 
 const FooterIcon = styled.img`
-  width: 40px;
+  width: 25px;
 `;

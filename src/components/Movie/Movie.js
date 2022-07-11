@@ -6,7 +6,10 @@ export default function Movie({movieId, movieVoteAverage, moviePoster, movieTitl
       <MovieAverage>
         <MovieAverageNumber>{movieVoteAverage}</MovieAverageNumber>
       </MovieAverage>
-      <MoviePosterImage src={`https://image.tmdb.org/t/p/w500/${moviePoster}`} alt={`${movieAltText}`} />
+
+      {moviePoster && (
+        <MoviePosterImage src={`https://image.tmdb.org/t/p/w500/${moviePoster}`} alt={`${movieAltText}`} />
+      )}
 
       <div>
         <MovieTitle>{movieTitle}</MovieTitle>
