@@ -32,6 +32,7 @@ const StyledFooter = styled.footer`
   background-color: rgb(0, 0, 0);
   color: white;
   width: 100%;
+  z-index: 2;
 `;
 
 const FooterContainer = styled.div`
