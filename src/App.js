@@ -63,8 +63,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home moviesData={moviesData} error={error} />} />
         <Route path="/:id" element={<DetailsPage moviesData={moviesData} />} />
-        <Route path="/search" element={<Search moviesData={moviesData} />} />
-        <Route path="/search/:id" element={<Search moviesData={fetchMovies} search={search} setSearch={setSearch} />} />
+        <Route path="/search" element={<Search moviesData={fetchMovies} search={search} setSearch={setSearch} />} />
+        <Route path="/search/:id" element={<DetailsPage moviesData={fetchMovies} />} />
         <Route path="/watchlist" element={<Watchlist />} />
       </Routes>
     </>
