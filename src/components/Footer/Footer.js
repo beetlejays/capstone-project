@@ -51,10 +51,13 @@ const FooterIconContainer = styled.div`
   flex-direction: column;
 `;
 
-const FooterIconSearchText = styled.p`
+const FooterIconSearchText = styled.button`
   font-size: 1.2rem;
   color: #3083dc;
   transition: 0.4s;
+  background: transparent;
+  border: none;
+  cursor: pointer;
   &:hover {
     color: #ccc;
   }
