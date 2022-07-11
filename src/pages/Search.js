@@ -1,4 +1,3 @@
-import {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -6,44 +5,23 @@ import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import Movie from '../components/Movie/Movie';
 
-export default function Search() {
-  const [search, setSearch] = useState('');
-  const [fetchMovies, setFetchMovies] = useState([]);
-
-  useEffect(() => {
-    if (search === '') {
-      return;
-    }
-
-    async function fetchSearchMovieData() {
-      const API_KEY = process.env.REACT_APP_API_KEY;
-      const url = 'https://api.themoviedb.org/3/search/movie?api_key=';
-
-      try {
-        const response = await fetch(url + API_KEY + '&query=' + search);
-        const fetchedMovieSearch = await response.json();
-        setFetchMovies(fetchedMovieSearch.results);
-      } catch {
-        console.log('Error');
-      }
-    }
-
-    fetchSearchMovieData();
-  }, [search]);
-
+export default function Search({fetchMovies, search, setSearch}) {
+  function handleSearch(event) {
+    setSearch(event.target.value);
+  }
   return (
     <>
       <Header displayBackButton={true} />
       <SearchContainer>
         <h1>Please type in your movie search</h1>
 
-        <SearchInput type="text" name="movieinput" value={search} onChange={event => setSearch(event.target.value)} />
+        <SearchInput type="text" name="movieinput" value={search} onChange={handleSearch} />
       </SearchContainer>
       <main>
         <MovieContainer>
           {fetchMovies && fetchMovies.length > 0 ? (
             fetchMovies.map(movie => (
-              <Link key={movie.id} to={`/${movie.id}`}>
+              <Link key={movie.id} to={`/search/${movie.id}`}>
                 <Movie
                   key={movie.id}
                   movieTitle={movie.title}

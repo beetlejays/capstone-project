@@ -14,6 +14,9 @@ function App() {
   const [moviesData, setMoviesData] = useState([]);
   const [error, setError] = useState(null);
 
+  const [search, setSearch] = useState('');
+  const [fetchMovies, setFetchMovies] = useState([]);
+
   async function fetchMovieData() {
     setError(null);
     try {
@@ -34,12 +37,34 @@ function App() {
     fetchMovieData();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+  useEffect(() => {
+    if (search === '') {
+      return;
+    }
+
+    async function fetchSearchMovieData() {
+      const API_KEY = process.env.REACT_APP_API_KEY;
+      const url = 'https://api.themoviedb.org/3/search/movie?api_key=';
+
+      try {
+        const response = await fetch(url + API_KEY + '&query=' + search);
+        const fetchedMovieSearch = await response.json();
+        setFetchMovies(fetchedMovieSearch.results);
+      } catch {
+        console.log('Error');
+      }
+    }
+
+    fetchSearchMovieData();
+  }, [search]);
+
   return (
     <>
       <Routes>
         <Route path="/" element={<Home moviesData={moviesData} error={error} />} />
         <Route path="/:id" element={<DetailsPage moviesData={moviesData} />} />
         <Route path="/search" element={<Search moviesData={moviesData} />} />
+        <Route path="/search/:id" element={<Search moviesData={fetchMovies} search={search} setSearch={setSearch} />} />
         <Route path="/watchlist" element={<Watchlist />} />
       </Routes>
     </>
