@@ -47,6 +47,7 @@ const MovieAverageNumber = styled.div`
   align-items: center;
   justify-content: center;
   box-shadow: 2px 5px 5px grey;
+  z-index: 1;
 `;
 
 const MovieTitle = styled.h3`
