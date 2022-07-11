@@ -5,7 +5,7 @@ import Movie from './Movie';
 describe('Movie', () => {
   it('renders the movie poster', () => {
     render(<Movie />);
-    const movieImage = screen.getByRole('img');
+    const movieImage = screen.getByText('MoviePosterImage');
     expect(movieImage).toBeInTheDocument();
   });
   it('renders the movie title', () => {
