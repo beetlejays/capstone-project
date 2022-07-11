@@ -13,8 +13,8 @@ export default function Search({fetchMovies, search, setSearch}) {
     <>
       <Header displayBackButton={true} />
       <SearchContainer>
-        <h1 aria-labelledby="Movie search">Please type in your movie search</h1>
-
+        <h1>Please type in your movie search</h1>
+        <label htmlFor="Movie search"></label>
         <SearchInput id="Movie search" type="text" name="movieinput" value={search} onChange={handleSearch} />
       </SearchContainer>
       <main>
