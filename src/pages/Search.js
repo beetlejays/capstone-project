@@ -14,8 +14,8 @@ export default function Search({fetchMovies, search, setSearch}) {
       <Header displayBackButton={true} />
       <SearchContainer>
         <h1>Please type in your movie search</h1>
-
-        <SearchInput type="text" name="movieinput" value={search} onChange={handleSearch} />
+        <label>Movie</label>
+        <SearchInput id="Movie" type="text" name="movieinput" value={search} onChange={handleSearch} />
       </SearchContainer>
       <main>
         <MovieContainer>
