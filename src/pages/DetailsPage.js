@@ -43,7 +43,7 @@ const ReleaseDate = styled.span`
 const DetailPageContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 2fr;
-  padding: 2rem 20px;
+  padding: 2rem 20px 6rem 20px;
   gap: 40px;
   @media screen and (max-width: 600px) {
     grid-template-columns: 1fr;
