@@ -27,7 +27,7 @@ export default function DetailsPage({moviesData}) {
       <main>
         <StyledDetailsPage>
           <DetailsPageHeadline>{thisMovie.title}</DetailsPageHeadline>
-          <ReleaseDate>Release: {thisMovie.release_date}</ReleaseDate>
+          <ReleaseDate>Release: {thisMovie.release_date ? thisMovie.release_date : 'not available'}</ReleaseDate>
           <DetailPageContainer>
             <MovieDetailPosterImageDetail src={`${posterPath}${thisMovie.poster_path}`} alt="" />
             <DetailsPageOverview>{thisMovie.overview}</DetailsPageOverview>
