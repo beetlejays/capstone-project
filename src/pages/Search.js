@@ -14,8 +14,8 @@ export default function Search({fetchMovies, search, setSearch}) {
       <Header displayBackButton={true} />
       <SearchContainer>
         <h1>Please type in your movie search</h1>
-        <label htmlFor="Movie search"></label>
-        <SearchInput id="Movie search" type="text" name="movieinput" value={search} onChange={handleSearch} />
+        <SrOnly htmlFor="Moviesearch">Moviesearch</SrOnly>
+        <SearchInput id="Moviesearch" type="text" name="movieinput" value={search} onChange={handleSearch} />
       </SearchContainer>
       <main>
         <MovieContainer>
@@ -86,4 +86,16 @@ const MessageContainer = styled.div`
     text-align: center;
     color: #ccc;
   }
+`;
+
+const SrOnly = styled.label`
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 `;
