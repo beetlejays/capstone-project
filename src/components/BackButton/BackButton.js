@@ -22,7 +22,7 @@ const PreviousPageButton = styled.button`
   position: absolute;
   left: 20px;
   img {
-    width: 20px;
+    width: 15px;
   }
   &:hover {
     fill: white;

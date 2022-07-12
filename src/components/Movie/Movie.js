@@ -1,12 +1,18 @@
 import styled from 'styled-components';
 
+import defaultPoster from '../../assets/default-movie-poster.jpg';
 export default function Movie({movieId, movieVoteAverage, moviePoster, movieTitle, movieAltText}) {
   return (
     <MovieSingle key={movieId}>
       <MovieAverage>
         <MovieAverageNumber>{movieVoteAverage}</MovieAverageNumber>
       </MovieAverage>
-      <MoviePosterImage src={`https://image.tmdb.org/t/p/w500/${moviePoster}`} alt={`${movieAltText}`} />
+
+      {moviePoster ? (
+        <MoviePosterImage src={`https://image.tmdb.org/t/p/w500/${moviePoster}`} alt={`${movieAltText}`} />
+      ) : (
+        <MoviePosterImage src={defaultPoster} alt="Default poster" />
+      )}
 
       <div>
         <MovieTitle>{movieTitle}</MovieTitle>
@@ -41,6 +47,7 @@ const MovieAverageNumber = styled.div`
   align-items: center;
   justify-content: center;
   box-shadow: 2px 5px 5px grey;
+  z-index: 1;
 `;
 
 const MovieTitle = styled.h3`

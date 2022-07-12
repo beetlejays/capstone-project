@@ -1,13 +1,14 @@
 import {useParams} from 'react-router-dom';
 import styled from 'styled-components';
 
+import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 
 export default function DetailsPage({moviesData}) {
   const {id} = useParams();
   const thisMovie = moviesData.find(movie => movie.id === Number(id));
 
-  const posterPath = 'https://image.tmdb.org/t/p/w300';
+  const posterPath = 'https://image.tmdb.org/t/p/w500';
 
   return (
     <>
@@ -28,6 +29,7 @@ export default function DetailsPage({moviesData}) {
           </DetailPageContainer>
         </StyledDetailsPage>
       </main>
+      <Footer />
     </>
   );
 }
@@ -41,7 +43,7 @@ const ReleaseDate = styled.span`
 const DetailPageContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 2fr;
-  padding: 2rem 20px;
+  padding: 2rem 20px 6rem 20px;
   gap: 40px;
   @media screen and (max-width: 600px) {
     grid-template-columns: 1fr;
