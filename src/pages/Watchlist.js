@@ -8,7 +8,7 @@ export default function Watchlist() {
     <>
       <Header />
       <MainContainer>
-        <h1>There are currently no movies in your watchlist</h1>
+        <WatchlistHeadline>There are currently no movies in your watchlist</WatchlistHeadline>
       </MainContainer>
 
       <Footer />
@@ -20,4 +20,8 @@ const MainContainer = styled.main`
   max-width: 800px;
   margin: 5rem auto 0 auto;
   padding: 0 20px;
+`;
+
+const WatchlistHeadline = styled.h1`
+  color: #3083dc;
 `;
