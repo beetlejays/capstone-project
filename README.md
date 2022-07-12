@@ -3,6 +3,7 @@
 ## Capstone project - Web Development Bootcamp [@neuefische GmbH](https://www.neuefische.de)
 
 ---
+![movme-git-background](https://user-images.githubusercontent.com/74057596/178466609-fba5caa6-2796-4224-a06e-87909b168400.jpg)
 
 ---
 
