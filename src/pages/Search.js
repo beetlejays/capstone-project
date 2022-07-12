@@ -15,7 +15,14 @@ export default function Search({fetchMovies, search, setSearch}) {
       <SearchContainer>
         <h1>Please type in your movie search</h1>
         <SrOnly htmlFor="Moviesearch">Moviesearch</SrOnly>
-        <SearchInput id="Moviesearch" type="text" name="movieinput" value={search} onChange={handleSearch} />
+        <SearchInput
+          id="Moviesearch"
+          maxLength={40}
+          type="text"
+          name="movieinput"
+          value={search}
+          onChange={handleSearch}
+        />
       </SearchContainer>
       <main>
         <MovieContainer>

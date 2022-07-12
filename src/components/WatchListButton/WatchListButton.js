@@ -1,10 +1,14 @@
 import styled from 'styled-components';
 
-export default function WatchListButton() {
-  return <WatchList>Add to watchlist</WatchList>;
+export default function WatchListButton(handleAddWatchlist) {
+  return (
+    <AddToWatchListButton type="button" handleAddWatchlist={handleAddWatchlist}>
+      Add to watchlist
+    </AddToWatchListButton>
+  );
 }
 
-const WatchList = styled.button`
+const AddToWatchListButton = styled.button`
   background-color: #3083dc;
   width: 100%;
   border-radius: 4px;

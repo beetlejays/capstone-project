@@ -1,14 +1,20 @@
+import {useState} from 'react';
 import {useParams} from 'react-router-dom';
 import styled from 'styled-components';
 
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
-import WatchListButton from '../components/WatchListButton/WatchListButton';
 
 export default function DetailsPage({moviesData}) {
+  const [watchList, setWatchList] = useState([]);
+
+  function handleAddWatchlist(thisMovie) {
+    const addedMovies = [...watchList, thisMovie];
+    setWatchList(addedMovies);
+  }
+
   const {id} = useParams();
   const thisMovie = moviesData.find(movie => movie.id === Number(id));
-
   const posterPath = 'https://image.tmdb.org/t/p/w500';
 
   return (
@@ -28,7 +34,9 @@ export default function DetailsPage({moviesData}) {
           <DetailPageContainer>
             <MovieDetailPosterImageDetail src={`${posterPath}${thisMovie.poster_path}`} alt="" />
             <DetailsPageOverview>{thisMovie.overview}</DetailsPageOverview>
-            <WatchListButton />
+            <AddToWatchListButton type="button" onClick={handleAddWatchlist}>
+              Add to watchlist
+            </AddToWatchListButton>
           </DetailPageContainer>
         </StyledDetailsPage>
       </main>
@@ -85,4 +93,19 @@ const MovieDetailPosterImage = styled.img`
 const MovieDetailPoster = styled.main`
   max-width: 800px;
   margin: auto;
+`;
+
+const AddToWatchListButton = styled.button`
+  background-color: #3083dc;
+  width: 100%;
+  border-radius: 4px;
+  border: none;
+  color: white;
+  font-size: 1.4rem;
+  padding: 1rem 0;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    background: #2762a1;
+  }
 `;
