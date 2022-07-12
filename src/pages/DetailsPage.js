@@ -1,6 +1,7 @@
 import {useParams} from 'react-router-dom';
 import styled from 'styled-components';
 
+import DefaultLargePoster from '../assets/default-large-poster.jpg';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 
@@ -13,7 +14,11 @@ export default function DetailsPage({moviesData}) {
   return (
     <>
       <MovieDetailPoster>
-        <MovieDetailPosterImage src={`${posterPath}${thisMovie.backdrop_path}`} alt="" />
+        {thisMovie.backdrop_path === null ? (
+          <MovieDetailPosterImage src={DefaultLargePoster} alt="No movie Poster available" />
+        ) : (
+          <MovieDetailPosterImage src={`${posterPath}${thisMovie.backdrop_path}`} alt="" />
+        )}
       </MovieDetailPoster>
       <div>
         <Header displayBackButton={true} />
