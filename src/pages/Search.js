@@ -60,6 +60,9 @@ const SearchContainer = styled.div`
   align-items: center;
   justify-content: center;
   height: 45vh;
+  max-width: 800px;
+  margin: auto;
+  padding: 0 10px;
   h1 {
     color: #3083dc;
     font-size: 1.6rem;

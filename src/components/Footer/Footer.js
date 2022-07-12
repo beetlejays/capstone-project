@@ -6,7 +6,7 @@ import SearchIcon from '../../assets/search-blue.svg';
  */
 export default function Footer() {
   return (
-    <StyledFooter className="footer">
+    <StyledFooter>
       <FooterContainer>
         <Link to="/search">
           <FooterIconContainer>
