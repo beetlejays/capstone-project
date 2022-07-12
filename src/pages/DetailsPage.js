@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
+import WatchListButton from '../components/WatchListButton/WatchListButton';
 
 export default function DetailsPage({moviesData}) {
   const {id} = useParams();
@@ -23,9 +24,11 @@ export default function DetailsPage({moviesData}) {
         <StyledDetailsPage>
           <DetailsPageHeadline>{thisMovie.title}</DetailsPageHeadline>
           <ReleaseDate>Release: {thisMovie.release_date ? thisMovie.release_date : 'not available'}</ReleaseDate>
+
           <DetailPageContainer>
             <MovieDetailPosterImageDetail src={`${posterPath}${thisMovie.poster_path}`} alt="" />
             <DetailsPageOverview>{thisMovie.overview}</DetailsPageOverview>
+            <WatchListButton />
           </DetailPageContainer>
         </StyledDetailsPage>
       </main>
