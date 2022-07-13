@@ -4,15 +4,17 @@ import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 
 export default function Watchlist({watchlist}) {
+  console.log(watchlist.length);
   return (
     <>
       <Header />
       <MainContainer>
-        <WatchlistHeadline>There are currently no movies in your watchlist</WatchlistHeadline>
         <div>
-          {watchlist.map(addedMovies => (
-            <div key={addedMovies.id}>{addedMovies.title}</div>
-          ))}
+          {watchlist.length === 0 ? (
+            <WatchlistHeadline>There are currently no movies in your watchlist</WatchlistHeadline>
+          ) : (
+            watchlist.map(addedMovies => <div key={addedMovies.id}>{addedMovies.title}</div>)
+          )}
         </div>
       </MainContainer>
 

@@ -19,7 +19,7 @@ function App() {
 
   //////////////////////////// start add watchlist
 
-  const [watchlist, setWatchList] = useState(['']);
+  const [watchlist, setWatchList] = useState([]);
 
   function addToWatchList(movie) {
     setWatchList([...watchlist, movie]);
