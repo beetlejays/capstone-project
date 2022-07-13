@@ -75,7 +75,7 @@ function App() {
         <Route path="/:id" element={<DetailsPage moviesData={moviesData} />} />
         <Route path="/search" element={<Search fetchMovies={fetchMovies} search={search} setSearch={setSearch} />} />
         <Route path="/search/:id" element={<DetailsPage moviesData={fetchMovies} />} />
-        <Route path="/watchlist" element={<Watchlist watchList={watchList} setWatchList={setWatchList} />} />
+        <Route path="/watchlist" />
       </Routes>
     </>
   );
