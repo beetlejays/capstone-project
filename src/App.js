@@ -20,6 +20,8 @@ function App() {
 
   //////////////////////////// use local
 
+  // const [watchlist, setWatchList] = useState();
+
   ////////////////////////////  end local
 
   async function fetchMovieData() {
@@ -64,7 +66,7 @@ function App() {
     }
 
     fetchSearchMovieData();
-  }, [search]);
+  }, [search]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <>
@@ -73,7 +75,7 @@ function App() {
         <Route path="/:id" element={<DetailsPage moviesData={moviesData} />} />
         <Route path="/search" element={<Search fetchMovies={fetchMovies} search={search} setSearch={setSearch} />} />
         <Route path="/search/:id" element={<DetailsPage moviesData={fetchMovies} />} />
-        <Route path="/watchlist" />
+        <Route path="/watchlist" element={<Watchlist watchList={watchList} setWatchList={setWatchList} />} />
       </Routes>
     </>
   );

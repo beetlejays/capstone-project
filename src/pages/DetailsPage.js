@@ -9,6 +9,10 @@ export default function DetailsPage({moviesData, watchtList, setWatchList}) {
   const thisMovie = moviesData.find(movie => movie.id === Number(id));
   const posterPath = 'https://image.tmdb.org/t/p/w500';
 
+  function handleAddToWatchList() {
+    console.log('added');
+  }
+
   return (
     <>
       <MovieDetailPoster>
@@ -26,7 +30,9 @@ export default function DetailsPage({moviesData, watchtList, setWatchList}) {
           <DetailPageContainer>
             <MovieDetailPosterImageDetail src={`${posterPath}${thisMovie.poster_path}`} alt="" />
             <DetailsPageOverview>{thisMovie.overview}</DetailsPageOverview>
-            <AddToWatchListButton type="button">Add to watchlist</AddToWatchListButton>
+            <AddToWatchListButton type="button" onClick={handleAddToWatchList}>
+              Add to watchlist
+            </AddToWatchListButton>
           </DetailPageContainer>
         </StyledDetailsPage>
       </main>
