@@ -1,27 +1,13 @@
-import {useState} from 'react';
 import {useParams} from 'react-router-dom';
 import styled from 'styled-components';
 
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 
-export default function DetailsPage({moviesData}) {
-  const [watchList, setWatchList] = useState([]);
-
+export default function DetailsPage({moviesData, watchtList, setWatchList}) {
   const {id} = useParams();
   const thisMovie = moviesData.find(movie => movie.id === Number(id));
   const posterPath = 'https://image.tmdb.org/t/p/w500';
-
-  function handleAddWatchlist() {
-    const addedMovies = [...watchList, thisMovie];
-    setWatchList(addedMovies);
-    saveToLocalStorage(addedMovies);
-    console.log(addedMovies);
-  }
-
-  function saveToLocalStorage(addedMovies) {
-    window.localStorage.setItem('movme-app', JSON.stringify(addedMovies));
-  }
 
   return (
     <>
@@ -40,9 +26,7 @@ export default function DetailsPage({moviesData}) {
           <DetailPageContainer>
             <MovieDetailPosterImageDetail src={`${posterPath}${thisMovie.poster_path}`} alt="" />
             <DetailsPageOverview>{thisMovie.overview}</DetailsPageOverview>
-            <AddToWatchListButton type="button" onClick={handleAddWatchlist}>
-              Add to watchlist
-            </AddToWatchListButton>
+            <AddToWatchListButton type="button">Add to watchlist</AddToWatchListButton>
           </DetailPageContainer>
         </StyledDetailsPage>
       </main>

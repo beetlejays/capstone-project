@@ -2,6 +2,7 @@ import './App.css';
 import {useEffect, useState} from 'react';
 import {Routes, Route} from 'react-router-dom';
 
+import useLocalStorage from './hooks/useLocalStorage';
 import DetailsPage from './pages/DetailsPage';
 import Home from './pages/Home';
 import Search from './pages/Search';
@@ -16,6 +17,10 @@ function App() {
 
   const [search, setSearch] = useState('');
   const [fetchMovies, setFetchMovies] = useState([]);
+
+  //////////////////////////// use local
+
+  ////////////////////////////  end local
 
   async function fetchMovieData() {
     setError(null);
@@ -68,7 +73,7 @@ function App() {
         <Route path="/:id" element={<DetailsPage moviesData={moviesData} />} />
         <Route path="/search" element={<Search fetchMovies={fetchMovies} search={search} setSearch={setSearch} />} />
         <Route path="/search/:id" element={<DetailsPage moviesData={fetchMovies} />} />
-        <Route path="/watchlist" element={<Watchlist />} />
+        <Route path="/watchlist" />
       </Routes>
     </>
   );
