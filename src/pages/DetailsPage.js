@@ -5,7 +5,7 @@ import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import WatchListButton from '../components/WatchListButton/WatchListButton';
 
-export default function DetailsPage({moviesData, onAddToWatchList}) {
+export default function DetailsPage({moviesData, onAddToWatchList, buttonText}) {
   const {id} = useParams();
   const thisMovie = moviesData.find(movie => movie.id === Number(id));
   const posterPath = 'https://image.tmdb.org/t/p/w500';
@@ -28,11 +28,7 @@ export default function DetailsPage({moviesData, onAddToWatchList}) {
             <MovieDetailPosterImageDetail src={`${posterPath}${thisMovie.poster_path}`} alt="" />
             <DetailsPageOverview>{thisMovie.overview}</DetailsPageOverview>
 
-            <AddToWatchListButton type="button" onClick={() => onAddToWatchList(thisMovie)}>
-              Add to watchlist
-            </AddToWatchListButton>
-
-            <WatchListButton onClick={() => onAddToWatchList(thisMovie)} />
+            <WatchListButton buttonText="Add to watchlist" onClick={() => onAddToWatchList(thisMovie)} />
           </DetailPageContainer>
         </StyledDetailsPage>
       </StyledDetailsPageMain>
@@ -96,23 +92,4 @@ const MovieDetailPosterImage = styled.img`
 const MovieDetailPoster = styled.main`
   max-width: 800px;
   margin: auto;
-`;
-
-const AddToWatchListButton = styled.button`
-  background-color: #3083dc;
-  width: 100%;
-  border-radius: 4px;
-  border: none;
-  color: white;
-  font-size: 1.4rem;
-  padding: 1rem 0;
-  cursor: pointer;
-  transition: 0.3s;
-  &:hover {
-    background: #2762a1;
-  }
-  &:active {
-    background: #ccc;
-    color: #3083dc;
-  }
 `;

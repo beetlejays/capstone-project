@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-export default function WatchListButton({onClick}) {
+export default function WatchListButton({onClick, buttonText}) {
   return (
     <AddToWatchListButton type="button" onClick={onClick}>
-      watchlist
+      {buttonText}
     </AddToWatchListButton>
   );
 }
