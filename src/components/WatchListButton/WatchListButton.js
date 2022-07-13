@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export default function WatchListButton(handleAddWatchlist) {
+export default function WatchListButton({handleAddWatchlist}) {
   return (
     <AddToWatchListButton type="button" handleAddWatchlist={handleAddWatchlist}>
       Add to watchlist

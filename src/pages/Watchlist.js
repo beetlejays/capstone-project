@@ -3,12 +3,17 @@ import styled from 'styled-components';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 
-export default function Watchlist() {
+export default function Watchlist({watchlist}) {
   return (
     <>
       <Header />
       <MainContainer>
         <WatchlistHeadline>There are currently no movies in your watchlist</WatchlistHeadline>
+        <div>
+          {watchlist.map(addedMovies => (
+            <div key={addedMovies.id}>{addedMovies.title}</div>
+          ))}
+        </div>
       </MainContainer>
 
       <Footer />
