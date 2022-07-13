@@ -18,7 +18,7 @@ export default function DetailsPage({moviesData, onAddToWatchList}) {
         <Header displayBackButton={true} />
       </div>
 
-      <main>
+      <StyledDetailsPageMain>
         <StyledDetailsPage>
           <DetailsPageHeadline>{thisMovie.title}</DetailsPageHeadline>
           <ReleaseDate>Release: {thisMovie.release_date ? thisMovie.release_date : 'not available'}</ReleaseDate>
@@ -31,11 +31,18 @@ export default function DetailsPage({moviesData, onAddToWatchList}) {
             </AddToWatchListButton>
           </DetailPageContainer>
         </StyledDetailsPage>
-      </main>
+      </StyledDetailsPageMain>
+
       <Footer />
     </>
   );
 }
+
+const StyledDetailsPageMain = styled.main`
+  width: 100%;
+  margin: auto;
+  background: #323232;
+`;
 
 const ReleaseDate = styled.span`
   font-size: 1rem;
@@ -99,5 +106,9 @@ const AddToWatchListButton = styled.button`
   transition: 0.3s;
   &:hover {
     background: #2762a1;
+  }
+  &:active {
+    background: #ccc;
+    color: #3083dc;
   }
 `;

@@ -23,7 +23,6 @@ function App() {
 
   function addToWatchList(movie) {
     setWatchList([...watchlist, movie]);
-    console.log(watchlist);
   }
 
   ////////////////////////////  end add watchlist
