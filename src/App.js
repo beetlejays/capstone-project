@@ -20,8 +20,10 @@ function App() {
   //////////////////////////// start add watchlist
 
   const [watchlist, setWatchList] = useState([]);
+  const [isActive, setIsActive] = useState(true);
 
   function addToWatchList(movie) {
+    setIsActive(!isActive);
     setWatchList([...watchlist, movie]);
   }
 
@@ -75,11 +77,14 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Home moviesData={moviesData} error={error} />} />
-        <Route path="/:id" element={<DetailsPage moviesData={moviesData} onAddToWatchList={addToWatchList} />} />
+        <Route
+          path="/:id"
+          element={<DetailsPage moviesData={moviesData} onAddToWatchList={addToWatchList} isActive={isActive} />}
+        />
         <Route path="/search" element={<Search fetchMovies={fetchMovies} search={search} setSearch={setSearch} />} />
         <Route
           path="/search/:id"
-          element={<DetailsPage moviesData={fetchMovies} onAddToWatchList={addToWatchList} />}
+          element={<DetailsPage moviesData={fetchMovies} onAddToWatchList={addToWatchList} isActive={isActive} />}
         />
         <Route path="/watchlist" element={<Watchlist watchlist={watchlist} moviesData={fetchMovies} />} />
       </Routes>

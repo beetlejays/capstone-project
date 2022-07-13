@@ -5,7 +5,7 @@ import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import WatchListButton from '../components/WatchListButton/WatchListButton';
 
-export default function DetailsPage({moviesData, onAddToWatchList, buttonText}) {
+export default function DetailsPage({moviesData, onAddToWatchList, isActive}) {
   const {id} = useParams();
   const thisMovie = moviesData.find(movie => movie.id === Number(id));
   const posterPath = 'https://image.tmdb.org/t/p/w500';
@@ -28,7 +28,10 @@ export default function DetailsPage({moviesData, onAddToWatchList, buttonText}) 
             <MovieDetailPosterImageDetail src={`${posterPath}${thisMovie.poster_path}`} alt="" />
             <DetailsPageOverview>{thisMovie.overview}</DetailsPageOverview>
 
-            <WatchListButton buttonText="Add to watchlist" onClick={() => onAddToWatchList(thisMovie)} />
+            <WatchListButton
+              buttonText={isActive ? 'Add to watchlist' : 'Remove from watchlist'}
+              onClick={() => onAddToWatchList(thisMovie)}
+            />
           </DetailPageContainer>
         </StyledDetailsPage>
       </StyledDetailsPageMain>
