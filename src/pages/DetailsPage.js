@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
+import WatchListButton from '../components/WatchListButton/WatchListButton';
 
 export default function DetailsPage({moviesData, onAddToWatchList}) {
   const {id} = useParams();
@@ -26,9 +27,12 @@ export default function DetailsPage({moviesData, onAddToWatchList}) {
           <DetailPageContainer>
             <MovieDetailPosterImageDetail src={`${posterPath}${thisMovie.poster_path}`} alt="" />
             <DetailsPageOverview>{thisMovie.overview}</DetailsPageOverview>
+
             <AddToWatchListButton type="button" onClick={() => onAddToWatchList(thisMovie)}>
               Add to watchlist
             </AddToWatchListButton>
+
+            <WatchListButton onClick={() => onAddToWatchList(thisMovie)} />
           </DetailPageContainer>
         </StyledDetailsPage>
       </StyledDetailsPageMain>

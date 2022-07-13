@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-export default function WatchListButton({handleAddWatchlist}) {
+export default function WatchListButton({onClick}) {
   return (
-    <AddToWatchListButton type="button" handleAddWatchlist={handleAddWatchlist}>
-      Add to watchlist
+    <AddToWatchListButton type="button" onClick={onClick}>
+      watchlist
     </AddToWatchListButton>
   );
 }
@@ -20,5 +20,9 @@ const AddToWatchListButton = styled.button`
   transition: 0.3s;
   &:hover {
     background: #2762a1;
+  }
+  &:active {
+    background: #ccc;
+    color: #3083dc;
   }
 `;
