@@ -8,14 +8,20 @@ import Header from '../components/Header/Header';
 export default function DetailsPage({moviesData}) {
   const [watchList, setWatchList] = useState([]);
 
-  function handleAddWatchlist(thisMovie) {
-    const addedMovies = [...watchList, thisMovie];
-    setWatchList(addedMovies);
-  }
-
   const {id} = useParams();
   const thisMovie = moviesData.find(movie => movie.id === Number(id));
   const posterPath = 'https://image.tmdb.org/t/p/w500';
+
+  function handleAddWatchlist() {
+    const addedMovies = [...watchList, thisMovie];
+    setWatchList(addedMovies);
+    saveToLocalStorage(addedMovies);
+    console.log(addedMovies);
+  }
+
+  function saveToLocalStorage(addedMovies) {
+    window.localStorage.setItem('movme-app', JSON.stringify(addedMovies));
+  }
 
   return (
     <>
