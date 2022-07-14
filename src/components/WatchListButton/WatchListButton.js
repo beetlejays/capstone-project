@@ -14,7 +14,7 @@ const AddToWatchListButton = styled.button`
   border-radius: 4px;
   border: none;
   color: white;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   padding: 1rem 0;
   cursor: pointer;
   transition: 0.3s;
@@ -23,7 +23,7 @@ const AddToWatchListButton = styled.button`
     background: #2762a1;
   }
   &:active {
-    background: #ccc;
+    background: orange;
     color: #3083dc;
   }
 `;
