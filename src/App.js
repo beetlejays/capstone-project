@@ -24,7 +24,12 @@ function App() {
 
   function addToWatchList(movie) {
     setIsActive(!isActive);
-    setWatchList([...watchlist, movie]);
+
+    if (watchlist.includes(movie)) {
+      alert('sorry, already in watchlist');
+    } else {
+      setWatchList([...watchlist, movie]);
+    }
   }
 
   ////////////////////////////  end add watchlist
