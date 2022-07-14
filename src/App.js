@@ -1,5 +1,6 @@
 import './App.css';
 import {useEffect, useState} from 'react';
+import Modal from 'react-modal';
 import {Routes, Route} from 'react-router-dom';
 
 import DetailsPage from './pages/DetailsPage';
@@ -7,6 +8,7 @@ import Home from './pages/Home';
 import Search from './pages/Search';
 import Watchlist from './pages/Watchlist';
 
+Modal.setAppElement('#root');
 function App() {
   const API_KEY = process.env.REACT_APP_API_KEY;
   const url = 'https://api.themoviedb.org/3/movie/';
@@ -21,12 +23,13 @@ function App() {
 
   const [watchlist, setWatchList] = useState([]);
   const [isActive, setIsActive] = useState(true);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   function addToWatchList(movie) {
     setIsActive(!isActive);
 
     if (watchlist.includes(movie)) {
-      alert('sorry, already in watchlist');
+      setModalIsOpen(true);
     } else {
       setWatchList([...watchlist, movie]);
     }
@@ -84,12 +87,28 @@ function App() {
         <Route path="/" element={<Home moviesData={moviesData} error={error} />} />
         <Route
           path="/:id"
-          element={<DetailsPage moviesData={moviesData} onAddToWatchList={addToWatchList} isActive={isActive} />}
+          element={
+            <DetailsPage
+              moviesData={moviesData}
+              onAddToWatchList={addToWatchList}
+              isActive={isActive}
+              modalIsOpen={modalIsOpen}
+              setModalIsOpen={setModalIsOpen}
+            />
+          }
         />
         <Route path="/search" element={<Search fetchMovies={fetchMovies} search={search} setSearch={setSearch} />} />
         <Route
           path="/search/:id"
-          element={<DetailsPage moviesData={fetchMovies} onAddToWatchList={addToWatchList} isActive={isActive} />}
+          element={
+            <DetailsPage
+              moviesData={fetchMovies}
+              onAddToWatchList={addToWatchList}
+              isActive={isActive}
+              modalIsOpen={modalIsOpen}
+              setModalIsOpen={setModalIsOpen}
+            />
+          }
         />
         <Route path="/watchlist" element={<Watchlist watchlist={watchlist} moviesData={fetchMovies} />} />
       </Routes>
