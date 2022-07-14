@@ -6,7 +6,7 @@ import Header from '../components/Header/Header';
 export default function Watchlist({watchlist}) {
   return (
     <>
-      <Header />
+      <Header displayBackButton={true} />
 
       <MainContainer>
         <div>

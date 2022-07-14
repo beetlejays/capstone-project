@@ -24,7 +24,7 @@ const AddToWatchListButton = styled.button`
     transform: translateX(7px);
   }
   &:active {
-    background: #2762a1;
-    color: #3083dc;
+    background: #333;
+    color: white;
   }
 `;
