@@ -48,8 +48,8 @@ export default function DetailsPage({moviesData, onAddToWatchList, isActive, mod
             <DetailsPageOverview>{thisMovie.overview}</DetailsPageOverview>
 
             <WatchListButton
-              backgroundColor={isActive ? '#3083de' : 'orange'}
-              buttonText={isActive ? 'Add to watchlist' : 'Remove from watchlist'}
+              backgroundColor={isActive ? 'orange' : '#154980'}
+              buttonText={isActive ? 'Add to watchlist' : 'In watchlist'}
               onClick={() => onAddToWatchList(thisMovie)}
             />
           </DetailPageContainer>
