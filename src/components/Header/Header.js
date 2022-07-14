@@ -41,4 +41,5 @@ const HeaderContainer = styled.div`
 
 const Logo = styled.img`
   height: 25px;
+  cursor: pointer;
 `;

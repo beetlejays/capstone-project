@@ -2,7 +2,6 @@ import {useNavigate} from 'react-router-dom';
 import styled from 'styled-components';
 
 import {ReactComponent as BackButtonImage} from '../../assets/blue-arrow.svg';
-import LeftArrow from '../LeftArrow/LeftArrow';
 
 export default function BackButton({hotpink}) {
   const navigate = useNavigate();
@@ -10,7 +9,6 @@ export default function BackButton({hotpink}) {
     <>
       <PreviousPageButton onClick={() => navigate(-1)}>
         <BackButtonImage />
-        <LeftArrow fill="hotpink" />
       </PreviousPageButton>
     </>
   );
@@ -23,4 +21,9 @@ const PreviousPageButton = styled.button`
   cursor: pointer;
   position: absolute;
   left: 20px;
+  transition: 0.3s;
+  &:hover {
+    transform: translateX(-8px);
+    filter: invert;
+  }
 `;

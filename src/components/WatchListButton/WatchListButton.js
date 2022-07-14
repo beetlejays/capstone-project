@@ -20,10 +20,11 @@ const AddToWatchListButton = styled.button`
   transition: 0.3s;
 
   &:hover {
-    background: #2762a1;
+    background: orange;
+    transform: translateX(7px);
   }
   &:active {
-    background: orange;
+    background: #2762a1;
     color: #3083dc;
   }
 `;
