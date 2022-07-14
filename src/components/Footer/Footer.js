@@ -61,6 +61,7 @@ const FooterIconSearchText = styled.button`
   cursor: pointer;
   &:hover {
     color: #ccc;
+    padding-bottom: 8px;
   }
 `;
 

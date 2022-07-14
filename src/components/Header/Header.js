@@ -42,4 +42,8 @@ const HeaderContainer = styled.div`
 const Logo = styled.img`
   height: 25px;
   cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    transform: translateY(-5px);
+  }
 `;
