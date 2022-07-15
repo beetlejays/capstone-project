@@ -107,6 +107,7 @@ function App() {
               isActive={isActive}
               modalIsOpen={modalIsOpen}
               setModalIsOpen={setModalIsOpen}
+              watchlist={watchlist}
             />
           }
         />
