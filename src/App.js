@@ -89,6 +89,7 @@ function App() {
           path="/:id"
           element={
             <DetailsPage
+              watchlist={watchlist}
               moviesData={moviesData}
               onAddToWatchList={addToWatchList}
               isActive={isActive}

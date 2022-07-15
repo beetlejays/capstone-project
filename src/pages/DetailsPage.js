@@ -48,9 +48,9 @@ export default function DetailsPage({moviesData, onAddToWatchList, isActive, mod
             <DetailsPageOverview>{thisMovie.overview}</DetailsPageOverview>
 
             {watchlist.includes(thisMovie.id) ? (
-              <WatchListButton buttonText={'In watchlist'} onClick={() => onAddToWatchList(thisMovie)} />
+              <WatchListButton buttonText={'Remove from watchlist'} onClick={() => onAddToWatchList(thisMovie)} />
             ) : (
-              <WatchListButton buttonText={'Add to watchlist'} onClick={() => onAddToWatchList(thisMovie)} />
+              <WatchListButton buttonText={'Add to watchlist'} />
             )}
           </DetailPageContainer>
         </StyledDetailsPage>
