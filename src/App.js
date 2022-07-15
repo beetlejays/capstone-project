@@ -16,6 +16,12 @@ function App() {
   const [moviesData, setMoviesData] = useState([]);
   const [error, setError] = useState(null);
 
+  //////////////////////////// start loader
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  //////////////////////////// start search
+
   const [search, setSearch] = useState('');
   const [fetchMovies, setFetchMovies] = useState([]);
 
@@ -51,6 +57,7 @@ function App() {
   }
 
   useEffect(() => {
+    setIsLoading(true);
     fetchMovieData();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -80,6 +87,7 @@ function App() {
 
   return (
     <>
+      {isLoading && <div>... Please wait, loading data...</div>}
       <Routes>
         <Route path="/" element={<Home moviesData={moviesData} error={error} />} />
         <Route

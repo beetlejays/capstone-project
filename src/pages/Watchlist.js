@@ -43,6 +43,8 @@ const DeleteButton = styled.button`
   border-radius: 8px;
   font-size: 1rem;
   transition: 0.3s;
+  margin-left: auto;
+
   &:hover {
     background: #ccc;
     color: #3083dc;
@@ -60,7 +62,6 @@ const MovieTitle = styled.p`
 const MovieRow = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
   img {
     width: 80px;
     height: auto;
