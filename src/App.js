@@ -91,7 +91,10 @@ function App() {
           path="/search/:id"
           element={<DetailsPage moviesData={fetchMovies} onAddToWatchList={addToWatchList} watchlist={watchlist} />}
         />
-        <Route path="/watchlist" element={<Watchlist watchlist={watchlist} moviesData={fetchMovies} />} />
+        <Route
+          path="/watchlist"
+          element={<Watchlist watchlist={watchlist} moviesData={fetchMovies} onAddToWatchList={addToWatchList} />}
+        />
       </Routes>
     </>
   );
