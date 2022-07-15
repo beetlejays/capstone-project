@@ -22,14 +22,11 @@ function App() {
   //////////////////////////// start add watchlist
 
   const [watchlist, setWatchList] = useState([]);
-  const [isActive, setIsActive] = useState(true);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  function addToWatchList(movie) {
-    setIsActive(!isActive);
-
-    if (watchlist.includes(movie)) {
-      setModalIsOpen(true);
+  function addToWatchList(movie, id) {
+    if (watchlist.includes(movie, id)) {
+      const newList = watchlist.filter(movieItem => movieItem.id !== id);
+      setWatchList(newList);
     } else {
       setWatchList([...watchlist, movie]);
     }
@@ -87,30 +84,12 @@ function App() {
         <Route path="/" element={<Home moviesData={moviesData} error={error} />} />
         <Route
           path="/:id"
-          element={
-            <DetailsPage
-              watchlist={watchlist}
-              moviesData={moviesData}
-              onAddToWatchList={addToWatchList}
-              isActive={isActive}
-              modalIsOpen={modalIsOpen}
-              setModalIsOpen={setModalIsOpen}
-            />
-          }
+          element={<DetailsPage watchlist={watchlist} moviesData={moviesData} onAddToWatchList={addToWatchList} />}
         />
         <Route path="/search" element={<Search fetchMovies={fetchMovies} search={search} setSearch={setSearch} />} />
         <Route
           path="/search/:id"
-          element={
-            <DetailsPage
-              moviesData={fetchMovies}
-              onAddToWatchList={addToWatchList}
-              isActive={isActive}
-              modalIsOpen={modalIsOpen}
-              setModalIsOpen={setModalIsOpen}
-              watchlist={watchlist}
-            />
-          }
+          element={<DetailsPage moviesData={fetchMovies} onAddToWatchList={addToWatchList} watchlist={watchlist} />}
         />
         <Route path="/watchlist" element={<Watchlist watchlist={watchlist} moviesData={fetchMovies} />} />
       </Routes>

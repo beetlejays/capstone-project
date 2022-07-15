@@ -1,4 +1,3 @@
-import Modal from 'react-modal';
 import {useParams} from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -6,22 +5,10 @@ import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import WatchListButton from '../components/WatchListButton/WatchListButton';
 
-export default function DetailsPage({moviesData, onAddToWatchList, isActive, modalIsOpen, setModalIsOpen, watchlist}) {
+export default function DetailsPage({moviesData, onAddToWatchList, watchlist}) {
   const {id} = useParams();
   const thisMovie = moviesData.find(movie => movie.id === Number(id));
   const posterPath = 'https://image.tmdb.org/t/p/w500';
-
-  const modalStyles = {
-    content: {
-      top: '50%',
-      left: '50%',
-      right: 'auto',
-      bottom: 'auto',
-      marginRight: '-50%',
-      transform: 'translate(-50%, -50%)',
-      borderRadius: '8px',
-    },
-  };
 
   return (
     <>
@@ -34,12 +21,6 @@ export default function DetailsPage({moviesData, onAddToWatchList, isActive, mod
 
       <StyledDetailsPageMain>
         <StyledDetailsPage>
-          <Modal style={modalStyles} isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
-            <p>Ooops!</p>
-            <p>Your movie appears to be already in your watchlist.</p>
-            <button onClick={() => setModalIsOpen(false)}>Close</button>
-          </Modal>
-
           <DetailsPageHeadline>{thisMovie.title}</DetailsPageHeadline>
           <ReleaseDate>Release: {thisMovie.release_date ? thisMovie.release_date : 'not available'}</ReleaseDate>
 
@@ -47,11 +28,20 @@ export default function DetailsPage({moviesData, onAddToWatchList, isActive, mod
             <MovieDetailPosterImageDetail src={`${posterPath}${thisMovie.poster_path}`} alt="" />
             <DetailsPageOverview>{thisMovie.overview}</DetailsPageOverview>
 
-            {watchlist.includes(thisMovie.id) ? (
-              <WatchListButton buttonText={'Remove from watchlist'} onClick={() => onAddToWatchList(thisMovie)} />
+            {moviesData.includes(thisMovie.id) ? (
+              <WatchListButton
+                backgroundColor="#3083dc"
+                buttonText={'Remove from watchlist'}
+                onClick={() => onAddToWatchList(thisMovie.id)}
+              />
             ) : (
-              <WatchListButton buttonText={'Add to watchlist'} />
+              <WatchListButton
+                backgroundColor="#999"
+                buttonText={'Add to watchlist'}
+                onClick={() => onAddToWatchList(thisMovie)}
+              />
             )}
+            {console.log(thisMovie.id)}
           </DetailPageContainer>
         </StyledDetailsPage>
       </StyledDetailsPageMain>
