@@ -23,9 +23,9 @@ function App() {
 
   const [watchlist, setWatchList] = useState([]);
 
-  function addToWatchList(movie, id) {
-    if (watchlist.includes(movie, id)) {
-      const newList = watchlist.filter(movieItem => movieItem.id !== id);
+  function addToWatchList(movie) {
+    if (watchlist.includes(movie)) {
+      const newList = watchlist.filter(movieItem => movieItem.id !== movie.id);
       setWatchList(newList);
     } else {
       setWatchList([...watchlist, movie]);
