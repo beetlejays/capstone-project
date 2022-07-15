@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import defaultPoster from '../assets/default-movie-poster.jpg';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 
@@ -15,7 +16,12 @@ export default function Watchlist({watchlist}) {
           ) : (
             watchlist.map(addedMovies => (
               <MovieRow key={addedMovies.id}>
-                <img src={`https://image.tmdb.org/t/p/w300/${addedMovies.poster_path}`} alt={addedMovies.title} />
+                {addedMovies.poster_path ? (
+                  <img src={`https://image.tmdb.org/t/p/w300/${addedMovies.poster_path}`} alt={addedMovies.title} />
+                ) : (
+                  <img src={defaultPoster} alt={addedMovies.title} />
+                )}
+
                 <MovieTitle>{addedMovies.title}</MovieTitle>
               </MovieRow>
             ))
