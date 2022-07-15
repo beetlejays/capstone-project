@@ -1,6 +1,8 @@
 import {useParams} from 'react-router-dom';
 import styled from 'styled-components';
 
+import defaultPosterBackdrop from '../assets/default-movie-backdrop.jpg';
+import defaultMoviePoster from '../assets/default-movie-poster.jpg';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import WatchListButton from '../components/WatchListButton/WatchListButton';
@@ -13,7 +15,11 @@ export default function DetailsPage({moviesData, onAddToWatchList, watchlist}) {
   return (
     <>
       <MovieDetailPoster>
-        <MovieDetailPosterImage src={`${posterPath}${thisMovie.backdrop_path}`} alt="" />
+        {thisMovie.backdrop_path ? (
+          <MovieDetailPosterImage src={`${posterPath}${thisMovie.backdrop_path}`} alt="" />
+        ) : (
+          <MovieDetailPosterImage src={defaultPosterBackdrop} alt="" />
+        )}
       </MovieDetailPoster>
       <div>
         <Header displayBackButton={true} />
@@ -25,7 +31,11 @@ export default function DetailsPage({moviesData, onAddToWatchList, watchlist}) {
           <ReleaseDate>Release: {thisMovie.release_date ? thisMovie.release_date : 'not available'}</ReleaseDate>
 
           <DetailPageContainer>
-            <MovieDetailPosterImageDetail src={`${posterPath}${thisMovie.poster_path}`} alt="" />
+            {thisMovie.poster_path ? (
+              <MovieDetailPosterImageDetail src={`${posterPath}${thisMovie.poster_path}`} alt="" />
+            ) : (
+              <MovieDetailPosterImageDetail src={defaultMoviePoster} alt="" />
+            )}
             <DetailsPageOverview>{thisMovie.overview}</DetailsPageOverview>
 
             {watchlist.includes(thisMovie) ? (
