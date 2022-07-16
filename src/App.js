@@ -3,6 +3,7 @@ import {useEffect, useState} from 'react';
 import {Routes, Route} from 'react-router-dom';
 
 import Loader from './components/Loader/Loader';
+import useLocalStorage from './hooks/useLocalStorage';
 import DetailsPage from './pages/DetailsPage';
 import Home from './pages/Home';
 import Search from './pages/Search';
@@ -14,19 +15,10 @@ function App() {
 
   const [moviesData, setMoviesData] = useState([]);
   const [error, setError] = useState(null);
-
-  //////////////////////////// start loader
-
   const [isLoading, setIsLoading] = useState(false);
-
-  //////////////////////////// start search
-
   const [search, setSearch] = useState('');
   const [fetchMovies, setFetchMovies] = useState([]);
-
-  //////////////////////////// start add watchlist
-
-  const [watchlist, setWatchList] = useState([]);
+  const [watchlist, setWatchList] = useLocalStorage('mov.me watchlist', 'watchlist');
 
   function addToWatchList(movie) {
     if (watchlist.includes(movie)) {
@@ -37,18 +29,16 @@ function App() {
     }
   }
 
-  ////////////////////////////  end add watchlist
-
   async function fetchMovieData() {
     setError(null);
-    setIsLoading(true); // Loader
+    setIsLoading(true);
     try {
       const response = await fetch(`${url}popular?api_key=${API_KEY}`);
 
       if (response.ok) {
         const fetchedMovieData = await response.json();
         setMoviesData(fetchedMovieData.results);
-        setIsLoading(false); // Loader
+        setIsLoading(false);
       } else {
         setError(new Error());
       }
@@ -58,7 +48,7 @@ function App() {
   }
 
   useEffect(() => {
-    setIsLoading(true); // Loader
+    setIsLoading(true);
     fetchMovieData();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 

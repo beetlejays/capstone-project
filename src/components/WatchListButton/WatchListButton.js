@@ -16,12 +16,12 @@ const AddToWatchListButton = styled.button`
   color: white;
   font-size: 1.2rem;
   padding: 1rem 0;
-  cursor: pointer;
   transition: 0.3s;
 
   &:hover {
     background: orange;
     transform: translateX(7px);
+    cursor: pointer;
   }
   &:active {
     background: #999;
