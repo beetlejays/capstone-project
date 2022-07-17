@@ -10,24 +10,18 @@ export default function Watchlist({watchlist, onAddToWatchList}) {
       <Header displayBackButton={true} />
 
       <MainContainer>
-        <div>
-          {watchlist.length === 0 ? (
-            <WatchlistHeadline>There are currently no movies in your watchlist</WatchlistHeadline>
-          ) : (
-            watchlist.map(addedMovies => (
-              <MovieRow key={addedMovies.id}>
-                {addedMovies.poster_path ? (
-                  <img src={`https://image.tmdb.org/t/p/w300/${addedMovies.poster_path}`} alt={addedMovies.title} />
-                ) : (
-                  <img src={defaultPoster} alt={addedMovies.title} />
-                )}
+        {watchlist.length === 0 && (
+          <WatchlistHeadline>There are currently no movies in your watchlist</WatchlistHeadline>
+        )}
 
-                <MovieTitle>{addedMovies.title}</MovieTitle>
-                <DeleteButton onClick={() => onAddToWatchList(addedMovies)}>delete</DeleteButton>
-              </MovieRow>
-            ))
-          )}
-        </div>
+        {watchlist.map(addedMovies => (
+          <MovieRow key={addedMovies.id}>
+            {<img src={`https://image.tmdb.org/t/p/w300/${addedMovies.poster_path}`} alt={addedMovies.title} />}
+
+            <MovieTitle>{addedMovies.title}</MovieTitle>
+            <DeleteButton onClick={() => onAddToWatchList(addedMovies)}>delete</DeleteButton>
+          </MovieRow>
+        ))}
       </MainContainer>
 
       <Footer />

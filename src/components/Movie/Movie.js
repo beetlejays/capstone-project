@@ -64,6 +64,7 @@ const MovieTitle = styled.h3`
 
 const MoviePosterImage = styled.img`
   transition: 0.3s;
+  cursor: pointer;
   &:hover {
     transform: scale(1.05);
   }

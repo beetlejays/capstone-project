@@ -33,8 +33,6 @@ export default function DetailsPage({moviesData, onAddToWatchList, watchlist}) {
             Language: {thisMovie.original_language ? thisMovie.original_language : 'not available'}
           </ReleaseDate>
 
-          <ReleaseDate>Runtime: {parseInt(thisMovie.runtime)}</ReleaseDate>
-
           <DetailPageContainer>
             {thisMovie.poster_path ? (
               <MovieDetailPosterImageDetail src={`${posterPath}${thisMovie.poster_path}`} alt="" />
