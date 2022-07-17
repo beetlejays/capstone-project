@@ -67,6 +67,7 @@ const MoviePosterImage = styled.img`
   width: 100%;
   height: auto;
   cursor: pointer;
+  border-radius: 4px;
   &:hover {
     transform: scale(1.05);
   }

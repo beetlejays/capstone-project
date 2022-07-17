@@ -12,6 +12,19 @@ export default function DetailsPage({moviesData, onAddToWatchList, watchlist}) {
   const thisMovie = moviesData.find(movie => movie.id === Number(id));
   const posterPath = 'https://image.tmdb.org/t/p/w500';
 
+  const url = 'https://api.themoviedb.org/3/movie/';
+
+  const API_KEY = process.env.REACT_APP_API_KEY;
+  const urlPath = `${url}${id}?api_key=${API_KEY}`;
+
+  async function fetchSingleMovieData() {
+    const fetchSingleMovieData = await fetch(urlPath);
+    const response = await fetchSingleMovieData.json();
+    console.log(response);
+  }
+
+  fetchSingleMovieData();
+
   return (
     <>
       <MovieDetailPoster>
@@ -105,6 +118,7 @@ const StyledDetailsPage = styled.div`
 const MovieDetailPosterImageDetail = styled.img`
   max-width: 100%;
   width: 200px;
+  border-radius: 4px;
 `;
 
 const MovieDetailPosterImage = styled.img`
@@ -112,6 +126,7 @@ const MovieDetailPosterImage = styled.img`
   width: 800px;
   margin: auto;
   margin-top: 60px;
+  border-radius: 4px;
 `;
 
 const MovieDetailPoster = styled.main`
