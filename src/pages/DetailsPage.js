@@ -29,6 +29,11 @@ export default function DetailsPage({moviesData, onAddToWatchList, watchlist}) {
         <StyledDetailsPage>
           <DetailsPageHeadline>{thisMovie.title}</DetailsPageHeadline>
           <ReleaseDate>Release: {thisMovie.release_date ? thisMovie.release_date : 'not available'}</ReleaseDate>
+          <ReleaseDate>
+            Language: {thisMovie.original_language ? thisMovie.original_language : 'not available'}
+          </ReleaseDate>
+
+          <ReleaseDate>Runtime: {parseInt(thisMovie.runtime)}</ReleaseDate>
 
           <DetailPageContainer>
             {thisMovie.poster_path ? (

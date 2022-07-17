@@ -60,7 +60,7 @@ function App() {
     async function fetchSearchMovieData() {
       const url = 'https://api.themoviedb.org/3/search/movie?api_key=';
       const response = await fetch(url + API_KEY + '&query=' + search);
-      setIsLoading(true);
+
       try {
         if (response.ok) {
           const fetchedMovieSearch = await response.json();
@@ -71,7 +71,6 @@ function App() {
       } catch (error) {
         setError(new Error('Sorry Data can not be fetched'));
       }
-      setIsLoading(false);
     }
 
     fetchSearchMovieData();
