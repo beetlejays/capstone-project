@@ -16,7 +16,12 @@ export default function Watchlist({watchlist, onAddToWatchList}) {
 
         {watchlist.map(addedMovies => (
           <MovieRow key={addedMovies.id}>
-            {<img src={`https://image.tmdb.org/t/p/w300/${addedMovies.poster_path}`} alt={addedMovies.title} />}
+            {<img src={`https://image.tmdb.org/t/p/w300/${addedMovies.poster_path}`} alt={addedMovies.title} /> ===
+            <img src="https://image.tmdb.org/t/p/w300/null" alt={addedMovies.title} /> ? (
+              <img src={defaultPoster} alt={addedMovies.title} />
+            ) : (
+              <img src={`https://image.tmdb.org/t/p/w300/${addedMovies.poster_path}`} alt={addedMovies.title} />
+            )}
 
             <MovieTitle>{addedMovies.title}</MovieTitle>
             <DeleteButton onClick={() => onAddToWatchList(addedMovies)}>delete</DeleteButton>
