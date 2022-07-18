@@ -50,17 +50,18 @@ const FooterIconContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 0.3rem;
 `;
 
 const FooterIconSearchText = styled.button`
   font-size: 1.2rem;
   color: #3083dc;
-  transition: 0.4s;
   background: transparent;
   border: none;
   cursor: pointer;
+  transition: 0.2s;
   &:hover {
-    color: #ccc;
+    color: orange;
     padding-bottom: 8px;
   }
 `;

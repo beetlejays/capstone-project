@@ -70,10 +70,11 @@ export default function DetailsPage({moviesData, onAddToWatchList, watchlist, ge
             Language: {thisMovie.original_language ? thisMovie.original_language : 'not available'}
           </ReleaseDate>
 
-          <ReleaseDate>Runtime: {singleMovie.runtime} Minutes</ReleaseDate>
-          {/*  <ReleaseDate>Runtime: {singleMovie.genres[0].name}</ReleaseDate>*/}
+          {/*  {singleMovie.genres.map(genre => (
+            <p key={genre.id}>{genre?.name}</p>
+          ))} */}
 
-          {Object.keys(singleMovie).map(details => console.log(details.genres))}
+          {/* <p>{singleMovie.genres[0]?.name}</p> */}
 
           <DetailPageContainer>
             {thisMovie.poster_path ? (

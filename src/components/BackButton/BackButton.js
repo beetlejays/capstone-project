@@ -20,6 +20,7 @@ const PreviousPageButton = styled.button`
   background-repeat: no-repeat;
   cursor: pointer;
   position: absolute;
+  padding: 0.5rem;
   left: 20px;
   transition: 0.3s;
   &:hover {

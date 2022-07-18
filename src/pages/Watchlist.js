@@ -55,6 +55,9 @@ const MovieTitle = styled.p`
   font-size: 1.3rem;
   padding-left: 1.5rem;
   color: white;
+  @media (max-width: 410px) {
+    font-size: 1rem;
+  }
 `;
 
 const MovieRow = styled.div`
@@ -76,5 +79,10 @@ const MainContainer = styled.main`
 `;
 
 const WatchlistHeadline = styled.h1`
+  text-align: center;
+  font-size: 2rem;
   color: #3083dc;
+  @media (max-width: 420px) {
+    font-size: 1.4rem;
+  }
 `;
