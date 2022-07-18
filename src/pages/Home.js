@@ -9,6 +9,13 @@ import Movie from '../components/Movie/Movie';
 export default function Home({moviesData, error}) {
   const yearDate = new Date().getFullYear();
 
+  //////////////////// Showcase star
+
+  const posterPath = 'https://image.tmdb.org/t/p/w1280/';
+
+  const url = 'https://api.themoviedb.org/3/movie/';
+  const API_KEY = process.env.REACT_APP_API_KEY;
+
   return (
     <>
       <main>
@@ -21,6 +28,7 @@ export default function Home({moviesData, error}) {
                 <Showcase key={movie.id} to={`/${movie.id}`}>
                   <h1>{movie.title}</h1>
                   <p>{movie.overview}</p>
+                  <img src={`${posterPath}${movie.backdrop_path}`} alt="" />
                 </Showcase>
               ))}
           </DesktopHeaderContainer>
