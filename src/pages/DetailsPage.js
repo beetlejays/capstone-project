@@ -11,7 +11,7 @@ import WatchListButton from '../components/WatchListButton/WatchListButton';
 export default function DetailsPage({moviesData, onAddToWatchList, watchlist, genres}) {
   const {id} = useParams();
   const thisMovie = moviesData.find(movie => movie.id === Number(id));
-  const posterPath = 'https://image.tmdb.org/t/p/w500';
+  const posterPath = 'https://image.tmdb.org/t/p/w1280';
 
   const url = 'https://api.themoviedb.org/3/movie/';
   const API_KEY = process.env.REACT_APP_API_KEY;

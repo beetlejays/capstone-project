@@ -12,6 +12,20 @@ export default function Home({moviesData, error}) {
   return (
     <>
       <main>
+        <DesktopHeader>
+          <DesktopHeaderContainer>
+            {error && <FetchError />}
+
+            {moviesData.length &&
+              moviesData.slice(0, 5).map(movie => (
+                <Showcase key={movie.id} to={`/${movie.id}`}>
+                  <h1>{movie.title}</h1>
+                  <p>{movie.overview}</p>
+                </Showcase>
+              ))}
+          </DesktopHeaderContainer>
+        </DesktopHeader>
+
         <Header displayBackButton={false} />
 
         <IndexHeadingContainer>
@@ -39,6 +53,22 @@ export default function Home({moviesData, error}) {
     </>
   );
 }
+
+const Showcase = styled.div`
+  color: white;
+`;
+
+const DesktopHeaderContainer = styled.div`
+  position: absolute;
+  top: 17rem;
+  left: 5rem;
+`;
+
+const DesktopHeader = styled.div`
+  min-height: 70vh;
+  background-color: #999;
+  position: relative;
+`;
 
 const IndexHeadingContainer = styled.div`
   margin: 100px auto 0 auto;

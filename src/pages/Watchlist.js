@@ -34,7 +34,7 @@ export default function Watchlist({watchlist, onAddToWatchList}) {
 }
 
 const DeleteButton = styled.button`
-  padding: 0.5rem 1rem;
+  padding: 0.3rem 0.8rem;
   color: white;
   background: #3083dc;
   border: none;
@@ -55,7 +55,7 @@ const MovieTitle = styled.p`
   font-size: 1.3rem;
   padding-left: 1.5rem;
   color: white;
-  @media (max-width: 410px) {
+  @media (max-width: 420px) {
     font-size: 1rem;
   }
 `;
@@ -63,6 +63,7 @@ const MovieTitle = styled.p`
 const MovieRow = styled.div`
   display: flex;
   align-items: center;
+  padding-right: 1rem;
   img {
     width: 80px;
     height: auto;
