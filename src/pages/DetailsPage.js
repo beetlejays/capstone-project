@@ -62,6 +62,8 @@ export default function DetailsPage({moviesData, onAddToWatchList, watchlist}) {
             Language: {thisMovie.original_language ? thisMovie.original_language : 'not available'}
           </ReleaseDate>
 
+          <ReleaseDate>Runtime: {thisMovie.runtime ? thisMovie.runtime : 'not available'}</ReleaseDate>
+
           <DetailPageContainer>
             {thisMovie.poster_path ? (
               <MovieDetailPosterImageDetail src={`${posterPath}${thisMovie.poster_path}`} alt="" />
@@ -160,14 +162,14 @@ const MovieDetailPosterImageDetail = styled.img`
 `;
 
 const MovieDetailPosterImage = styled.img`
-  max-width: 100%;
-  width: 800px;
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
   margin: auto;
   margin-top: 60px;
   border-radius: 4px;
 `;
 
 const MovieDetailPoster = styled.main`
-  max-width: 800px;
   margin: auto;
 `;
