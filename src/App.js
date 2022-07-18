@@ -18,7 +18,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [search, setSearch] = useState('');
   const [fetchMovies, setFetchMovies] = useState([]);
-  const [watchlist, setWatchList] = useLocalStorage('mov.me watchlist', 'watchlist');
+  const [watchlist, setWatchList] = useLocalStorage('mov.me watchlist', []);
 
   function addToWatchList(movie) {
     if (watchlist.includes(movie)) {

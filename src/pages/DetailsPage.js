@@ -1,3 +1,4 @@
+import {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -13,17 +14,30 @@ export default function DetailsPage({moviesData, onAddToWatchList, watchlist}) {
   const posterPath = 'https://image.tmdb.org/t/p/w500';
 
   const url = 'https://api.themoviedb.org/3/movie/';
-
   const API_KEY = process.env.REACT_APP_API_KEY;
   const urlPath = `${url}${id}?api_key=${API_KEY}`;
 
+  ////////////////////////// Genre
+
+  const [singleMovie, setSingleMovie] = useState([]);
+
   async function fetchSingleMovieData() {
-    const fetchSingleMovieData = await fetch(urlPath);
-    const response = await fetchSingleMovieData.json();
-    console.log(response);
+    try {
+      const response = await fetch(urlPath);
+      if (response.ok) {
+        const singleMovieData = await response.json();
+        setSingleMovie(singleMovieData);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 
-  fetchSingleMovieData();
+  useEffect(() => {
+    fetchSingleMovieData();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  ////////////////////////// Genre
 
   return (
     <>
@@ -53,6 +67,8 @@ export default function DetailsPage({moviesData, onAddToWatchList, watchlist}) {
               <MovieDetailPosterImageDetail src={defaultMoviePoster} alt="" />
             )}
             <DetailsPageOverview>{thisMovie.overview}</DetailsPageOverview>
+
+            <h2> {singleMovie.runtime} Minutes</h2>
 
             {watchlist.includes(thisMovie) ? (
               <WatchListButton
