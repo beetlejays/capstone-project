@@ -13,21 +13,21 @@ export default function Home({moviesData, error}) {
 
   const posterPath = 'https://image.tmdb.org/t/p/w1280/';
 
-  const url = 'https://api.themoviedb.org/3/movie/';
-  const API_KEY = process.env.REACT_APP_API_KEY;
-
   return (
     <>
       <main>
         <DesktopHeader>
           <DesktopHeaderContainer>
             {error && <FetchError />}
-
             {moviesData.length &&
               moviesData.slice(0, 5).map(movie => (
-                <Showcase key={movie.id} to={`/${movie.id}`}>
-                  <h1>{movie.title}</h1>
-                  <p>{movie.overview}</p>
+                <Showcase key={movie.id}>
+                  <ShowcaseContent>
+                    <h1>{movie.title}</h1>
+                    <p>{movie.overview}</p>
+                    <button>Checkout movie</button>
+                    <button>Watch Trailer</button>
+                  </ShowcaseContent>
                   <img src={`${posterPath}${movie.backdrop_path}`} alt="" />
                 </Showcase>
               ))}
@@ -63,18 +63,41 @@ export default function Home({moviesData, error}) {
 }
 
 const Showcase = styled.div`
+  position: relative;
   color: white;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+  button {
+    cursor: pointer;
+  }
 `;
 
 const DesktopHeaderContainer = styled.div`
+  display: flex;
+  flex-wrap: no-wrap;
+  overflow-x: scroll;
+  width: 100vw;
+  height: 80vh;
+`;
+
+const ShowcaseContent = styled.div`
   position: absolute;
-  top: 17rem;
-  left: 5rem;
+  margin-top: 10rem;
+  margin-left: 5rem;
+  max-width: 600px;
+
+  p {
+    line-height: 1.5;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+  }
 `;
 
 const DesktopHeader = styled.div`
-  min-height: 70vh;
-  background-color: #999;
+  height: 800px;
   position: relative;
 `;
 

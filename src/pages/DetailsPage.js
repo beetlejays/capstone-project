@@ -8,7 +8,7 @@ import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import WatchListButton from '../components/WatchListButton/WatchListButton';
 
-export default function DetailsPage({moviesData, onAddToWatchList, watchlist, genres}) {
+export default function DetailsPage({moviesData, onAddToWatchList, watchlist}) {
   const {id} = useParams();
   const thisMovie = moviesData.find(movie => movie.id === Number(id));
   const posterPath = 'https://image.tmdb.org/t/p/w1280';
@@ -39,15 +39,7 @@ export default function DetailsPage({moviesData, onAddToWatchList, watchlist, ge
 
   ////////////////////////// Genre and Runtime
 
-  /*   let genresMovies = [];
-
-  for (const genres in singleMovie) {
-    genresMovies.push(
-      <p>
-        {genres}: {singleMovie[genres]}
-      </p>
-    );
-  } */
+  const genres = singleMovie?.genres;
 
   return (
     <>
@@ -70,11 +62,12 @@ export default function DetailsPage({moviesData, onAddToWatchList, watchlist, ge
             Language: {thisMovie.original_language ? thisMovie.original_language : 'not available'}
           </ReleaseDate>
 
-          {/*  {singleMovie.genres.map(genre => (
-            <p key={genre.id}>{genre?.name}</p>
-          ))} */}
-
-          {/* <p>{singleMovie.genres[0]?.name}</p> */}
+          {genres?.map(genre => (
+            <ul key={genre.id}>
+              {' '}
+              <li>{genre.name}</li>{' '}
+            </ul>
+          ))}
 
           <DetailPageContainer>
             {thisMovie.poster_path ? (
