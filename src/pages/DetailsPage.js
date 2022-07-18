@@ -8,7 +8,7 @@ import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import WatchListButton from '../components/WatchListButton/WatchListButton';
 
-export default function DetailsPage({moviesData, onAddToWatchList, watchlist}) {
+export default function DetailsPage({moviesData, onAddToWatchList, watchlist, genres}) {
   const {id} = useParams();
   const thisMovie = moviesData.find(movie => movie.id === Number(id));
   const posterPath = 'https://image.tmdb.org/t/p/w500';
@@ -17,7 +17,7 @@ export default function DetailsPage({moviesData, onAddToWatchList, watchlist}) {
   const API_KEY = process.env.REACT_APP_API_KEY;
   const urlPath = `${url}${id}?api_key=${API_KEY}`;
 
-  ////////////////////////// Genre
+  ////////////////////////// Genre and Runtime
 
   const [singleMovie, setSingleMovie] = useState([]);
 
@@ -37,7 +37,17 @@ export default function DetailsPage({moviesData, onAddToWatchList, watchlist}) {
     fetchSingleMovieData();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  ////////////////////////// Genre
+  ////////////////////////// Genre and Runtime
+
+  /*   let genresMovies = [];
+
+  for (const genres in singleMovie) {
+    genresMovies.push(
+      <p>
+        {genres}: {singleMovie[genres]}
+      </p>
+    );
+  } */
 
   return (
     <>
@@ -60,6 +70,11 @@ export default function DetailsPage({moviesData, onAddToWatchList, watchlist}) {
             Language: {thisMovie.original_language ? thisMovie.original_language : 'not available'}
           </ReleaseDate>
 
+          <ReleaseDate>Runtime: {singleMovie.runtime} Minutes</ReleaseDate>
+          {/*  <ReleaseDate>Runtime: {singleMovie.genres[0].name}</ReleaseDate>*/}
+
+          {Object.keys(singleMovie).map(details => console.log(details.genres))}
+
           <DetailPageContainer>
             {thisMovie.poster_path ? (
               <MovieDetailPosterImageDetail src={`${posterPath}${thisMovie.poster_path}`} alt="" />
@@ -67,8 +82,6 @@ export default function DetailsPage({moviesData, onAddToWatchList, watchlist}) {
               <MovieDetailPosterImageDetail src={defaultMoviePoster} alt="" />
             )}
             <DetailsPageOverview>{thisMovie.overview}</DetailsPageOverview>
-
-            <h2> {singleMovie.runtime} Minutes</h2>
 
             {watchlist.includes(thisMovie) ? (
               <WatchListButton
