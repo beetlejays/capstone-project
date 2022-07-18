@@ -16,7 +16,7 @@ export default function Home({moviesData, error}) {
   return (
     <>
       <main>
-        <DesktopHeader>
+        {/*   <DesktopHeader>
           <DesktopHeaderContainer>
             {error && <FetchError />}
             {moviesData.length &&
@@ -32,7 +32,7 @@ export default function Home({moviesData, error}) {
                 </Showcase>
               ))}
           </DesktopHeaderContainer>
-        </DesktopHeader>
+        </DesktopHeader> */}
 
         <Header displayBackButton={false} />
 

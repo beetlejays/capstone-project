@@ -62,21 +62,21 @@ export default function DetailsPage({moviesData, onAddToWatchList, watchlist}) {
             Language: {thisMovie.original_language ? thisMovie.original_language : 'not available'}
           </ReleaseDate>
 
-          {genres?.map(genre => (
-            <ul key={genre.id}>
-              {' '}
-              <li>{genre.name}</li>{' '}
-            </ul>
-          ))}
-
           <DetailPageContainer>
             {thisMovie.poster_path ? (
               <MovieDetailPosterImageDetail src={`${posterPath}${thisMovie.poster_path}`} alt="" />
             ) : (
               <MovieDetailPosterImageDetail src={defaultMoviePoster} alt="" />
             )}
-            <DetailsPageOverview>{thisMovie.overview}</DetailsPageOverview>
 
+            <div>
+              <GenreList>
+                {genres?.map(genre => (
+                  <li key={genre.id}>{genre.name}</li>
+                ))}
+              </GenreList>
+              <DetailsPageOverview>{thisMovie.overview}</DetailsPageOverview>
+            </div>
             {watchlist.includes(thisMovie) ? (
               <WatchListButton
                 backgroundColor="#999"
@@ -98,6 +98,21 @@ export default function DetailsPage({moviesData, onAddToWatchList, watchlist}) {
     </>
   );
 }
+
+const GenreList = styled.ul`
+  padding-bottom: 1rem;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  color: white;
+  font-weight: 600;
+  li {
+    padding: 0.5rem 0.8rem;
+    border-radius: 20px;
+    margin: 0 14px 14px 0;
+    background: #3083dc;
+  }
+`;
 
 const StyledDetailsPageMain = styled.main`
   width: 100%;

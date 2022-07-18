@@ -72,5 +72,6 @@ const MoviePosterImage = styled.img`
   border-radius: 4px;
   &:hover {
     transform: scale(1.05);
+    filter: brightness(50%);
   }
 `;
