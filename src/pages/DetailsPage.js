@@ -17,9 +17,8 @@ export default function DetailsPage({moviesData, onAddToWatchList, watchlist}) {
   const API_KEY = process.env.REACT_APP_API_KEY;
   const urlPath = `${url}${id}?api_key=${API_KEY}`;
 
-  ////////////////////////// Genre and Runtime
-
   const [singleMovie, setSingleMovie] = useState([]);
+  const genres = singleMovie?.genres;
 
   async function fetchSingleMovieData() {
     try {
@@ -36,10 +35,6 @@ export default function DetailsPage({moviesData, onAddToWatchList, watchlist}) {
   useEffect(() => {
     fetchSingleMovieData();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
-  ////////////////////////// Genre and Runtime
-
-  const genres = singleMovie?.genres;
 
   return (
     <>
@@ -61,8 +56,6 @@ export default function DetailsPage({moviesData, onAddToWatchList, watchlist}) {
           <ReleaseDate>
             Language: {thisMovie.original_language ? thisMovie.original_language : 'not available'}
           </ReleaseDate>
-
-          <ReleaseDate>Runtime: {thisMovie.runtime ? thisMovie.runtime : 'not available'}</ReleaseDate>
 
           <DetailPageContainer>
             {thisMovie.poster_path ? (

@@ -16,11 +16,11 @@ export default function Home({moviesData, error}) {
   return (
     <>
       <main>
-        {/*   <DesktopHeader>
+        <DesktopHeader>
           <DesktopHeaderContainer>
             {error && <FetchError />}
             {moviesData.length &&
-              moviesData.slice(0, 5).map(movie => (
+              moviesData.slice(0, 1).map(movie => (
                 <Showcase key={movie.id}>
                   <ShowcaseContent>
                     <h1>{movie.title}</h1>
@@ -32,7 +32,7 @@ export default function Home({moviesData, error}) {
                 </Showcase>
               ))}
           </DesktopHeaderContainer>
-        </DesktopHeader> */}
+        </DesktopHeader>
 
         <Header displayBackButton={false} />
 
@@ -77,8 +77,6 @@ const Showcase = styled.div`
 
 const DesktopHeaderContainer = styled.div`
   display: flex;
-  flex-wrap: no-wrap;
-  overflow-x: scroll;
   width: 100vw;
   height: 80vh;
 `;
