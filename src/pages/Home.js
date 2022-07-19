@@ -26,6 +26,7 @@ export default function Home({moviesData, error}) {
                     <h1>{movie.title}</h1>
                     <p>{movie.overview}</p>
                     <LinkCheckoutMovie to="/search">&raquo; Checkout movies</LinkCheckoutMovie>
+                    <LinkWatchlist to="/search">&raquo; Watchlist</LinkWatchlist>
                   </ShowcaseContent>
                   <img src={`${posterPath}${movie.backdrop_path}`} alt="" />
                 </Showcase>
@@ -67,8 +68,26 @@ const Showcase = styled.div`
 
   img {
     width: 100%;
-    height: auto;
+    height: 600px;
     object-fit: cover;
+  }
+`;
+
+const LinkWatchlist = styled(Link)`
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  background: orange;
+  transition: 0.3s;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-right: 2rem;
+
+  &:hover {
+    background: #2767ab;
+    transform: translateY(100px);
   }
 `;
 
@@ -82,16 +101,13 @@ const LinkCheckoutMovie = styled(Link)`
   transition: 0.3s;
   font-size: 1rem;
   font-weight: 600;
-
+  margin-right: 2rem;
   &:hover {
     background: orange;
-    margin-left: 5px;
   }
 `;
 
-const DesktopHeaderContainer = styled.div`
-  display: flex;
-`;
+const DesktopHeaderContainer = styled.div``;
 
 const ShowcaseContent = styled.div`
   position: absolute;
@@ -107,9 +123,10 @@ const ShowcaseContent = styled.div`
 `;
 
 const DesktopHeader = styled.div`
-  height: 800px;
+  height: 600px;
   position: relative;
   display: block;
+
   @media (max-width: 880px) {
     display: none;
   }
