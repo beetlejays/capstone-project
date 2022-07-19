@@ -85,7 +85,7 @@ export default function DetailsPage({moviesData, onAddToWatchList, watchlist}) {
                 onClick={() => onAddToWatchList(thisMovie)}
               />
             )}
-            <GoToWatchlist to="/watchlist"> &raquo; Go to Watchlist</GoToWatchlist>
+            <GoToWatchlist to="/watchlist"> &raquo; View watchlist</GoToWatchlist>
           </DetailPageContainer>
         </StyledDetailsPage>
       </StyledDetailsPageMain>
@@ -96,18 +96,16 @@ export default function DetailsPage({moviesData, onAddToWatchList, watchlist}) {
 }
 
 const GoToWatchlist = styled(Link)`
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: orange;
   background: #323232;
-  border: 2px solid orange;
-  padding: 0.5rem 0.8rem;
-  border-radius: 8px;
+  align-self: center;
+  font-weight: 500;
   margin-right: auto;
   transition: 0.4s;
   cursor: pointer;
   &:hover {
-    background: orange;
-    color: white;
+    color: #3083dc;
   }
 `;
 
