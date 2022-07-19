@@ -3,11 +3,10 @@ import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 import logo from '../../movme-logo.svg';
-import BackButton from '../BackButton/BackButton';
 import MobileNavigation from '../MobileNavigation/MobileNavigation';
 import Navigation from '../Navigation/Navigation';
 
-export default function Header({displayBackButton}) {
+export default function Header() {
   const [mobileNavActive, setMobileNavActive] = useState(false);
 
   function handleSetMobileNavActive() {
@@ -17,8 +16,6 @@ export default function Header({displayBackButton}) {
   return (
     <StyledHeader>
       <HeaderContainer>
-        {/* {displayBackButton && <BackButton />} */}
-        {/*  <BackButton /> */}
         <Link to="/">
           <Logo src={logo} alt="mov.me" />
         </Link>

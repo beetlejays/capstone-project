@@ -9,9 +9,7 @@ export default function Footer() {
     <StyledFooter>
       <FooterContainer>
         <StyledNavLink to="/credits">
-          <FooterIconContainer>
-            <FooterIconSearchText>Credits</FooterIconSearchText>
-          </FooterIconContainer>
+          <FooterIconContainer>{/*   <FooterIconSearchText>Credits</FooterIconSearchText> */}</FooterIconContainer>
         </StyledNavLink>
       </FooterContainer>
     </StyledFooter>

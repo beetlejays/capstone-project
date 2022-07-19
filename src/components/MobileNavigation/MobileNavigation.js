@@ -21,7 +21,7 @@ const LineOne = styled.span`
 const LineTwo = styled.span`
   background: #3083dc;
   height: 3px;
-  width: 30px;
+  width: 20px;
   display: block;
   margin-bottom: 5px;
 `;

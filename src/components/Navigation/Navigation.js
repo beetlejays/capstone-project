@@ -44,7 +44,7 @@ const Nav = styled.nav`
       right: 0;
       top: 60px;
       height: 100vh;
-      background-color: #666666f2;
+      background-color: #999999ed;
       text-align: center;
     }
   }
