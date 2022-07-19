@@ -11,6 +11,7 @@ export default function Header({displayBackButton}) {
   const [mobileNavActive, setMobileNavActive] = useState(false);
 
   function handleSetMobileNavActive() {
+    console.log('works');
     setMobileNavActive(true);
   }
 
@@ -23,7 +24,7 @@ export default function Header({displayBackButton}) {
           <Logo src={logo} alt="mov.me" />
         </Link>
         {mobileNavActive ? <Navigation /> : null}
-        <MobileNavigation />
+        <MobileNavigation onClick={handleSetMobileNavActive} />
       </HeaderContainer>
     </StyledHeader>
   );
