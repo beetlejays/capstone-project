@@ -130,9 +130,9 @@ const DesktopHeader = styled.div`
   position: relative;
   display: block;
 
-  @media (max-width: 880px) {
+  /*   @media (max-width: 880px) {
     display: none;
-  }
+  } */
 `;
 
 const IndexHeadingContainer = styled.div`

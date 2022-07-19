@@ -4,6 +4,7 @@ import {Routes, Route} from 'react-router-dom';
 
 import Loader from './components/Loader/Loader';
 import useLocalStorage from './hooks/useLocalStorage';
+import Credits from './pages/Credits';
 import DetailsPage from './pages/DetailsPage';
 import Home from './pages/Home';
 import Search from './pages/Search';
@@ -96,6 +97,7 @@ function App() {
             path="/watchlist"
             element={<Watchlist watchlist={watchlist} moviesData={fetchMovies} onAddToWatchList={addToWatchList} />}
           />
+          <Route path="/credits" element={<Credits />} />
         </Routes>
       )}
     </>

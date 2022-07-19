@@ -19,7 +19,7 @@ export default function Header() {
         <Link to="/">
           <Logo src={logo} alt="mov.me" />
         </Link>
-        {mobileNavActive ? <Navigation /> : null}
+        <Navigation />
         <MobileNavigation onClick={handleSetMobileNavActive} />
       </HeaderContainer>
     </StyledHeader>

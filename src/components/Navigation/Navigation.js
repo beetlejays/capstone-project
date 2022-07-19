@@ -35,6 +35,8 @@ const Nav = styled.nav`
     display: flex;
     list-style: none;
     line-height: 3;
+    transition: 0.4s;
+    opacity: 1;
 
     @media (max-width: 880px) {
       font-size: 1.6rem;
