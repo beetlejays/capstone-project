@@ -73,8 +73,8 @@ const CreditsHeadline = styled.h1`
 
 const MainContainer = styled.main`
   max-width: 800px;
-  margin: 5rem auto 0 auto;
-  padding: 0 20px;
+  padding: 5rem 20px 15rem;
+  margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;

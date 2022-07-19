@@ -74,7 +74,3 @@ const FooterIconSearchText = styled.button`
     color: orange;
   }
 `;
-
-const FooterIcon = styled.img`
-  width: 25px;
-`;
