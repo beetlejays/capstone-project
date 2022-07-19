@@ -16,6 +16,24 @@ export default function Home({moviesData, error}) {
   return (
     <>
       <main>
+        {/* <DesktopHeader>
+          <DesktopHeaderContainer>
+            {error && <FetchError />}
+            {moviesData.length &&
+              moviesData.slice(0, 1).map(movie => (
+                <Showcase key={movie.id}>
+                  <ShowcaseContent>
+                    <h1>{movie.title}</h1>
+                    <p>{movie.overview}</p>
+                    <button>Checkout movie</button>
+                    <button>Watch Trailer</button>
+                  </ShowcaseContent>
+                  <img src={`${posterPath}${movie.backdrop_path}`} alt="" />
+                </Showcase>
+              ))}
+          </DesktopHeaderContainer>
+        </DesktopHeader> */}
+
         <Header displayBackButton={false} />
 
         <IndexHeadingContainer>
@@ -79,6 +97,10 @@ const ShowcaseContent = styled.div`
 const DesktopHeader = styled.div`
   height: 800px;
   position: relative;
+  display: block;
+  @media (max-width: 880px) {
+    display: none;
+  }
 `;
 
 const IndexHeadingContainer = styled.div`

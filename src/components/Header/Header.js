@@ -3,18 +3,20 @@ import styled from 'styled-components';
 
 import logo from '../../movme-logo.svg';
 import BackButton from '../BackButton/BackButton';
+import MobileNavigation from '../MobileNavigation/MobileNavigation';
 import Navigation from '../Navigation/Navigation';
 
 export default function Header({displayBackButton}) {
   return (
     <StyledHeader>
       <HeaderContainer>
-        {displayBackButton && <BackButton />}
-
+        {/* {displayBackButton && <BackButton />} */}
+        <BackButton />
         <Link to="/">
-          <Logo src={logo} alt="mov.me logo" />
+          <Logo src={logo} alt="mov.me" />
         </Link>
-        {/*  <Navigation />  will be added in next story */}
+        <Navigation />
+        <MobileNavigation />
       </HeaderContainer>
     </StyledHeader>
   );
@@ -31,14 +33,19 @@ const StyledHeader = styled.div`
 `;
 
 const HeaderContainer = styled.div`
-  max-width: 800px;
+  max-width: 1200px;
   margin: auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   height: 60px;
   padding: 0 10px;
   position: relative;
+
+  @media (max-width: 770px) {
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const Logo = styled.img`

@@ -38,11 +38,14 @@ const StyledFooter = styled.footer`
 const FooterContainer = styled.div`
   max-width: 800px;
   margin: auto;
-  padding: 0 20px;
-  display: flex;
+  padding: 0 20px; /*   display: flex;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: center; */
   height: 100%;
+  display: none;
+  @media (max-width: 880px) {
+    display: block;
+  }
 `;
 
 const FooterIconContainer = styled.div`

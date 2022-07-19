@@ -5,24 +5,35 @@ export default function Navigation() {
   return (
     <Nav>
       <ul>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/search">Search</NavLink>
-        <NavLink to="/watchlist">Watchlist</NavLink>
+        <StyledNavigationLink to="/">Home</StyledNavigationLink>
+        <StyledNavigationLink to="/search">Search</StyledNavigationLink>
+        <StyledNavigationLink to="/watchlist">Watchlist</StyledNavigationLink>
       </ul>
     </Nav>
   );
 }
+
+const StyledNavigationLink = styled(NavLink)`
+  color: white;
+  padding: 0.8rem 0.5rem;
+  font-size: 1.1rem;
+  transition: 0.4s;
+  text-transform: uppercase;
+  &:hover {
+    color: #3083dc;
+  }
+  &.active {
+    color: #3083dc;
+  }
+`;
 
 const Nav = styled.nav`
   ul {
     display: flex;
     list-style: none;
     line-height: 3;
-    li {
-      padding: 1rem;
-    }
 
-    @media (max-width: 690px) {
+    @media (max-width: 880px) {
       font-size: 1.6rem;
       flex-direction: column;
       width: 100%;
@@ -30,7 +41,7 @@ const Nav = styled.nav`
       right: 0;
       top: 60px;
       height: 100vh;
-      background-color: #3083dc;
+      background-color: #666666f2;
       text-align: center;
     }
   }
