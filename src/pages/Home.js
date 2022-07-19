@@ -16,11 +16,11 @@ export default function Home({moviesData, error}) {
   return (
     <>
       <main>
-        {/* <DesktopHeader>
+        <DesktopHeader>
           <DesktopHeaderContainer>
             {error && <FetchError />}
             {moviesData.length &&
-              moviesData.slice(0, 1).map(movie => (
+              moviesData.slice(7, 8).map(movie => (
                 <Showcase key={movie.id}>
                   <ShowcaseContent>
                     <h1>{movie.title}</h1>
@@ -32,7 +32,7 @@ export default function Home({moviesData, error}) {
                 </Showcase>
               ))}
           </DesktopHeaderContainer>
-        </DesktopHeader> */}
+        </DesktopHeader>
 
         <Header displayBackButton={false} />
 
@@ -72,6 +72,20 @@ const Showcase = styled.div`
   }
   button {
     cursor: pointer;
+    padding: 0.5rem 1rem;
+    margin-right: 2rem;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    background: #3083dc;
+    transition: 0.3s;
+    font-size: 1rem;
+    font-weight: 600;
+
+    &:hover {
+      background: orange;
+      margin-bottom: 5px;
+    }
   }
 `;
 
