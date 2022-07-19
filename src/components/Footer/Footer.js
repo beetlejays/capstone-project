@@ -1,9 +1,6 @@
 import {NavLink} from 'react-router-dom';
 import styled from 'styled-components';
 
-import SearchIcon from '../../assets/search-blue.svg';
-import WatchlistIcon from '../../assets/watchlist-add.svg';
-
 export default function Footer() {
   const date = new Date();
   const today = date.getFullYear();
@@ -11,12 +8,12 @@ export default function Footer() {
   return (
     <StyledFooter>
       <FooterContainer>
-        <StyledNavLink to="/credits">
-          <FooterIconContainer>
-            <StyledNavLink to="/credits"> Credits</StyledNavLink> |
-            <FooterIconSearchText> &copy; {today} jay milledge</FooterIconSearchText>
-          </FooterIconContainer>
-        </StyledNavLink>
+        <FooterIconContainer>
+          <StyledNavLink to="/credits"> Credits</StyledNavLink> |
+          <FooterIconSearchText>
+            <a href="https://jay-media.de"> &copy; {today} jay milledge</a>
+          </FooterIconSearchText>
+        </FooterIconContainer>
       </FooterContainer>
     </StyledFooter>
   );
@@ -68,8 +65,13 @@ const FooterIconSearchText = styled.button`
   transition: 0.2s;
   padding: 0.7rem;
 
-  &:hover {
-    color: white;
+  a {
+    transition: 0.2s;
+    color: #3083dc;
+  }
+
+  a:hover {
+    color: orange;
   }
 `;
 
