@@ -13,9 +13,16 @@ export default function Search({fetchMovies, search, setSearch}) {
     <>
       <Header displayBackButton={true} />
       <SearchContainer>
-        <h1>Please type in your movie search</h1>
+        <SearchHeading>Please type in your movie search</SearchHeading>
         <SrOnly htmlFor="Moviesearch">Moviesearch</SrOnly>
-        <SearchInput id="Moviesearch" type="text" name="movieinput" value={search} onChange={handleSearch} />
+        <SearchInput
+          id="Moviesearch"
+          maxLength={40}
+          type="text"
+          name="movieinput"
+          value={search}
+          onChange={handleSearch}
+        />
       </SearchContainer>
       <main>
         <MovieContainer>
@@ -44,9 +51,17 @@ export default function Search({fetchMovies, search, setSearch}) {
   );
 }
 
+const SearchHeading = styled.h1`
+  color: #3083dc;
+  font-size: 1.3rem;
+  @media (max-width: 410px) {
+    font-size: 1rem;
+  }
+`;
+
 const MovieContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
   max-width: 800px;
   margin: 40px auto;
   gap: 1rem;
@@ -63,10 +78,6 @@ const SearchContainer = styled.div`
   max-width: 800px;
   margin: auto;
   padding: 0 10px;
-  h1 {
-    color: #3083dc;
-    font-size: 1.6rem;
-  }
 `;
 
 const SearchInput = styled.input`

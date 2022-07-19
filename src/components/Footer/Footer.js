@@ -1,25 +1,25 @@
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import styled from 'styled-components';
 
 import SearchIcon from '../../assets/search-blue.svg';
-/* import WatchlistIcon from '../../assets/watchlist-add.svg';
- */
+import WatchlistIcon from '../../assets/watchlist-add.svg';
+
 export default function Footer() {
   return (
     <StyledFooter>
       <FooterContainer>
-        <Link to="/search">
+        <StyledNavLink to="/search">
           <FooterIconContainer>
             <FooterIcon src={SearchIcon} alt="" />
             <FooterIconSearchText>Search</FooterIconSearchText>
           </FooterIconContainer>
-        </Link>
-        {/*   <Link to="/watchlist">
+        </StyledNavLink>
+        <StyledNavLink to="/watchlist">
           <FooterIconContainer>
             <FooterIcon src={WatchlistIcon} alt="" />
             <FooterIconSearchText>Watchlist</FooterIconSearchText>
           </FooterIconContainer>
-        </Link> */}
+        </StyledNavLink>
       </FooterContainer>
     </StyledFooter>
   );
@@ -50,18 +50,23 @@ const FooterIconContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 0.3rem;
+`;
+
+const StyledNavLink = styled(NavLink)`
+  transition: 0.2s;
+  &.active {
+    color: orange;
+  }
 `;
 
 const FooterIconSearchText = styled.button`
   font-size: 1.2rem;
   color: #3083dc;
-  transition: 0.4s;
   background: transparent;
   border: none;
   cursor: pointer;
-  &:hover {
-    color: #ccc;
-  }
+  transition: 0.2s;
 `;
 
 const FooterIcon = styled.img`

@@ -9,6 +9,10 @@ import Movie from '../components/Movie/Movie';
 export default function Home({moviesData, error}) {
   const yearDate = new Date().getFullYear();
 
+  //////////////////// Showcase star
+
+  const posterPath = 'https://image.tmdb.org/t/p/w1280/';
+
   return (
     <>
       <main>
@@ -39,6 +43,43 @@ export default function Home({moviesData, error}) {
     </>
   );
 }
+
+const Showcase = styled.div`
+  position: relative;
+  color: white;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+  button {
+    cursor: pointer;
+  }
+`;
+
+const DesktopHeaderContainer = styled.div`
+  display: flex;
+  width: 100vw;
+  height: 80vh;
+`;
+
+const ShowcaseContent = styled.div`
+  position: absolute;
+  margin-top: 10rem;
+  margin-left: 5rem;
+  max-width: 600px;
+
+  p {
+    line-height: 1.5;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+  }
+`;
+
+const DesktopHeader = styled.div`
+  height: 800px;
+  position: relative;
+`;
 
 const IndexHeadingContainer = styled.div`
   margin: 100px auto 0 auto;

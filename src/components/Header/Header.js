@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import logo from '../../movme-logo.svg';
 import BackButton from '../BackButton/BackButton';
+import Navigation from '../Navigation/Navigation';
 
 export default function Header({displayBackButton}) {
   return (
@@ -13,6 +14,7 @@ export default function Header({displayBackButton}) {
         <Link to="/">
           <Logo src={logo} alt="mov.me logo" />
         </Link>
+        {/*  <Navigation />  will be added in next story */}
       </HeaderContainer>
     </StyledHeader>
   );
@@ -41,4 +43,9 @@ const HeaderContainer = styled.div`
 
 const Logo = styled.img`
   height: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    transform: translateY(-5px);
+  }
 `;
