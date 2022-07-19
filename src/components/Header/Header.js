@@ -1,3 +1,4 @@
+import {useState} from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -7,6 +8,12 @@ import MobileNavigation from '../MobileNavigation/MobileNavigation';
 import Navigation from '../Navigation/Navigation';
 
 export default function Header({displayBackButton}) {
+  const [mobileNavActive, setMobileNavActive] = useState(false);
+
+  function handleSetMobileNavActive() {
+    setMobileNavActive(true);
+  }
+
   return (
     <StyledHeader>
       <HeaderContainer>
@@ -15,7 +22,7 @@ export default function Header({displayBackButton}) {
         <Link to="/">
           <Logo src={logo} alt="mov.me" />
         </Link>
-        <Navigation />
+        {mobileNavActive ? <Navigation /> : null}
         <MobileNavigation />
       </HeaderContainer>
     </StyledHeader>

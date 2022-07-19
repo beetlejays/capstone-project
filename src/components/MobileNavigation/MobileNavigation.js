@@ -36,6 +36,7 @@ const LineThree = styled.span`
 
 const MobileNavigationContainer = styled.div`
   display: none;
+  cursor: pointer;
   @media (max-width: 880px) {
     display: block;
   }

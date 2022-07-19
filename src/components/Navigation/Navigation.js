@@ -25,6 +25,9 @@ const StyledNavigationLink = styled(NavLink)`
   &.active {
     color: #3083dc;
   }
+  @media (max-width: 880px) {
+    font-size: 2rem;
+  }
 `;
 
 const Nav = styled.nav`
