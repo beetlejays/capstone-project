@@ -1,15 +1,13 @@
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import styled from 'styled-components';
 
 export default function Navigation() {
   return (
     <Nav>
       <ul>
-        <li>Home</li>
-        <li>Popular</li>
-        <li>Search</li>
-        <li>Watchlist</li>
-        <li>Contact</li>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/search">Search</NavLink>
+        <NavLink to="/watchlist">Watchlist</NavLink>
       </ul>
     </Nav>
   );

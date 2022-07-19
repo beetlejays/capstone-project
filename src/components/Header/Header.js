@@ -14,7 +14,7 @@ export default function Header({displayBackButton}) {
         <Link to="/">
           <Logo src={logo} alt="mov.me logo" />
         </Link>
-        <Navigation />
+        {/*  <Navigation />  will be added in next story */}
       </HeaderContainer>
     </StyledHeader>
   );

@@ -8,19 +8,18 @@ export default function Footer() {
   return (
     <StyledFooter>
       <FooterContainer>
-        <FooterIconContainer>
-          <FooterIcon src={SearchIcon} alt="" />
-          <StyledNavLink to="/search">
+        <StyledNavLink to="/search">
+          <FooterIconContainer>
+            <FooterIcon src={SearchIcon} alt="" />
             <FooterIconSearchText>Search</FooterIconSearchText>
-          </StyledNavLink>
-        </FooterIconContainer>
-
-        <FooterIconContainer>
-          <FooterIcon src={WatchlistIcon} alt="" />
-          <StyledNavLink to="/watchlist">
+          </FooterIconContainer>
+        </StyledNavLink>
+        <StyledNavLink to="/watchlist">
+          <FooterIconContainer>
+            <FooterIcon src={WatchlistIcon} alt="" />
             <FooterIconSearchText>Watchlist</FooterIconSearchText>
-          </StyledNavLink>
-        </FooterIconContainer>
+          </FooterIconContainer>
+        </StyledNavLink>
       </FooterContainer>
     </StyledFooter>
   );
@@ -57,7 +56,6 @@ const FooterIconContainer = styled.div`
 const StyledNavLink = styled(NavLink)`
   transition: 0.2s;
   &.active {
-    background: orange;
     color: orange;
   }
 `;
