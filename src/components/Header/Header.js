@@ -37,7 +37,7 @@ const StyledHeader = styled.div`
 `;
 
 const HeaderContainer = styled.div`
-  max-width: 1200px;
+  max-width: 1000px;
   margin: auto;
   display: flex;
   justify-content: space-between;

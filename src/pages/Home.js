@@ -12,6 +12,7 @@ export default function Home({moviesData, error}) {
   //////////////////// Showcase star
 
   const posterPath = 'https://image.tmdb.org/t/p/w1280/';
+  const url = 'https://api.themoviedb.org/3/movie?api_key=';
 
   return (
     <>
@@ -25,8 +26,7 @@ export default function Home({moviesData, error}) {
                   <ShowcaseContent>
                     <h1>{movie.title}</h1>
                     <p>{movie.overview}</p>
-                    <button>Checkout movie</button>
-                    <button>Watch Trailer</button>
+                    <LinkCheckoutMovie to="/search">Checkout movies</LinkCheckoutMovie>
                   </ShowcaseContent>
                   <img src={`${posterPath}${movie.backdrop_path}`} alt="" />
                 </Showcase>
@@ -69,30 +69,29 @@ const Showcase = styled.div`
   img {
     width: 100%;
     height: auto;
+    object-fit: cover;
   }
-  button {
-    cursor: pointer;
-    padding: 0.5rem 1rem;
-    margin-right: 2rem;
-    border: none;
-    border-radius: 20px;
-    color: white;
-    background: #3083dc;
-    transition: 0.3s;
-    font-size: 1rem;
-    font-weight: 600;
+`;
 
-    &:hover {
-      background: orange;
-      margin-bottom: 5px;
-    }
+const LinkCheckoutMovie = styled(Link)`
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  background: #3083dc;
+  transition: 0.3s;
+  font-size: 1rem;
+  font-weight: 600;
+
+  &:hover {
+    background: orange;
+    margin-left: 5px;
   }
 `;
 
 const DesktopHeaderContainer = styled.div`
   display: flex;
-  width: 100vw;
-  height: 80vh;
 `;
 
 const ShowcaseContent = styled.div`
