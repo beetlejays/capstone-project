@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import CreditsImage from '../assets/credits-image.jpg';
 import TMDBLogo from '../assets/tmdb-logo.svg';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
@@ -8,10 +9,13 @@ export default function Credits() {
   return (
     <>
       <Header />
+      <CreditsIMG src={CreditsImage} alt="" />
 
       <MainContainer>
         <CreditsHeadline>Credits</CreditsHeadline>
+
         <MovieDBLogo src={TMDBLogo} alt="The Movie Database Logo" />
+
         <CreditsCopy>
           This application was built with the awesome and free support from TMDB API. For more information check out the
           official API and documentation.
@@ -25,6 +29,12 @@ export default function Credits() {
     </>
   );
 }
+
+const CreditsIMG = styled.img`
+  width: 100%;
+  max-height: 600px;
+  object-fit: cover;
+`;
 
 const MovieDBLogo = styled.img`
   width: 200px;
