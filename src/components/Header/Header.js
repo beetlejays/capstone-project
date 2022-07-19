@@ -11,14 +11,14 @@ export default function Header({displayBackButton}) {
   const [mobileNavActive, setMobileNavActive] = useState(false);
 
   function handleSetMobileNavActive() {
-    setMobileNavActive(true);
+    setMobileNavActive(!mobileNavActive);
   }
 
   return (
     <StyledHeader>
       <HeaderContainer>
         {/* {displayBackButton && <BackButton />} */}
-        <BackButton />
+        {/*  <BackButton /> */}
         <Link to="/">
           <Logo src={logo} alt="mov.me" />
         </Link>

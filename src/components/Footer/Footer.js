@@ -8,16 +8,9 @@ export default function Footer() {
   return (
     <StyledFooter>
       <FooterContainer>
-        <StyledNavLink to="/search">
+        <StyledNavLink to="/credits">
           <FooterIconContainer>
-            <FooterIcon src={SearchIcon} alt="" />
-            <FooterIconSearchText>Search</FooterIconSearchText>
-          </FooterIconContainer>
-        </StyledNavLink>
-        <StyledNavLink to="/watchlist">
-          <FooterIconContainer>
-            <FooterIcon src={WatchlistIcon} alt="" />
-            <FooterIconSearchText>Watchlist</FooterIconSearchText>
+            <FooterIconSearchText>Credits</FooterIconSearchText>
           </FooterIconContainer>
         </StyledNavLink>
       </FooterContainer>
