@@ -1,4 +1,5 @@
 import {Link} from 'react-router-dom';
+import {Link as Scroller} from 'react-scroll';
 import styled from 'styled-components';
 
 import FetchError from '../components/FetchError/FetchError';
@@ -25,7 +26,9 @@ export default function Home({moviesData, error}) {
                   <ShowcaseContent>
                     <h1>{movie.title}</h1>
                     <p>{movie.overview}</p>
-                    <LinkCheckoutMovie to="/search">&raquo; Checkout movies</LinkCheckoutMovie>
+                    <LinkCheckoutMovie to="popular" smooth={true} duration={800}>
+                      &raquo; Checkout movie
+                    </LinkCheckoutMovie>
                     <LinkWatchlist to="/search">&raquo; Watchlist</LinkWatchlist>
                   </ShowcaseContent>
                   <img src={`${posterPath}${movie.backdrop_path}`} alt="" />
@@ -34,9 +37,9 @@ export default function Home({moviesData, error}) {
           </DesktopHeaderContainer>
         </DesktopHeader>
 
-        <Header displayBackButton={false} />
+        <Header />
 
-        <IndexHeadingContainer>
+        <IndexHeadingContainer id="popular">
           <h1>Check out all current movies</h1>
           <h2>All popular movies from {yearDate}</h2>
         </IndexHeadingContainer>
@@ -91,7 +94,7 @@ const LinkWatchlist = styled(Link)`
   }
 `;
 
-const LinkCheckoutMovie = styled(Link)`
+const LinkCheckoutMovie = styled(Scroller)`
   cursor: pointer;
   padding: 0.5rem 1rem;
   border: none;
