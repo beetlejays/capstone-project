@@ -11,7 +11,6 @@ export default function Header({displayBackButton}) {
   const [mobileNavActive, setMobileNavActive] = useState(false);
 
   function handleSetMobileNavActive() {
-    console.log('works');
     setMobileNavActive(true);
   }
 
@@ -51,7 +50,7 @@ const HeaderContainer = styled.div`
   position: relative;
 
   @media (max-width: 770px) {
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
   }
 `;
