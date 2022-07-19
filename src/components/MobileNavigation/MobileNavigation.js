@@ -32,6 +32,7 @@ const LineThree = styled.span`
   width: 30px;
   display: block;
   margin-bottom: 5px;
+  transition: 0.3s;
 `;
 
 const MobileNavigationContainer = styled.div`

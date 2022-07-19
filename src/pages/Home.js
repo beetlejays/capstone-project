@@ -12,7 +12,6 @@ export default function Home({moviesData, error}) {
   //////////////////// Showcase star
 
   const posterPath = 'https://image.tmdb.org/t/p/w1280/';
-  const url = 'https://api.themoviedb.org/3/movie?api_key=';
 
   return (
     <>
@@ -26,7 +25,7 @@ export default function Home({moviesData, error}) {
                   <ShowcaseContent>
                     <h1>{movie.title}</h1>
                     <p>{movie.overview}</p>
-                    <LinkCheckoutMovie to="/search">Checkout movies</LinkCheckoutMovie>
+                    <LinkCheckoutMovie to="/search">&raquo; Checkout movies</LinkCheckoutMovie>
                   </ShowcaseContent>
                   <img src={`${posterPath}${movie.backdrop_path}`} alt="" />
                 </Showcase>
@@ -103,7 +102,7 @@ const ShowcaseContent = styled.div`
   p {
     line-height: 1.5;
     padding-top: 1.5rem;
-    padding-bottom: 1rem;
+    padding-bottom: 2rem;
   }
 `;
 
