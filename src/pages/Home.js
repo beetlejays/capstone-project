@@ -27,9 +27,9 @@ export default function Home({moviesData, error}) {
                     <h1>{movie.title}</h1>
                     <p>{movie.overview}</p>
                     <LinkCheckoutMovie to="popular" smooth={true} duration={800}>
-                      &raquo; Checkout movie
+                      &raquo; Popular movies
                     </LinkCheckoutMovie>
-                    <LinkWatchlist to="/search">&raquo; Watchlist</LinkWatchlist>
+                    <LinkWatchlist to="/search">&raquo; Search movies</LinkWatchlist>
                   </ShowcaseContent>
                   <img src={`${posterPath}${movie.backdrop_path}`} alt="" />
                 </Showcase>

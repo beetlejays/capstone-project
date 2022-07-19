@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {useParams} from 'react-router-dom';
+import {useParams, Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 import defaultPosterBackdrop from '../assets/default-movie-backdrop.jpg';
@@ -85,6 +85,7 @@ export default function DetailsPage({moviesData, onAddToWatchList, watchlist}) {
                 onClick={() => onAddToWatchList(thisMovie)}
               />
             )}
+            <GoToWatchlist to="/watchlist"> &raquo; Go to Watchlist</GoToWatchlist>
           </DetailPageContainer>
         </StyledDetailsPage>
       </StyledDetailsPageMain>
@@ -93,6 +94,22 @@ export default function DetailsPage({moviesData, onAddToWatchList, watchlist}) {
     </>
   );
 }
+
+const GoToWatchlist = styled(Link)`
+  font-size: 1.2rem;
+  color: orange;
+  background: #323232;
+  border: 2px solid orange;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  margin-right: auto;
+  transition: 0.4s;
+  cursor: pointer;
+  &:hover {
+    background: orange;
+    color: white;
+  }
+`;
 
 const GenreList = styled.ul`
   padding-bottom: 1rem;
