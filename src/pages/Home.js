@@ -27,20 +27,22 @@ export default function Home({moviesData, error}) {
             {error && <FetchError />}
             {moviesData.length &&
               moviesData.slice(7, 8).map(movie => (
-                <Showcase key={movie.id}>
-                  <ShowcaseContent>
-                    <IndexHeading>
-                      <LogoSpanStart>mov</LogoSpanStart>.<LogoSpanEnd>me</LogoSpanEnd> | save your movies for later
-                    </IndexHeading>
-                    <h2>{movie.title}</h2>
-                    <p>{movie.overview}</p>
-                    <LinkCheckoutMovie to="popular" smooth={true} duration={800}>
-                      &raquo; Popular movies
-                    </LinkCheckoutMovie>
-                    <LinkWatchlist to="/search">&raquo; Search movies</LinkWatchlist>
-                  </ShowcaseContent>
-                  <ShowcaseBackdrop src={`${posterPath}${movie.backdrop_path}`} alt="" />
-                </Showcase>
+                <>
+                  <Showcase key={movie.id}>
+                    <ShowcaseBackdrop src={`${posterPath}${movie.backdrop_path}`} alt="" />
+                    <ShowcaseContent>
+                      <IndexHeading>
+                        <LogoSpanStart>mov</LogoSpanStart>.<LogoSpanEnd>me</LogoSpanEnd> | save your movies for later
+                      </IndexHeading>
+                      <h2>{movie.title}</h2>
+                      <p>{movie.overview}</p>
+                      <LinkCheckoutMovie to="popular" smooth={true} duration={800}>
+                        &raquo; Popular movies
+                      </LinkCheckoutMovie>
+                      <LinkWatchlist to="/search">&raquo; Search movies</LinkWatchlist>
+                    </ShowcaseContent>
+                  </Showcase>
+                </>
               ))}
           </DesktopHeaderContainer>
         </DesktopHeader>
@@ -172,9 +174,18 @@ const DesktopHeaderContainer = styled.div``;
 
 const ShowcaseContent = styled.div`
   position: absolute;
-  margin-top: 10rem;
-  margin-left: 5rem;
+  top: 7rem;
+  left: 4rem;
   max-width: 600px;
+  padding-right: 20px;
+
+  @media (max-width: 580px) {
+    font-size: inherit;
+    position: static;
+    margin: 0;
+    width: 100%;
+    padding: 0;
+  }
 
   p {
     line-height: 1.5;
