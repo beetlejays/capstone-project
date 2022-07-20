@@ -29,7 +29,9 @@ export default function Home({moviesData, error}) {
               moviesData.slice(7, 8).map(movie => (
                 <Showcase key={movie.id}>
                   <ShowcaseContent>
-                    <IndexHeading>mov.me | save your movies for later</IndexHeading>
+                    <IndexHeading>
+                      <LogoSpanStart>mov</LogoSpanStart>.<LogoSpanEnd>me</LogoSpanEnd> | save your movies for later
+                    </IndexHeading>
                     <h2>{movie.title}</h2>
                     <p>{movie.overview}</p>
                     <LinkCheckoutMovie to="popular" smooth={true} duration={800}>
@@ -71,9 +73,22 @@ export default function Home({moviesData, error}) {
   );
 }
 
+const LogoSpanStart = styled.span`
+  color: #ccc;
+  font-weight: 700;
+  font-size: 2.4rem;
+`;
+const LogoSpanEnd = styled.span`
+  color: #3083dc;
+  font-weight: 700;
+  font-size: 2.4rem;
+`;
+
 const IndexHeading = styled.h1`
   margin-top: 2rem;
   padding-bottom: 3rem;
+  font-size: 1.8rem;
+  font-weight: 400;
 `;
 
 const animateOpacity = keyframes`
