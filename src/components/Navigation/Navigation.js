@@ -1,5 +1,5 @@
 import {NavLink} from 'react-router-dom';
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 
 export default function Navigation({mobileNavActive}) {
   return (
@@ -12,6 +12,24 @@ export default function Navigation({mobileNavActive}) {
     </Nav>
   );
 }
+
+const animateOpacity = keyframes`
+0%, 100% {
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+`;
+
+const animateMove = keyframes`
+0%, 100% {
+    transform: translateY(-30px);
+}
+100% {
+  transform: translateY(0);
+}
+`;
 
 const StyledNavigationLink = styled(NavLink)`
   color: white;
@@ -46,16 +64,24 @@ const Nav = styled.nav`
 
     @media (max-width: 880px) {
       display: ${props => (props.active ? 'flex' : 'none')};
+      animation: ${animateMove} 0.4s, ${animateOpacity} 0.4s;
       flex-direction: column;
       position: absolute;
       right: 0;
       top: 60px;
       height: 50vh;
-      width: 60%;
+      width: 30%;
       background-color: #23201b;
       text-align: center;
       color: orange;
       line-height: 2;
+    }
+
+    @media (max-width: 610px) {
+      width: 40%;
+    }
+    @media (max-width: 470px) {
+      width: 70%;
     }
   }
 `;

@@ -1,3 +1,4 @@
+import {useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import {Link as Scroller} from 'react-scroll';
 import styled, {keyframes} from 'styled-components';
@@ -8,6 +9,10 @@ import Header from '../components/Header/Header';
 import Movie from '../components/Movie/Movie';
 
 export default function Home({moviesData, error}) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const yearDate = new Date().getFullYear();
 
   //////////////////// Showcase star
