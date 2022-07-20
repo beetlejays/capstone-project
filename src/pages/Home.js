@@ -27,22 +27,20 @@ export default function Home({moviesData, error}) {
             {error && <FetchError />}
             {moviesData.length &&
               moviesData.slice(7, 8).map(movie => (
-                <>
-                  <Showcase key={movie.id}>
-                    <ShowcaseBackdrop src={`${posterPath}${movie.backdrop_path}`} alt="" />
-                    <ShowcaseContent>
-                      <IndexHeading>
-                        <LogoSpanStart>mov</LogoSpanStart>.<LogoSpanEnd>me</LogoSpanEnd> | save your movies for later
-                      </IndexHeading>
-                      <h2>{movie.title}</h2>
-                      <p>{movie.overview}</p>
-                      <LinkCheckoutMovie to="popular" smooth={true} duration={800}>
-                        &raquo; Popular movies
-                      </LinkCheckoutMovie>
-                      <LinkWatchlist to="/search">&raquo; Search movies</LinkWatchlist>
-                    </ShowcaseContent>
-                  </Showcase>
-                </>
+                <Showcase key={movie.id}>
+                  <ShowcaseBackdrop src={`${posterPath}${movie.backdrop_path}`} alt="" />
+                  <ShowcaseContent>
+                    <IndexHeading>
+                      <LogoSpanStart>mov</LogoSpanStart>.<LogoSpanEnd>me</LogoSpanEnd> | save your movies for later
+                    </IndexHeading>
+                    <h2>{movie.title}</h2>
+                    <p>{movie.overview}</p>
+                    <LinkCheckoutMovie to="popular" smooth={true} duration={800}>
+                      &raquo; Popular movies
+                    </LinkCheckoutMovie>
+                    <LinkWatchlist to="/search">&raquo; Search movies</LinkWatchlist>
+                  </ShowcaseContent>
+                </Showcase>
               ))}
           </DesktopHeaderContainer>
         </DesktopHeader>
@@ -134,6 +132,10 @@ const ShowcaseBackdrop = styled.img`
   width: 100%;
   height: 600px;
   object-fit: cover;
+
+  @media (max-width: 560px) {
+    height: 300px;
+  }
 `;
 
 const LinkWatchlist = styled(Link)`
@@ -179,18 +181,22 @@ const ShowcaseContent = styled.div`
   max-width: 600px;
   padding-right: 20px;
 
-  @media (max-width: 580px) {
-    font-size: inherit;
-    position: static;
-    margin: 0;
-    width: 100%;
-    padding: 0;
-  }
-
   p {
     line-height: 1.5;
     padding-top: 1.5rem;
     padding-bottom: 2rem;
+  }
+
+  @media (max-width: 560px) {
+    position: static;
+    padding-left: 20px;
+
+    p {
+      display: none;
+    }
+    h2 {
+      display: none;
+    }
   }
 `;
 
@@ -199,9 +205,9 @@ const DesktopHeader = styled.div`
   position: relative;
   display: block;
 
-  /*   @media (max-width: 880px) {
-    display: none;
-  } */
+  @media (max-width: 560px) {
+    height: auto;
+  }
 `;
 
 const IndexHeadingContainer = styled.div`
