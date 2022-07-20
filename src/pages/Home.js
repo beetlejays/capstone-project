@@ -42,7 +42,7 @@ export default function Home({moviesData, error}) {
 
         <IndexHeadingContainer id="popular">
           <h3>Check out all current movies</h3>
-          <h3>All popular movies from {yearDate}</h3>
+          <h4>All popular movies from {yearDate}</h4>
         </IndexHeadingContainer>
         <PopularMovies className="movie__container">
           {error && <FetchError />}
@@ -176,12 +176,12 @@ const DesktopHeader = styled.div`
 const IndexHeadingContainer = styled.div`
   margin: 100px auto 0 auto;
   max-width: 800px;
-  h1 {
+  h3 {
     color: #3083dc;
     padding: 0 10px;
     font-size: 1.7rem;
   }
-  h2 {
+  h4 {
     color: white;
     padding: 0 10px;
     font-size: 1.2rem;
