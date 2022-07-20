@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom';
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
@@ -51,6 +51,24 @@ export default function Search({fetchMovies, search, setSearch}) {
   );
 }
 
+const animateOpacity = keyframes`
+0%, 100% {
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+`;
+
+const animateMove = keyframes`
+0%, 100% {
+    transform: translateY(-30px);
+}
+100% {
+  transform: translateY(0);
+}
+`;
+
 const SearchHeading = styled.h1`
   color: #3083dc;
   font-size: 1.3rem;
@@ -70,6 +88,7 @@ const MovieContainer = styled.div`
 `;
 
 const SearchContainer = styled.div`
+  animation: ${animateMove} 1s, ${animateOpacity} 1s;
   display: flex;
   flex-direction: column;
   align-items: center;

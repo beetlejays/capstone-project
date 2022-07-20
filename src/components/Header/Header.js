@@ -1,20 +1,26 @@
+import {useState} from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 import logo from '../../movme-logo.svg';
-import BackButton from '../BackButton/BackButton';
+import MobileNavigation from '../MobileNavigation/MobileNavigation';
 import Navigation from '../Navigation/Navigation';
 
-export default function Header({displayBackButton}) {
+export default function Header() {
+  const [mobileNavActive, setMobileNavActive] = useState(false);
+
+  function handleMobileMenu() {
+    setMobileNavActive(!mobileNavActive);
+  }
+
   return (
     <StyledHeader>
       <HeaderContainer>
-        {displayBackButton && <BackButton />}
-
         <Link to="/">
-          <Logo src={logo} alt="mov.me logo" />
+          <Logo src={logo} alt="mov.me" />
         </Link>
-        {/*  <Navigation />  will be added in next story */}
+        <Navigation mobileNavActive={mobileNavActive} />
+        <MobileNavigation onMobileMenu={handleMobileMenu} />
       </HeaderContainer>
     </StyledHeader>
   );
@@ -31,14 +37,19 @@ const StyledHeader = styled.div`
 `;
 
 const HeaderContainer = styled.div`
-  max-width: 800px;
+  max-width: 1000px;
   margin: auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   height: 60px;
   padding: 0 10px;
   position: relative;
+
+  @media (max-width: 770px) {
+    justify-content: space-between;
+    align-items: center;
+  }
 `;
 
 const Logo = styled.img`

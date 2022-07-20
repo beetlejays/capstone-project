@@ -19,12 +19,14 @@ const PreviousPageButton = styled.button`
   background-color: transparent;
   background-repeat: no-repeat;
   cursor: pointer;
-  position: absolute;
   padding: 0.5rem;
-  left: 20px;
   transition: 0.3s;
+  display: none;
   &:hover {
     transform: translateX(-8px);
     filter: invert;
+  }
+  @media (max-width: 880px) {
+    display: block;
   }
 `;

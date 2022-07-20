@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
-import {useParams} from 'react-router-dom';
-import styled from 'styled-components';
+import {useParams, Link} from 'react-router-dom';
+import styled, {keyframes} from 'styled-components';
 
 import defaultPosterBackdrop from '../assets/default-movie-backdrop.jpg';
 import defaultMoviePoster from '../assets/default-movie-poster.jpg';
@@ -85,6 +85,7 @@ export default function DetailsPage({moviesData, onAddToWatchList, watchlist}) {
                 onClick={() => onAddToWatchList(thisMovie)}
               />
             )}
+            <GoToWatchlist to="/watchlist"> &raquo; View watchlist</GoToWatchlist>
           </DetailPageContainer>
         </StyledDetailsPage>
       </StyledDetailsPageMain>
@@ -94,7 +95,59 @@ export default function DetailsPage({moviesData, onAddToWatchList, watchlist}) {
   );
 }
 
+const animateOpacity = keyframes`
+0%, 100% {
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+`;
+
+const animateMove = keyframes`
+0%, 100% {
+    transform: translateY(-30px);
+}
+100% {
+  transform: translateY(0);
+}
+`;
+
+const animateGenre = keyframes`
+0%, 100% {
+    transform: translateY(30px);
+}
+100% {
+  transform: translateY(0);
+}
+`;
+
+const GoToWatchlist = styled(Link)`
+  font-size: 1.2rem;
+  color: orange;
+  background: #323232;
+  align-self: center;
+  font-weight: 500;
+  margin-right: auto;
+  transition: 0.4s;
+  border: 2px solid orange;
+  border-radius: 8px;
+  padding: 0.8rem 1.3rem;
+  cursor: pointer;
+
+  @media (max-width: 600px) {
+    width: 100%;
+    text-align: center;
+  }
+  &:hover {
+    color: #3083dc;
+    border: 2px solid #3083dc;
+    margin-left: 5px;
+  }
+`;
+
 const GenreList = styled.ul`
+  animation: ${animateGenre} 1s, ${animateOpacity} 1s;
   padding-bottom: 1rem;
   list-style-type: none;
   display: flex;
@@ -155,6 +208,7 @@ const MovieDetailPosterImageDetail = styled.img`
 `;
 
 const MovieDetailPosterImage = styled.img`
+  animation: ${animateMove} 1s, ${animateOpacity} 1s;
   width: 100%;
   max-height: 500px;
   object-fit: cover;
