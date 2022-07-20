@@ -36,9 +36,9 @@ export default function Home({moviesData, error}) {
                     <h2>{movie.title}</h2>
                     <p>{movie.overview}</p>
                     <LinkCheckoutMovie to="popular" smooth={true} duration={800}>
-                      &raquo; Popular movies
+                      &raquo;Popular
                     </LinkCheckoutMovie>
-                    <LinkWatchlist to="/search">&raquo; Search movies</LinkWatchlist>
+                    <LinkWatchlist to="/search">&raquo;Search </LinkWatchlist>
                   </ShowcaseContent>
                 </Showcase>
               ))}
@@ -149,7 +149,7 @@ const LinkWatchlist = styled(Link)`
   font-size: 1rem;
   font-weight: 600;
   margin-right: 2rem;
-
+  word-break: keep-all;
   &:hover {
     background: #2767ab;
     transform: translateY(100px);
@@ -167,6 +167,7 @@ const LinkCheckoutMovie = styled(Scroller)`
   font-size: 1rem;
   font-weight: 600;
   margin-right: 2rem;
+  word-break: keep-all;
   &:hover {
     background: orange;
   }

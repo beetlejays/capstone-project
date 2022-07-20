@@ -69,9 +69,9 @@ const Nav = styled.nav`
       position: absolute;
       right: 0;
       top: 60px;
-      height: 50vh;
+      height: 350px;
       width: 30%;
-      background-color: #23201b;
+      background-color: #23201bf5;
       text-align: center;
       color: orange;
       line-height: 2;
