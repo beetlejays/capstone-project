@@ -10,12 +10,9 @@ export default function Credits() {
     <>
       <Header />
       <CreditsIMG src={CreditsImage} alt="" />
-
       <MainContainer>
         <CreditsHeadline>Credits</CreditsHeadline>
-
         <MovieDBLogo src={TMDBLogo} alt="The Movie Database Logo" />
-
         <CreditsCopy>
           This application was built with the awesome and free support from TMDB API. For more information check out the
           official API and documentation.
@@ -24,7 +21,6 @@ export default function Credits() {
           The Movie Database API
         </CreditsLink>
       </MainContainer>
-
       <Footer />
     </>
   );

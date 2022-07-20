@@ -87,6 +87,9 @@ const IndexHeading = styled.h1`
   padding-bottom: 3rem;
   font-size: 1.8rem;
   font-weight: 400;
+  @media (max-width: 560px) {
+    padding-bottom: 2rem;
+  }
 `;
 
 const animateOpacity = keyframes`
