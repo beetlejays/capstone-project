@@ -43,7 +43,7 @@ export default function Home({moviesData, error}) {
           <h1>Check out all current movies</h1>
           <h2>All popular movies from {yearDate}</h2>
         </IndexHeadingContainer>
-        <div className="movie__container">
+        <PopularMovies className="movie__container">
           {error && <FetchError />}
 
           {moviesData.length &&
@@ -58,7 +58,7 @@ export default function Home({moviesData, error}) {
                 />
               </Link>
             ))}
-        </div>
+        </PopularMovies>
       </main>
       <Footer />
     </>
@@ -83,8 +83,21 @@ const animateMove = keyframes`
 }
 `;
 
+const animatePopularMovies = keyframes`
+0%, 100% {
+    transform: translateY(30px);
+}
+100% {
+  transform: translateY(0);
+}
+`;
+
+const PopularMovies = styled.div`
+  animation: ${animatePopularMovies} 2s, ${animateOpacity} 2s;
+`;
+
 const Showcase = styled.div`
-  animation: ${animateMove} 2s, ${animateOpacity} 3s;
+  animation: ${animateMove} 2s, ${animateOpacity} 2s;
   position: relative;
   color: white;
 `;
