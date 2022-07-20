@@ -88,7 +88,7 @@ const MovieContainer = styled.div`
 `;
 
 const SearchContainer = styled.div`
-  animation: ${animateMove} 2s, ${animateOpacity} 3s;
+  animation: ${animateMove} 1s, ${animateOpacity} 1s;
   display: flex;
   flex-direction: column;
   align-items: center;

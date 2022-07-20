@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 import {useParams, Link} from 'react-router-dom';
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 
 import defaultPosterBackdrop from '../assets/default-movie-backdrop.jpg';
 import defaultMoviePoster from '../assets/default-movie-poster.jpg';
@@ -95,6 +95,33 @@ export default function DetailsPage({moviesData, onAddToWatchList, watchlist}) {
   );
 }
 
+const animateOpacity = keyframes`
+0%, 100% {
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+`;
+
+const animateMove = keyframes`
+0%, 100% {
+    transform: translateY(-30px);
+}
+100% {
+  transform: translateY(0);
+}
+`;
+
+const animateGenre = keyframes`
+0%, 100% {
+    transform: translateY(30px);
+}
+100% {
+  transform: translateY(0);
+}
+`;
+
 const GoToWatchlist = styled(Link)`
   font-size: 1.4rem;
   color: orange;
@@ -110,6 +137,7 @@ const GoToWatchlist = styled(Link)`
 `;
 
 const GenreList = styled.ul`
+  animation: ${animateGenre} 1s, ${animateOpacity} 1s;
   padding-bottom: 1rem;
   list-style-type: none;
   display: flex;
@@ -170,6 +198,7 @@ const MovieDetailPosterImageDetail = styled.img`
 `;
 
 const MovieDetailPosterImage = styled.img`
+  animation: ${animateMove} 1s, ${animateOpacity} 1s;
   width: 100%;
   max-height: 500px;
   object-fit: cover;
