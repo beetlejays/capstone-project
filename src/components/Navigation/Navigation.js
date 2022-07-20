@@ -15,9 +15,10 @@ export default function Navigation() {
 
 const StyledNavigationLink = styled(NavLink)`
   color: white;
-  padding: 0.8rem 0.5rem;
+  padding: 0.8rem 0.8rem;
   font-size: 1.1rem;
   transition: 0.4s;
+  font-weight: 500;
   text-transform: uppercase;
   &:hover {
     color: #3083dc;

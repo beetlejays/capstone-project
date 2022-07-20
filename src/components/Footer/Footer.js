@@ -54,6 +54,9 @@ const StyledNavLink = styled(NavLink)`
   &.active {
     color: orange;
   }
+  &.hover {
+    color: orange;
+  }
 `;
 
 const FooterIconSearchText = styled.button`
