@@ -1,9 +1,9 @@
 import {NavLink} from 'react-router-dom';
 import styled from 'styled-components';
 
-export default function Navigation() {
+export default function Navigation({mobileNavActive}) {
   return (
-    <Nav>
+    <Nav active={mobileNavActive}>
       <ul>
         <StyledNavigationLink to="/">Home</StyledNavigationLink>
         <StyledNavigationLink to="/search">Search</StyledNavigationLink>
@@ -27,7 +27,12 @@ const StyledNavigationLink = styled(NavLink)`
     color: #3083dc;
   }
   @media (max-width: 880px) {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    padding-top: 2rem;
+    text-transform: none;
+    &.active {
+      color: #3083dc;
+    }
   }
 `;
 
@@ -40,15 +45,17 @@ const Nav = styled.nav`
     opacity: 1;
 
     @media (max-width: 880px) {
-      font-size: 1.6rem;
+      display: ${props => (props.active ? 'flex' : 'none')};
       flex-direction: column;
-      width: 100%;
       position: absolute;
       right: 0;
       top: 60px;
-      height: 100vh;
-      background-color: #999999ed;
+      height: 50vh;
+      width: 60%;
+      background-color: #23201b;
       text-align: center;
+      color: orange;
+      line-height: 2;
     }
   }
 `;

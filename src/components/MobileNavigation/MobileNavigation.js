@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-export default function MobileNavigation({onClick}) {
+export default function MobileNavigation({onMobileMenu}) {
   return (
-    <MobileNavigationContainer onClick={onClick}>
+    <MobileNavigationContainer onClick={onMobileMenu}>
       <LineOne />
       <LineTwo />
       <LineThree />

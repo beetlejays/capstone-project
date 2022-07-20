@@ -9,7 +9,7 @@ import Navigation from '../Navigation/Navigation';
 export default function Header() {
   const [mobileNavActive, setMobileNavActive] = useState(false);
 
-  function handleSetMobileNavActive() {
+  function handleMobileMenu() {
     setMobileNavActive(!mobileNavActive);
   }
 
@@ -19,8 +19,8 @@ export default function Header() {
         <Link to="/">
           <Logo src={logo} alt="mov.me" />
         </Link>
-        <Navigation />
-        <MobileNavigation onClick={handleSetMobileNavActive} />
+        <Navigation mobileNavActive={mobileNavActive} />
+        <MobileNavigation onMobileMenu={handleMobileMenu} />
       </HeaderContainer>
     </StyledHeader>
   );
