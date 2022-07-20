@@ -24,7 +24,8 @@ export default function Home({moviesData, error}) {
               moviesData.slice(7, 8).map(movie => (
                 <Showcase key={movie.id}>
                   <ShowcaseContent>
-                    <h1>{movie.title}</h1>
+                    <IndexHeading>mov.me | save your movies for later</IndexHeading>
+                    <h2>{movie.title}</h2>
                     <p>{movie.overview}</p>
                     <LinkCheckoutMovie to="popular" smooth={true} duration={800}>
                       &raquo; Popular movies
@@ -40,8 +41,8 @@ export default function Home({moviesData, error}) {
         <Header />
 
         <IndexHeadingContainer id="popular">
-          <h1>Check out all current movies</h1>
-          <h2>All popular movies from {yearDate}</h2>
+          <h3>Check out all current movies</h3>
+          <h3>All popular movies from {yearDate}</h3>
         </IndexHeadingContainer>
         <PopularMovies className="movie__container">
           {error && <FetchError />}
@@ -64,6 +65,11 @@ export default function Home({moviesData, error}) {
     </>
   );
 }
+
+const IndexHeading = styled.h1`
+  margin-top: 2rem;
+  padding-bottom: 3rem;
+`;
 
 const animateOpacity = keyframes`
 0%, 100% {
