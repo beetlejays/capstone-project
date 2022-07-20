@@ -123,16 +123,26 @@ const animateGenre = keyframes`
 `;
 
 const GoToWatchlist = styled(Link)`
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   color: orange;
   background: #323232;
   align-self: center;
   font-weight: 500;
   margin-right: auto;
   transition: 0.4s;
+  border: 2px solid orange;
+  border-radius: 8px;
+  padding: 0.8rem 1.3rem;
   cursor: pointer;
+
+  @media (max-width: 600px) {
+    width: 100%;
+    text-align: center;
+  }
   &:hover {
     color: #3083dc;
+    border: 2px solid #3083dc;
+    margin-left: 5px;
   }
 `;
 
