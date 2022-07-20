@@ -1,3 +1,4 @@
+import {useEffect} from 'react';
 import styled, {keyframes} from 'styled-components';
 
 import CreditsImage from '../assets/credits-image.jpg';
@@ -6,6 +7,9 @@ import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 
 export default function Credits() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Header />

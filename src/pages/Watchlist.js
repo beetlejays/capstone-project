@@ -1,3 +1,4 @@
+import {useEffect} from 'react';
 import styled from 'styled-components';
 
 import defaultPoster from '../assets/default-movie-poster.jpg';
@@ -5,6 +6,9 @@ import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 
 export default function Watchlist({watchlist, onAddToWatchList}) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Header displayBackButton={true} />
