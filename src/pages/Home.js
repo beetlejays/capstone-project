@@ -15,8 +15,6 @@ export default function Home({moviesData, error}) {
 
   const yearDate = new Date().getFullYear();
 
-  //////////////////// Showcase star
-
   const posterPath = 'https://image.tmdb.org/t/p/w1280/';
 
   return (
