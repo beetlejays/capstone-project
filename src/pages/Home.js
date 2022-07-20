@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom';
 import {Link as Scroller} from 'react-scroll';
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 
 import FetchError from '../components/FetchError/FetchError';
 import Footer from '../components/Footer/Footer';
@@ -31,7 +31,7 @@ export default function Home({moviesData, error}) {
                     </LinkCheckoutMovie>
                     <LinkWatchlist to="/search">&raquo; Search movies</LinkWatchlist>
                   </ShowcaseContent>
-                  <img src={`${posterPath}${movie.backdrop_path}`} alt="" />
+                  <ShowcaseBackdrop src={`${posterPath}${movie.backdrop_path}`} alt="" />
                 </Showcase>
               ))}
           </DesktopHeaderContainer>
@@ -65,15 +65,34 @@ export default function Home({moviesData, error}) {
   );
 }
 
+const animateOpacity = keyframes`
+0%, 100% {
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+`;
+
+const animateMove = keyframes`
+0%, 100% {
+    transform: translateY(-30px);
+}
+100% {
+  transform: translateY(0);
+}
+`;
+
 const Showcase = styled.div`
+  animation: ${animateMove} 2s, ${animateOpacity} 3s;
   position: relative;
   color: white;
+`;
 
-  img {
-    width: 100%;
-    height: 600px;
-    object-fit: cover;
-  }
+const ShowcaseBackdrop = styled.img`
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
 `;
 
 const LinkWatchlist = styled(Link)`

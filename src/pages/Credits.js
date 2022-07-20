@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 
 import CreditsImage from '../assets/credits-image.jpg';
 import TMDBLogo from '../assets/tmdb-logo.svg';
@@ -30,13 +30,24 @@ export default function Credits() {
   );
 }
 
+const animateOpacity = keyframes`
+0%, 100% {
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+`;
+
 const CreditsIMG = styled.img`
+  animation: ${animateOpacity} 4s;
   width: 100%;
   max-height: 600px;
   object-fit: cover;
 `;
 
 const MovieDBLogo = styled.img`
+  animation: ${animateOpacity} 2s;
   width: 200px;
   padding: 3rem 0 1rem 0;
 `;
