@@ -61,6 +61,7 @@ const BackLink = styled.button`
   padding: 0.5rem 1.2rem;
   border: none;
   background: #3083dc;
+  cursor: pointer;
   &:hover {
     background: orange;
   }

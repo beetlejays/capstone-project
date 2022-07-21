@@ -1,12 +1,11 @@
 import {render, screen} from '@testing-library/react';
-import {BrowserRouter} from 'react-router-dom';
 
 import Footer from './Footer';
 
-describe('Footer', () => {
-  it('renders footer', () => {
-    render(<Footer />, {wrapper: BrowserRouter});
-    const footerElement = screen.getByRole('link', {name: 'Search'});
+describe('footer', () => {
+  it('renders the footer', async () => {
+    render(<Footer />);
+    const footerElement = await screen.findByRole('footer');
     expect(footerElement).toBeInTheDocument();
   });
 });
