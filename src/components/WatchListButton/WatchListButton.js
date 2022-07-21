@@ -19,7 +19,6 @@ const AddToWatchListButton = styled.button`
   transition: 0.3s;
 
   &:hover {
-    background: orange;
     transform: translateX(7px);
     cursor: pointer;
   }
