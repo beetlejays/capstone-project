@@ -133,7 +133,7 @@ const ShowcaseBackdrop = styled.img`
   width: 100%;
   height: 600px;
   object-fit: cover;
-
+  padding-top: 3rem;
   @media (max-width: 560px) {
     height: 300px;
   }
