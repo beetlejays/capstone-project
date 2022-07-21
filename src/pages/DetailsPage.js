@@ -74,7 +74,7 @@ export default function DetailsPage({moviesData, onAddToWatchList, watchlist}) {
             </div>
             {watchlist.includes(thisMovie) ? (
               <WatchListButton
-                backgroundColor="#999"
+                backgroundColor="orange"
                 buttonText="X Remove from watchlist"
                 onClick={() => onAddToWatchList(thisMovie)}
               />
