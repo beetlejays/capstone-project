@@ -1,4 +1,5 @@
 import {useEffect} from 'react';
+import {NavLink, useNavigate} from 'react-router-dom';
 import styled from 'styled-components';
 
 import defaultPoster from '../assets/default-movie-poster.jpg';
@@ -9,13 +10,19 @@ export default function Watchlist({watchlist, onAddToWatchList}) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const navigate = useNavigate();
+
   return (
     <>
       <Header displayBackButton={true} />
 
       <MainContainer>
         {watchlist.length === 0 && (
-          <WatchlistHeadline>There are currently no movies in your watchlist</WatchlistHeadline>
+          <GoBackSecion>
+            <WatchlistHeadline>There are currently no movies in your watchlist</WatchlistHeadline>
+            <BackLink onClick={() => navigate(-1)}>&raquo;Go Back to Movies</BackLink>
+          </GoBackSecion>
         )}
 
         {watchlist.map(addedMovies => (
@@ -36,6 +43,28 @@ export default function Watchlist({watchlist, onAddToWatchList}) {
     </>
   );
 }
+
+const GoBackSecion = styled.section`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
+
+const BackLink = styled.button`
+  font-size: 1.2rem;
+  display: inline-block;
+  margin-top: 2rem;
+  color: white;
+  transition: 0.3s;
+  border-radius: 10px;
+  padding: 0.5rem 1.2rem;
+  border: none;
+  background: #3083dc;
+  &:hover {
+    background: orange;
+  }
+`;
 
 const DeleteButton = styled.button`
   padding: 0.3rem 0.8rem;

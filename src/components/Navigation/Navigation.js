@@ -81,7 +81,7 @@ const Nav = styled.nav`
       width: 40%;
     }
     @media (max-width: 470px) {
-      width: 70%;
+      width: 100%;
     }
   }
 `;

@@ -202,7 +202,7 @@ const ShowcaseContent = styled.div`
   }
 `;
 
-const DesktopHeader = styled.div`
+const DesktopHeader = styled.header`
   height: 600px;
   position: relative;
   display: block;
