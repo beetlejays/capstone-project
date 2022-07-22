@@ -4,13 +4,15 @@ import {BrowserRouter} from 'react-router-dom';
 import Footer from './Footer';
 
 const MockFooter = () => {
-  <BrowserRouter>
-    <Footer />
-  </BrowserRouter>;
+  return (
+    <BrowserRouter>
+      <Footer />
+    </BrowserRouter>
+  );
 };
 
-describe('Footer Links', () => {
-  it('renders Footer', () => {
+describe('Check if footer is rendered', () => {
+  it('renders Footer Link', () => {
     render(<MockFooter />);
     const footerElement = screen.getByText('Credits');
     expect(footerElement).toBeInTheDocument();
