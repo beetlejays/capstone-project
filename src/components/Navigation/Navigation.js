@@ -52,8 +52,8 @@ const StyledNavigationLink = styled(NavLink)`
   &.active {
     color: #3083dc;
   }
-  &.focus {
-    outline: orange;
+  &:focus {
+    color: orange;
   }
   @media (max-width: 880px) {
     font-size: 1.5rem;
@@ -69,9 +69,12 @@ const Nav = styled.nav`
   ul {
     display: flex;
     list-style: none;
-    line-height: 3;
     transition: 0.4s;
     opacity: 1;
+
+    li {
+      padding: 1rem 0;
+    }
 
     @media (max-width: 880px) {
       display: ${props => (props.active ? 'flex' : 'none')};
