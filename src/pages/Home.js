@@ -47,9 +47,14 @@ export default function Home({moviesData, error, onNextApiUrl, currentPage}) {
         <IndexHeadingContainer id="popular">
           <h3>Check out all current movies</h3>
           <h4>All popular movies from {yearDate}</h4>
-          <button onClick={onNextApiUrl}>Get more results</button>
+
           <p>{currentPage}</p>
         </IndexHeadingContainer>
+        <PageNavigationContainer>
+          <button onClick={onNextApiUrl}>Previous page</button>
+
+          <button onClick={onNextApiUrl}>Next page</button>
+        </PageNavigationContainer>
 
         <PopularMovies className="movie__container">
           {error && <FetchError />}
@@ -72,6 +77,14 @@ export default function Home({moviesData, error, onNextApiUrl, currentPage}) {
     </>
   );
 }
+
+const PageNavigationContainer = styled.section`
+  max-width: 800px;
+  margin: 100px auto 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 const LogoSpanStart = styled.span`
   color: #ccc;
