@@ -8,13 +8,12 @@ import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import Movie from '../components/Movie/Movie';
 
-export default function Home({moviesData, error}) {
+export default function Home({moviesData, error, onNextApiUrl, currentPage}) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   const yearDate = new Date().getFullYear();
-
   const posterPath = 'https://image.tmdb.org/t/p/w1280/';
 
   return (
@@ -48,7 +47,10 @@ export default function Home({moviesData, error}) {
         <IndexHeadingContainer id="popular">
           <h3>Check out all current movies</h3>
           <h4>All popular movies from {yearDate}</h4>
+          <button onClick={onNextApiUrl}>Get more results</button>
+          <p>{currentPage}</p>
         </IndexHeadingContainer>
+
         <PopularMovies className="movie__container">
           {error && <FetchError />}
 

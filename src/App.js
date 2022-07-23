@@ -20,6 +20,17 @@ function App() {
   const [search, setSearch] = useState('');
   const [fetchMovies, setFetchMovies] = useState([]);
   const [watchlist, setWatchList] = useLocalStorage('mov.me watchlist', []);
+  let [nextPage, setNextPage] = useState(1);
+
+  /////////////// start Load next page
+
+  function handleNextPage() {
+    setNextPage(++nextPage);
+    console.log(nextPage);
+    fetchMovieData(nextPage);
+  }
+
+  /////////////// start Load next page
 
   function addToWatchList(movie) {
     if (watchlist.includes(movie)) {
@@ -30,15 +41,16 @@ function App() {
     }
   }
 
-  async function fetchMovieData() {
+  async function fetchMovieData(nextPage) {
     setError(null);
     setIsLoading(true);
     try {
-      const response = await fetch(`${url}popular?api_key=${API_KEY}`);
+      const response = await fetch(`${url}popular?api_key=${API_KEY}&page=${nextPage}`);
 
       if (response.ok) {
         const fetchedMovieData = await response.json();
         setMoviesData(fetchedMovieData.results);
+
         setIsLoading(false);
       } else {
         setError(new Error());
@@ -83,7 +95,17 @@ function App() {
         <Loader />
       ) : (
         <Routes>
-          <Route path="/" element={<Home moviesData={moviesData} error={error} />} />
+          <Route
+            path="/"
+            element={
+              <Home
+                moviesData={moviesData}
+                error={error}
+                onNextApiUrl={handleNextPage}
+                onFetchMovieData={fetchMovieData}
+              />
+            }
+          />
           <Route
             path="/:id"
             element={<DetailsPage watchlist={watchlist} moviesData={moviesData} onAddToWatchList={addToWatchList} />}
