@@ -5,9 +5,17 @@ export default function Navigation({mobileNavActive}) {
   return (
     <Nav active={mobileNavActive}>
       <ul>
-        <StyledNavigationLink to="/">Home</StyledNavigationLink>
-        <StyledNavigationLink to="/search">Search</StyledNavigationLink>
-        <StyledNavigationLink to="/watchlist">Watchlist</StyledNavigationLink>
+        <li>
+          <StyledNavigationLink autoFocus to="/">
+            Home
+          </StyledNavigationLink>
+        </li>
+        <li>
+          <StyledNavigationLink to="/search">Search</StyledNavigationLink>
+        </li>
+        <li>
+          <StyledNavigationLink to="/watchlist">Watchlist</StyledNavigationLink>
+        </li>
       </ul>
     </Nav>
   );
@@ -44,6 +52,9 @@ const StyledNavigationLink = styled(NavLink)`
   &.active {
     color: #3083dc;
   }
+  &:focus {
+    color: orange;
+  }
   @media (max-width: 880px) {
     font-size: 1.5rem;
     padding-top: 2rem;
@@ -58,9 +69,12 @@ const Nav = styled.nav`
   ul {
     display: flex;
     list-style: none;
-    line-height: 3;
     transition: 0.4s;
     opacity: 1;
+
+    li {
+      padding: 1rem 0;
+    }
 
     @media (max-width: 880px) {
       display: ${props => (props.active ? 'flex' : 'none')};
@@ -81,7 +95,7 @@ const Nav = styled.nav`
       width: 40%;
     }
     @media (max-width: 470px) {
-      width: 70%;
+      width: 100%;
     }
   }
 `;

@@ -20,6 +20,10 @@ function App() {
   const [search, setSearch] = useState('');
   const [fetchMovies, setFetchMovies] = useState([]);
   const [watchlist, setWatchList] = useLocalStorage('mov.me watchlist', []);
+  let [nextPage, setNextPage] = useState(1);
+  let [previousPage, setPreviousPage] = useState(-1);
+
+  /////////////// End previous page
 
   function addToWatchList(movie) {
     if (watchlist.includes(movie)) {
@@ -30,12 +34,13 @@ function App() {
     }
   }
 
+  ///////////////////////////
+
   async function fetchMovieData() {
     setError(null);
     setIsLoading(true);
     try {
       const response = await fetch(`${url}popular?api_key=${API_KEY}`);
-
       if (response.ok) {
         const fetchedMovieData = await response.json();
         setMoviesData(fetchedMovieData.results);
@@ -52,6 +57,10 @@ function App() {
     setIsLoading(true);
     fetchMovieData();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  //////////////////////////////////////
+
+  ///////////////////////////////////////
 
   useEffect(() => {
     if (search === '') {
@@ -83,7 +92,18 @@ function App() {
         <Loader />
       ) : (
         <Routes>
-          <Route path="/" element={<Home moviesData={moviesData} error={error} />} />
+          <Route
+            path="/"
+            element={
+              <Home
+                moviesData={moviesData}
+                error={error}
+                onFetchMovieData={fetchMovieData}
+                nextPage={nextPage}
+                previousPage={previousPage}
+              />
+            }
+          />
           <Route
             path="/:id"
             element={<DetailsPage watchlist={watchlist} moviesData={moviesData} onAddToWatchList={addToWatchList} />}

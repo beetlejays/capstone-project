@@ -54,6 +54,9 @@ const StyledNavLink = styled(NavLink)`
   &.active {
     color: orange;
   }
+  &.focus {
+    color: orange;
+  }
   &.hover {
     color: orange;
   }

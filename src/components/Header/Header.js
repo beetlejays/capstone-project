@@ -43,7 +43,7 @@ const HeaderContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 60px;
-  padding: 0 10px;
+  padding: 0 20px;
   position: relative;
 
   @media (max-width: 770px) {
