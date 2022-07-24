@@ -15,6 +15,7 @@
 - React Testing Library
 - Styled Components
 - Storybook
+- Adobe XD
 - Vercel
 
 API provided by: [TMDB](https://www.themoviedb.org/)
