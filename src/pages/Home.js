@@ -8,7 +8,7 @@ import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import Movie from '../components/Movie/Movie';
 
-export default function Home({moviesData, error, onNextApiUrl, nextPage}) {
+export default function Home({moviesData, error, onNextApiUrl, nextPage, fetchPreviousMovieData}) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -48,12 +48,6 @@ export default function Home({moviesData, error, onNextApiUrl, nextPage}) {
           <h3>Check out all current movies</h3>
           <h4>All popular movies from {yearDate}</h4>
         </IndexHeadingContainer>
-
-        <PageNavigationContainer>
-          <PageButton>Previous page</PageButton>
-          <PageNumber>{nextPage}</PageNumber>
-          <PageButton onClick={onNextApiUrl}>Next page</PageButton>
-        </PageNavigationContainer>
 
         <PopularMovies className="movie__container">
           {error && <FetchError />}
