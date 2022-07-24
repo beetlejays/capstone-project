@@ -8,7 +8,7 @@ import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import Movie from '../components/Movie/Movie';
 
-export default function Home({moviesData, error, onNextApiUrl, currentPage}) {
+export default function Home({moviesData, error, onNextApiUrl, nextPage}) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -47,13 +47,12 @@ export default function Home({moviesData, error, onNextApiUrl, currentPage}) {
         <IndexHeadingContainer id="popular">
           <h3>Check out all current movies</h3>
           <h4>All popular movies from {yearDate}</h4>
-
-          <p>{currentPage}</p>
         </IndexHeadingContainer>
-        <PageNavigationContainer>
-          <button onClick={onNextApiUrl}>Previous page</button>
 
-          <button onClick={onNextApiUrl}>Next page</button>
+        <PageNavigationContainer>
+          <PageButton>Previous page</PageButton>
+          <PageNumber>{nextPage}</PageNumber>
+          <PageButton onClick={onNextApiUrl}>Next page</PageButton>
         </PageNavigationContainer>
 
         <PopularMovies className="movie__container">
@@ -77,6 +76,36 @@ export default function Home({moviesData, error, onNextApiUrl, currentPage}) {
     </>
   );
 }
+
+const PageButton = styled.button`
+  background: #3083dc;
+  border-radius: 30px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    background: orange;
+  }
+`;
+
+const PageNumber = styled.span`
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 1rem;
+  padding: 2rem;
+  background: #3083dc;
+  border-radius: 50%;
+  border: orange 3px solid;
+  width: 1rem;
+  height: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+`;
 
 const PageNavigationContainer = styled.section`
   max-width: 800px;

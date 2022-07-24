@@ -21,16 +21,25 @@ function App() {
   const [fetchMovies, setFetchMovies] = useState([]);
   const [watchlist, setWatchList] = useLocalStorage('mov.me watchlist', []);
   let [nextPage, setNextPage] = useState(1);
+  let [previousPage, setPreviousPage] = useState(-1);
 
   /////////////// start Load next page
 
   function handleNextPage() {
     setNextPage(++nextPage);
-    console.log(nextPage);
     fetchMovieData(nextPage);
   }
 
-  /////////////// start Load next page
+  /////////////// end Load next page
+
+  /////////////// Start previous page
+
+  function handlePreviousPage() {
+    setPreviousPage(--previousPage);
+    fetchMovieData(previousPage);
+  }
+
+  /////////////// End previous page
 
   function addToWatchList(movie) {
     if (watchlist.includes(movie)) {
@@ -46,11 +55,9 @@ function App() {
     setIsLoading(true);
     try {
       const response = await fetch(`${url}popular?api_key=${API_KEY}&page=${nextPage}`);
-
       if (response.ok) {
         const fetchedMovieData = await response.json();
         setMoviesData(fetchedMovieData.results);
-
         setIsLoading(false);
       } else {
         setError(new Error());
@@ -103,6 +110,8 @@ function App() {
                 error={error}
                 onNextApiUrl={handleNextPage}
                 onFetchMovieData={fetchMovieData}
+                nextPage={nextPage}
+                previousPage={previousPage}
               />
             }
           />
