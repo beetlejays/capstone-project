@@ -10,14 +10,11 @@
 
 ## Tech stack used:
 
-- HTML
-- CSS
 - React
 - React Router
 - React Testing Library
-- styled components
+- Styled Components
 - Storybook
-- Node.js
 - Vercel
 
 API provided by: [TMDB](https://www.themoviedb.org/)
