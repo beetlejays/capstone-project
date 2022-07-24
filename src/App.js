@@ -118,6 +118,18 @@ function App() {
             element={<Watchlist watchlist={watchlist} moviesData={fetchMovies} onAddToWatchList={addToWatchList} />}
           />
           <Route path="/credits" element={<Credits />} />
+          <Route
+            path="*"
+            element={
+              <Home
+                moviesData={moviesData}
+                error={error}
+                onFetchMovieData={fetchMovieData}
+                nextPage={nextPage}
+                previousPage={previousPage}
+              />
+            }
+          />
         </Routes>
       )}
     </>
