@@ -10,13 +10,15 @@
 
 ## Tech stack used:
 
-- React
-- React Router
-- React Testing Library
-- Styled Components
-- Storybook
-- Adobe XD
-- Vercel
+- [React](https://reactjs.org/)
+- [React Router](https://reactrouter.com/le)
+- [React Testing Library](https://testing-library.com/)
+- [Styled Components](https://www.styled-components.com/)
+- [Storybook](https://storybook.js.org/)
+- [Stylelint](https://stylelint.io/)
+- [Vercel](https://vercel.com/)
+- [ESlint](https://eslint.org/)
+
 
 API provided by: [TMDB](https://www.themoviedb.org/)
 
