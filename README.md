@@ -33,6 +33,10 @@ Take a look at the current build: https://movme.vercel.app/
 
 ---
 
+### Set up Vercel 
+
+please follow this guide: [Vercel-Git-Setup](https://vercel.com/docs/concepts/git)
+
 ## How to install
 
 Note: This project requires to have node.js installed: [Node.js](https://nodejs.org/en/)
@@ -48,4 +52,5 @@ $ npm install
 <pre>
 $ npm start
 </pre>
+- Then open http://localhost:3000 to view it in the browser
 - Be sure to create your own API Key, an add your .env file
