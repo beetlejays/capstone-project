@@ -12,7 +12,7 @@
 
 - [React](https://reactjs.org/)
 - [React Router](https://reactrouter.com/le)
-- [React Testing Library](https://testing-library.com/)
+- [React Testing Library](https://testing-library.com/) / [Jest](https://jestjs.io/)
 - [Styled Components](https://www.styled-components.com/)
 - [Storybook](https://storybook.js.org/)
 - [Stylelint](https://stylelint.io/)
