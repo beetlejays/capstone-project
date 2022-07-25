@@ -25,6 +25,8 @@
 
 API provided by: [TMDB](https://www.themoviedb.org/)
 
+![tmdb-logo2](https://user-images.githubusercontent.com/74057596/180735118-8488cab3-28cd-4325-ae20-c879c83cef0d.png)
+
 ---
 
 # Want to check out the App?
@@ -53,4 +55,12 @@ $ npm install
 $ npm start
 </pre>
 - Then open http://localhost:3000 to view it in the browser
-- Be sure to create your own API Key, an add your .env file
+
+- to run Storybook
+<pre>
+npm run storybook
+</pre>
+
+
+
+
