@@ -61,6 +61,11 @@ $ npm start
 npm run storybook
 </pre>
 
+- to run React Testing Library & Jest
+<pre>
+npm run test
+</pre>
+
 
 
 
