@@ -1,5 +1,5 @@
 import {useEffect} from 'react';
-import {NavLink, useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import styled from 'styled-components';
 
 import defaultPoster from '../assets/default-movie-poster.jpg';

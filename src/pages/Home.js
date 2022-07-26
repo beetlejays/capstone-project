@@ -8,7 +8,7 @@ import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import Movie from '../components/Movie/Movie';
 
-export default function Home({moviesData, error, onNextApiUrl, nextPage, fetchPreviousMovieData}) {
+export default function Home({moviesData, error}) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
