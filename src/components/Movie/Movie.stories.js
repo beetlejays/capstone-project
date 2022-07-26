@@ -5,11 +5,12 @@ export default {
   component: Movie,
 };
 
-export const Default = () => (
-  <Movie
-    movie_alt_text="alt text"
-    movie_title="The secrets of Dumbledore"
-    movie_vote_average={7.3}
-    movie_poster="https://image.tmdb.org/t/p/w500//jrgifaYeUtTnaH7NF5Drkgjg2MB.jpg"
-  />
-);
+const Template = args => <Movie {...args} />;
+
+export const Default = Template.bind({});
+
+Default.args = {
+  movieTitle: 'The secrets of Dumbledore',
+  movieVoteAverage: '7.3',
+  moviePoster: 'https://image.tmdb.org/t/p/w500//jrgifaYeUtTnaH7NF5Drkgjg2MB.jpg',
+};
